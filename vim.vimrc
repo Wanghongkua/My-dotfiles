@@ -147,7 +147,8 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle 设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
+" set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
 " let vundle manage vundle
