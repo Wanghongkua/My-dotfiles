@@ -129,11 +129,12 @@ noremap <leader>s? z=
 " 如何是python 文件，按F5后执行程序
 autocmd FileType python nnoremap <silent> <F5> :!clear;python3 %<CR>
 " 如何是Java 文件，按F9后执行程序
-autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java<CR>
+autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java %<CR>
 " 执行swipl文件
 " autocmd FileType prolog nnoremap <silent> <F5> :!clear;swipl -f %<CR>
 " set *.pro to prolog filetype
 au BufNewFile,BufRead,BufReadPost *.pro set filetype=prolog
+au BufNewFile,BufRead,BufReadPost *.asm set filetype=asm
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
   exe "normal mz"
@@ -161,7 +162,8 @@ Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'benmills/vimux'
 Plugin 'tpope/vim-fugitive' " the ultimate git helper
-Plugin 'tpope/vim-commentary' " comment/uncomment with gcc or gc in visual mode
+" Plugin 'tpope/vim-commentary' " comment/uncomment with gcc or gc in visual mode
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
