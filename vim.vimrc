@@ -35,7 +35,7 @@ set timeoutlen=1000 ttimeoutlen=0
 " Auto source ~/.vimrc after saving it
 "<leader>cd =  改变当前目录到文件所在目录
 nnoremap <leader>cd :lcd %:p:h<cr>:pwd<cr>
-set textwidth=80 "set bound to width
+"set textwidth=80 "set bound to width
 set colorcolumn=+1  "Heilight 81st column
 set tabstop=4 shiftwidth=4 expandtab smarttab   "Turn 'tab' into space
 set history=1000 "change history to 1000
