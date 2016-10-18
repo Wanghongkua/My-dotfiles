@@ -111,7 +111,7 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias swipl='/Applications/SWI-Prolog.app/Contents/MacOS/swipl'
 alias o="open"
 alias ssh="TERM=xterm-256color ssh"
-alias unsw="TERM=xterm-256color ssh z5095588@login.cse.unsw.edu.au"
+alias unsw="TERM=xterm-256color ssh -Y z5095588@login.cse.unsw.edu.au"
 alias dock="docker run -i -p 2041:80 -v /Users/wanghongkuan/Documents/COMP9041/ass2:/var/www comp2041/cgi"
 alias mux="tmuxinator"
 # Must be in the end
@@ -139,3 +139,16 @@ function ks(){
     fi
 }
 
+function kd(){
+    names=`docker ps`|| return 1
+    sessions=`echo "$names" | cut -d ' ' -f1`
+    n=1
+    while read -r line; do
+        if test $n -eq 1; then
+            n=0
+            continue
+        else
+            docker kill "$line"
+        fi
+    done <<< "$sessions"
+}

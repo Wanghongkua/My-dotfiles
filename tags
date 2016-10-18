@@ -55,7 +55,7 @@ g:syntastic_auto_loc_list	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let 
 g:syntastic_check_on_open	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_check_on_open = 1$/;"	v	language:Vim
 g:syntastic_check_on_wq	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_check_on_wq = 0$/;"	v	language:Vim
 g:syntastic_error_symbol	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_error_symbol = '✘'$/;"	v	language:Vim
-g:syntastic_python_python_exec	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_python_python_exec = 'python3'$/;"	v	language:Vim
+g:syntastic_python_python_exec	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_python_python_exec = 'python2'$/;"	v	language:Vim
 g:syntastic_warning_symbol	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_warning_symbol = "▲"$/;"	v	language:Vim
 g:UltiSnipsExpandTrigger	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsExpandTrigger="<c-j>"$/;"	v	language:Vim
 g:UltiSnipsJumpBackwardTrigger	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsJumpBackwardTrigger="<c-k>"$/;"	v	language:Vim

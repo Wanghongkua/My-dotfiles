@@ -240,7 +240,7 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 
 " 让Syntastic 纠错Python3.
 " let g:syntastic_python_python_exec = '/path/to/python3'
-let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_python_exec = 'python2'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
