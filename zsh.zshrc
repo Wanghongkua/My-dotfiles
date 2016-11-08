@@ -110,13 +110,14 @@ alias eclim='$ECLIPSE_HOME/eclimd'
 alias tmux="TERM=screen-256color-bce tmux"
 alias swipl='/Applications/SWI-Prolog.app/Contents/MacOS/swipl'
 alias o="open"
-alias ssh="TERM=xterm-256color ssh"
-alias unsw="TERM=xterm-256color ssh -Y z5095588@login.cse.unsw.edu.au"
+alias unsw="ssh z5095588@login.cse.unsw.edu.au"
+#alias ssh="TERM=xterm-256color ssh"
+#alias unsw="TERM=xterm-256color ssh z5095588@login.cse.unsw.edu.au"
 alias dock="docker run -i -p 2041:80 -v /Users/wanghongkuan/Documents/COMP9041/ass2:/var/www comp2041/cgi"
 alias mux="tmuxinator"
 # Must be in the end
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export TERM=xterm-256color-italic
+#export TERM=xterm-256color-italic
 export VIMRC=~/Documents/dotfile/vim.vimrc
 export ZSHRC=~/Documents/dotfile/zsh.zshrc
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim

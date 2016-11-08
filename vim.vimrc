@@ -162,6 +162,7 @@ Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'benmills/vimux'
 Plugin 'tpope/vim-fugitive' " the ultimate git helper
+Plugin 'surround.vim'
 " Plugin 'tpope/vim-commentary' " comment/uncomment with gcc or gc in visual mode
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
@@ -186,6 +187,12 @@ Plugin 'honza/vim-snippets'
 call vundle#end()
 filetype plugin indent on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nerdcommenter 设置
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map ,cc <plug>NERDCommenterToggle
+map ,c<space> <plug>NERDCommenterComment
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline 设置
