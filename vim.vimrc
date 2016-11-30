@@ -1,33 +1,57 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 基础设置
+" Basic Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Testing
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 cd ~/Documents   "Change the working dir to 'Documents'
 
 syntax enable
 syntax on
+
 " set autoread   "Detect when a file is changed
 set autoread
 au CursorHold * checktime
-" 把'\'map为','
-let mapleader=','
+
+let mapleader=','           "Map leader from '\' to ','
 let g:mapleader=','
+
+" Change to upper case
+inoremap <c-l> <esc>viwUea
+
+" Create surrounding based on visual selection
+vnoremap <space> <esc>a"<esc>`<i"<esc>`>
+
+" Create surrounding
+nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+
+" Move line upword or downword
+nnoremap - ddkP
+nnoremap _ ddp
+
+" Select Word
+nnoremap <space> viw
+
 " Fast saving
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>q :wq!<cr>
+
 set mouse=a
-set so=7  "Set 7 lines to the cursor - when moving vertically using j/k
-set cmdheight=1  "Height of the command bar 
+set so=7                            "Set 7 lines to the cursor - when moving vertically using j/k
+set cmdheight=1                     "Height of the command bar 
 set lazyredraw
 set ttyfast
-set cursorline   "高亮当前行
-set number       "显示行号
-set relativenumber   "显示相对行号
-set ruler           "显示光标位置
+set cursorline                      "Highlight current line
+set number                          "Show line number
+set relativenumber                  "Show relative line number
+set ruler                           "Show cursor position
 set showcmd
-" Highlight search results
-set hlsearch
-" Makes search act like search in modern browser
-set incsearch
+set hlsearch                        "Highlight search results
+set incsearch                       "Search act like search in modern browser
+
 set backspace=indent,eol,start   " make backspace behave in a sane manner
 set encoding=utf-8
 " 消除ESC delays
@@ -54,11 +78,9 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <silent> <leader><space> :noh<cr>
 " delete current line in insert mode
 inoremap <c-d> <esc>ddO
-" change to upper case
-inoremap <c-l> <esc>bviwUea
-" nnoremap <c-l> viwUe
 " edit .vimrc the fast way
 nnoremap <leader>ev :vsplit $VIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <C-f> :JavaCorrect<CR>
 inoremap <C-e> <C-o>a
 nnoremap H ^
@@ -126,23 +148,39 @@ noremap <leader>s? z=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文件设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 如何是python 文件，按F5后执行程序
-autocmd FileType python nnoremap <silent> <F5> :!clear;python3 %<CR>
-" 如何是Java 文件，按F9后执行程序
-autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java %<CR>
-" 执行swipl文件
-" autocmd FileType prolog nnoremap <silent> <F5> :!clear;swipl -f %<CR>
-" set *.pro to prolog filetype
-au BufNewFile,BufRead,BufReadPost *.pro set filetype=prolog
-au BufNewFile,BufRead,BufReadPost *.asm set filetype=asm
+" Html setting
+augroup filetype_html
+    autocmd!
+    autocmd BufWritePre,BufRead *.html :normal gg=G
+    autocmd BufNewFile,BufRead *.html setlocal nowrap
+    autocmd FileType html nnoremap <buffer> <leader>f Vatzf
+augroup END
+
+"Run file inside vim
+augroup run_file
+    autocmd!
+    autocmd FileType python nnoremap <silent> <F5> :!clear;python3 %<CR>
+    autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java %<CR>
+    autocmd FileType c nnoremap <silent> <F5> :w<CR>:!clear<CR>:!gcc % -o %< && ./%< <CR>
+augroup END
+
+" Set filetype based on suffixes
+augroup filetype_setting
+    au BufNewFile,BufRead,BufReadPost *.pro set filetype=prolog
+    au BufNewFile,BufRead,BufReadPost *.asm set filetype=asm
+augroup END
+
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
   exe "normal mz"
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
+augroup delete_empty_space
+    autocmd!
+    autocmd BufWrite *.py :call DeleteTrailingWS()
+augroup END
+"autocmd BufWrite *.coffee :call DeleteTrailingWS()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -348,6 +386,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " let g:UltiSnipsListSnippets="<c-h>"
 
+let g:ycm_show_diagnostics_ui = 0
 let g:ycm_complete_in_comments = 1 
 let g:ycm_seed_identifiers_with_syntax = 1 
 let g:ycm_collect_identifiers_from_comments_and_strings = 1 
@@ -403,7 +442,11 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_always_populate_location_list = 1
 let g:EclimCompletionMethod = 'omnifunc'
 " Cooperate with Syntastic
-autocmd FileType python let g:EclimFileTypeValidate = 0
+augroup Eclim_Syntastic
+    autocmd!
+    autocmd FileType python let g:EclimFileTypeValidate = 0
+    autocmd FileType c let g:EclimFileTypeValidate = 0
+augroup END
 " autocmd FileType python let g:EclimFileTypeValidate = 0
 " Turn Off Preview window of YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -467,5 +510,7 @@ function! <SID>LocationNext()
 endfunction                                             
 nmap <silent> [e :<C-u>call <SID>LocationNext()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd! bufwritepost .vimrc source $VIMRC | AirlineRefresh
+augroup refresh_airline
+    autocmd! bufwritepost .vimrc source $VIMRC | AirlineRefresh
+augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""

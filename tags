@@ -3,6 +3,7 @@
 *	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>\/<C-R>=@\/<CR><CR>$/;"	m	language:Vim
 ,c<space>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^map ,c<space> <plug>NERDCommenterComment$/;"	m	language:Vim
 ,cc	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^map ,cc <plug>NERDCommenterToggle$/;"	m	language:Vim
+-	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap - ddkP$/;"	m	language:Vim
 /	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^map  \/ <Plug>(easymotion-sn)$/;"	m	language:Vim
 /	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^omap \/ <Plug>(easymotion-tn)$/;"	m	language:Vim
 <c-d>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^inoremap <c-d> <esc>ddO$/;"	m	language:Vim
@@ -11,8 +12,10 @@
 <C-H>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-H> <C-W><C-H>$/;"	m	language:Vim
 <C-J>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-J> <C-W><C-J>$/;"	m	language:Vim
 <C-K>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-K> <C-W><C-K>$/;"	m	language:Vim
-<c-l>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^inoremap <c-l> <esc>bviwUea$/;"	m	language:Vim
+<c-l>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^inoremap <c-l> <esc>viwUea$/;"	m	language:Vim
 <C-L>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-L> <C-W><C-L>$/;"	m	language:Vim
+<leader>"	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel$/;"	m	language:Vim
+<leader>'	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel$/;"	m	language:Vim
 <leader><space>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader><space> :noh<cr>$/;"	m	language:Vim
 <leader>b	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader>b :TagbarToggle<CR>$/;"	m	language:Vim
 <leader>bd	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>bd :Bclose<cr>:tabclose<cr>gT$/;"	m	language:Vim
@@ -29,12 +32,19 @@
 <leader>sn	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>sn ]s$/;"	m	language:Vim
 <leader>sp	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>sp [s$/;"	m	language:Vim
 <leader>ss	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>ss :setlocal spell!<cr>$/;"	m	language:Vim
+<leader>sv	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>sv :source $MYVIMRC<cr>$/;"	m	language:Vim
 <leader>t	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader>t :NERDTreeTabsToggle<CR>$/;"	m	language:Vim
 <leader>w	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>w :w!<cr>$/;"	m	language:Vim
+<space>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <space> viw$/;"	m	language:Vim
+<space>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^vnoremap <space> <esc>a"<esc>`<i"<esc>`>$/;"	m	language:Vim
 Bclose	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^command! Bclose call <SID>BufcloseCloseIt()$/;"	c	language:Vim
 BufcloseCloseIt	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^function! <SID>BufcloseCloseIt()$/;"	f	language:Vim
 DeleteTrailingWS	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^func! DeleteTrailingWS()$/;"	f	language:Vim
+delete_empty_space	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup delete_empty_space$/;"	a	language:Vim
 delimitMate_expand_cr	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let delimitMate_expand_cr = 1$/;"	v	language:Vim
+Eclim_Syntastic	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup Eclim_Syntastic$/;"	a	language:Vim
+filetype_html	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup filetype_html$/;"	a	language:Vim
+filetype_setting	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup filetype_setting$/;"	a	language:Vim
 g:airline_detect_modified	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:airline_detect_modified=1$/;"	v	language:Vim
 g:airline_powerline_fonts	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:airline_powerline_fonts = 1$/;"	v	language:Vim
 g:airline_theme	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:airline_theme='distinguished'$/;"	v	language:Vim
@@ -69,12 +79,16 @@ g:ycm_autoclose_preview_window_after_completion	/Users/wanghongkuan/Documents/do
 g:ycm_collect_identifiers_from_comments_and_strings	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_collect_identifiers_from_comments_and_strings = 1 $/;"	v	language:Vim
 g:ycm_complete_in_comments	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_complete_in_comments = 1 $/;"	v	language:Vim
 g:ycm_seed_identifiers_with_syntax	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_seed_identifiers_with_syntax = 1 $/;"	v	language:Vim
+g:ycm_show_diagnostics_ui	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_show_diagnostics_ui = 0$/;"	v	language:Vim
 H	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap H ^$/;"	m	language:Vim
 L	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap L \$$/;"	m	language:Vim
 LocationNext	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^function! <SID>LocationNext()                           $/;"	f	language:Vim
-mapleader	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let mapleader=','$/;"	v	language:Vim
+mapleader	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let mapleader=','           "Map leader from '\\' to ','$/;"	v	language:Vim
 mydelimitMate	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup mydelimitMate$/;"	a	language:Vim
 mySyntastic	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup mySyntastic$/;"	a	language:Vim
+refresh_airline	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup refresh_airline$/;"	a	language:Vim
+run_file	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup run_file$/;"	a	language:Vim
 s	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nmap s <Plug>(easymotion-overwin-f2)$/;"	m	language:Vim
 VisualSelection	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^function! VisualSelection(direction, extra_filter) range$/;"	f	language:Vim
 [e	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nmap <silent> [e :<C-u>call <SID>LocationNext()<CR>$/;"	m	language:Vim
+_	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap _ ddp$/;"	m	language:Vim
