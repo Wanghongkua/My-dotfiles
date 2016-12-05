@@ -1,9 +1,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Basic Setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Testing
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Basic Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 cd ~/Documents   "Change the working dir to 'Documents'
@@ -29,8 +28,8 @@ nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 
 " Move line upword or downword
-nnoremap - ddkP
-nnoremap _ ddp
+"nnoremap - ddkP
+"nnoremap _ ddp
 
 " Select Word
 nnoremap <space> viw
@@ -148,29 +147,45 @@ noremap <leader>s? z=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文件设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Html setting
+
+" Cursor Position Setting -------------------- {{{
+" Return to last edit position when opening files (You want this!)
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" }}}
+
+" Vimscript file settings ---------------------- {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+
+" Html setting ---------------------- {{{
 augroup filetype_html
     autocmd!
     autocmd BufWritePre,BufRead *.html :normal gg=G
     autocmd BufNewFile,BufRead *.html setlocal nowrap
     autocmd FileType html nnoremap <buffer> <leader>f Vatzf
 augroup END
+" }}}
 
-"Run file inside vim
+" Run file inside vim ---------------------- {{{
 augroup run_file
     autocmd!
     autocmd FileType python nnoremap <silent> <F5> :!clear;python3 %<CR>
     autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java %<CR>
     autocmd FileType c nnoremap <silent> <F5> :w<CR>:!clear<CR>:!gcc % -o %< && ./%< <CR>
 augroup END
+" }}}
 
-" Set filetype based on suffixes
+" Set filetype based on suffixes ---------------------- {{{
 augroup filetype_setting
     au BufNewFile,BufRead,BufReadPost *.pro set filetype=prolog
     au BufNewFile,BufRead,BufReadPost *.asm set filetype=asm
 augroup END
+" }}}
 
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+" Delete trailing white space -------------------- {{{
 func! DeleteTrailingWS()
   exe "normal mz"
   %s/\s\+$//ge
@@ -180,6 +195,7 @@ augroup delete_empty_space
     autocmd!
     autocmd BufWrite *.py :call DeleteTrailingWS()
 augroup END
+" }}}
 "autocmd BufWrite *.coffee :call DeleteTrailingWS()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -194,7 +210,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Plugin 'gmarik/vundle'
 
-" list all plugins that you'd like to install here
+" All the Plugins -------------------- {{{
 Plugin 'kien/ctrlp.vim' " fuzzy find files
 Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -222,6 +238,7 @@ Plugin 'honza/vim-snippets'
 " Plugin 'JavaRun'
 " Enable this when coding Python
 " Plugin 'Python-mode-klen'
+" }}}
 call vundle#end()
 filetype plugin indent on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -236,6 +253,7 @@ map ,c<space> <plug>NERDCommenterComment
 " airline 设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Airline Setting -------------------- {{{
 set laststatus=2
 " let g:airline_theme='molokai'
 let g:airline_theme='distinguished'
@@ -269,20 +287,22 @@ let g:airline_detect_modified=1
 " let g:airline_symbols.branch = ''
 " let g:airline_symbols.readonly = ''
 " let g:airline_symbols.linenr = ''
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree 设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" NERDTree Setting -------------------- {{{
 nnoremap <silent> <leader>t :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup = 0
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic 设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Syntastic Setting -------------------- {{{
 " 让Syntastic 纠错Python3.
 " let g:syntastic_python_python_exec = '/path/to/python3'
 let g:syntastic_python_python_exec = 'python2'
@@ -301,12 +321,13 @@ augroup mySyntastic
     au!
     au FileType tex let b:syntastic_mode = "passive"
 augroup END
+" }}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tags 设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Tags Setting -------------------- {{{
 " ----- xolox/vim-easytags settings -----
 " Where to look for tags files
 set tags=./tags;,~/.vimtags
@@ -323,12 +344,12 @@ nnoremap <silent> <leader>b :TagbarToggle<CR>
 
 " Uncomment to open tagbar automatically whenever possible
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Bracket Auto Complete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 括号自动补全
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+" Bracket Auto Complete -------------------- {{{
 let delimitMate_expand_cr = 1
 
 augroup mydelimitMate
@@ -338,11 +359,13 @@ augroup mydelimitMate
     au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
     au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Easy Motion Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Easy Motion 设置
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Easy Motion Setting -------------------- {{{
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
@@ -373,12 +396,12 @@ omap / <Plug>(easymotion-tn)
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1 " US layout
 let g:EasyMotion_use_smartsign_jp = 1 " JP layout
+" }}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe and Ultisnip cooperate.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Solution 1.
+" Solution 1. -------------------- {{{
 let g:UltiSnipsSnippetsDir        = $HOME.'/.vim/UltiSnips/'
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -390,8 +413,10 @@ let g:ycm_show_diagnostics_ui = 0
 let g:ycm_complete_in_comments = 1 
 let g:ycm_seed_identifiers_with_syntax = 1 
 let g:ycm_collect_identifiers_from_comments_and_strings = 1 
+"}}}
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Solution 2.
+" Solution 2. -------------------- {{{
 " function! g:UltiSnips_Complete()
 "     call UltiSnips#ExpandSnippet()
 "     if g:ulti_expand_res == 0
@@ -422,8 +447,8 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
 " au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"}}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux Vim navigator
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -438,7 +463,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " Eclim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Cooperate with YouCompleteMe
+" Cooperate with YouCompleteMe -------------------- {{{
 let g:ycm_always_populate_location_list = 1
 let g:EclimCompletionMethod = 'omnifunc'
 " Cooperate with Syntastic
@@ -450,10 +475,13 @@ augroup END
 " autocmd FileType python let g:EclimFileTypeValidate = 0
 " Turn Off Preview window of YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"}}}
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Functions -------------------- {{{
+
 " Search the content select in visual mode
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
@@ -471,9 +499,6 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
-
-" Return to last edit position when opening files (You want this!)
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
@@ -509,6 +534,7 @@ function! <SID>LocationNext()
   endtry                                                
 endfunction                                             
 nmap <silent> [e :<C-u>call <SID>LocationNext()<CR>
+"}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup refresh_airline
     autocmd! bufwritepost .vimrc source $VIMRC | AirlineRefresh

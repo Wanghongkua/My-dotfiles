@@ -3,7 +3,6 @@
 *	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>\/<C-R>=@\/<CR><CR>$/;"	m	language:Vim
 ,c<space>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^map ,c<space> <plug>NERDCommenterComment$/;"	m	language:Vim
 ,cc	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^map ,cc <plug>NERDCommenterToggle$/;"	m	language:Vim
--	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap - ddkP$/;"	m	language:Vim
 /	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^map  \/ <Plug>(easymotion-sn)$/;"	m	language:Vim
 /	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^omap \/ <Plug>(easymotion-tn)$/;"	m	language:Vim
 <c-d>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^inoremap <c-d> <esc>ddO$/;"	m	language:Vim
@@ -45,6 +44,7 @@ delimitMate_expand_cr	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let deli
 Eclim_Syntastic	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup Eclim_Syntastic$/;"	a	language:Vim
 filetype_html	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup filetype_html$/;"	a	language:Vim
 filetype_setting	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup filetype_setting$/;"	a	language:Vim
+filetype_vim	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup filetype_vim$/;"	a	language:Vim
 g:airline_detect_modified	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:airline_detect_modified=1$/;"	v	language:Vim
 g:airline_powerline_fonts	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:airline_powerline_fonts = 1$/;"	v	language:Vim
 g:airline_theme	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:airline_theme='distinguished'$/;"	v	language:Vim
@@ -91,4 +91,3 @@ run_file	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup run_file$/;"	
 s	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nmap s <Plug>(easymotion-overwin-f2)$/;"	m	language:Vim
 VisualSelection	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^function! VisualSelection(direction, extra_filter) range$/;"	f	language:Vim
 [e	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nmap <silent> [e :<C-u>call <SID>LocationNext()<CR>$/;"	m	language:Vim
-_	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap _ ddp$/;"	m	language:Vim
