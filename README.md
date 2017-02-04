@@ -23,6 +23,11 @@ To totally install my vimrc, 5 steps are needed.
     cd ~/.vim/bundle/YouCompleteMe
     ./install.py
 
+    If you need C family support, copy the 2 lines command below:
+
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.py --clang-completer
+
 => Install Colorscheme                                                          
     My color scheme is solarized. To change the color scheme of vim, you need to
     download the official file in http://ethanschoonover.com/solarized .

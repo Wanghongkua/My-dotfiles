@@ -84,6 +84,7 @@ nnoremap <C-f> :JavaCorrect<CR>
 inoremap <C-e> <C-o>a
 nnoremap H ^
 nnoremap L $
+set pastetoggle=<leader>z
 
 " 主题设置
 set background=dark
@@ -407,6 +408,7 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:ycm_python_binary_path = '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3'
 " let g:UltiSnipsListSnippets="<c-h>"
 
 let g:ycm_show_diagnostics_ui = 0
