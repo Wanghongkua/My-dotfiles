@@ -13,9 +13,9 @@ To totally install my vimrc, 5 steps are needed.
     If you have installed vundle, skip this step.
     Copy the command below in your terminal to install vundle.
 
-    ```
+```
     $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    ```
+```
 
     Then open Macvim type ":" followed by "PluginInstall" and press return.
 => Install YouCompleteMe
