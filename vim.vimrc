@@ -305,8 +305,7 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 
 " Syntastic Setting -------------------- {{{
 " 让Syntastic 纠错Python3.
-" let g:syntastic_python_python_exec = '/path/to/python3'
-let g:syntastic_python_python_exec = 'python2'
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -402,15 +401,17 @@ let g:EasyMotion_use_smartsign_jp = 1 " JP layout
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe and Ultisnip cooperate.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Solution 1. -------------------- {{{
 let g:UltiSnipsSnippetsDir        = $HOME.'/.vim/UltiSnips/'
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:ycm_python_binary_path = '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3'
+"let g:ycm_python_binary_path = '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3'
+let g:ycm_python_binary_path = '/usr/local/bin/python3'
 " let g:UltiSnipsListSnippets="<c-h>"
-
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_complete_in_comments = 1 
 let g:ycm_seed_identifiers_with_syntax = 1 

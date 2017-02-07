@@ -67,7 +67,7 @@ g:syntastic_auto_loc_list	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let 
 g:syntastic_check_on_open	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_check_on_open = 1$/;"	v	language:Vim
 g:syntastic_check_on_wq	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_check_on_wq = 0$/;"	v	language:Vim
 g:syntastic_error_symbol	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_error_symbol = '✘'$/;"	v	language:Vim
-g:syntastic_python_python_exec	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_python_python_exec = 'python2'$/;"	v	language:Vim
+g:syntastic_python_python_exec	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_python_python_exec = '\/usr\/local\/bin\/python3'$/;"	v	language:Vim
 g:syntastic_warning_symbol	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_warning_symbol = "▲"$/;"	v	language:Vim
 g:UltiSnipsExpandTrigger	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsExpandTrigger="<c-j>"$/;"	v	language:Vim
 g:UltiSnipsJumpBackwardTrigger	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsJumpBackwardTrigger="<c-k>"$/;"	v	language:Vim
@@ -78,7 +78,8 @@ g:ycm_always_populate_location_list	/Users/wanghongkuan/Documents/dotfile/vim.vi
 g:ycm_autoclose_preview_window_after_completion	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_autoclose_preview_window_after_completion = 1$/;"	v	language:Vim
 g:ycm_collect_identifiers_from_comments_and_strings	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_collect_identifiers_from_comments_and_strings = 1 $/;"	v	language:Vim
 g:ycm_complete_in_comments	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_complete_in_comments = 1 $/;"	v	language:Vim
-g:ycm_python_binary_path	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_python_binary_path = '\/Library\/Frameworks\/Python.framework\/Versions\/3.5\/bin\/python3'$/;"	v	language:Vim
+g:ycm_global_ycm_extra_conf	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_global_ycm_extra_conf = '~\/.vim\/bundle\/YouCompleteMe\/third_party\/ycmd\/cpp\/ycm\/.ycm_extra_conf.py'$/;"	v	language:Vim
+g:ycm_python_binary_path	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_python_binary_path = '\/usr\/local\/bin\/python3'$/;"	v	language:Vim
 g:ycm_seed_identifiers_with_syntax	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_seed_identifiers_with_syntax = 1 $/;"	v	language:Vim
 g:ycm_show_diagnostics_ui	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_show_diagnostics_ui = 0$/;"	v	language:Vim
 H	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap H ^$/;"	m	language:Vim
