@@ -5,7 +5,7 @@
 " Basic Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-cd ~/Documents   "Change the working dir to 'Documents'
+"cd ~/Documents   "Change the working dir to 'Documents'
 
 syntax enable
 syntax on
@@ -176,8 +176,12 @@ augroup run_file
     autocmd FileType python nnoremap <silent> <F5> :!clear;python3 %<CR>
     autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java %<CR>
     autocmd FileType c nnoremap <silent> <F5> :w<CR>:!clear<CR>:!gcc % -o %< && ./%< <CR>
+    "autocmd FileType txt setlocal noeol binary fileformat=dos
 augroup END
 " }}}
+if exists('+fixeol')
+    set nofixeol
+endif
 
 " Set filetype based on suffixes ---------------------- {{{
 augroup filetype_setting

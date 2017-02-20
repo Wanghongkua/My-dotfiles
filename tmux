@@ -1,3 +1,12 @@
+#
+# unbind default prefix and set it to Ctrl+a 
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
+
+# for nested tmux sessions
+bind-key a send-prefix
+
 set -g default-terminal "screen-256color"
 ##############################
 # set -g default-command "login-shell"
@@ -8,14 +17,6 @@ set -g history-limit 20000
 
 # automatically renumber tmux windows
 set -g renumber-windows on
-
-# unbind default prefix and set it to Ctrl+a
-unbind C-b
-set -g prefix C-a
-bind C-a send-prefix
-
-# for nested tmux sessions
-bind-key a send-prefix
 
 # Activity Monitoring
 setw -g monitor-activity off
@@ -53,8 +54,6 @@ set-option -g set-titles-string "#T - #W"
 # reload config file
 bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
 # bind D source-file ~/.tmux/dev \; display "New Session"
-# source-file ~/.tmux/dev
-# source-file ~/.tmux/she
 
 # quickly open a new window
 bind N new-window
@@ -119,11 +118,13 @@ bind Escape copy-mode
 unbind p
 bind p paste-buffer
 bind -t vi-copy 'v' begin-selection
-bind -t vi-copy 'y' copy-selection
+#bind -t vi-copy 'y' copy-selection
+bind -t vi-copy 'y' copy-pipe "reattach-to-user-namespace pbcopy"
 
 # Buffers to/from Mac clipboard, yay tmux book from pragprog
-bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
-bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
+bind ] run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
+#bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
+#bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
 
 ##############################
 ### Color & Style Settings ###
