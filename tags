@@ -16,6 +16,7 @@
 <leader>"	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel$/;"	m	language:Vim
 <leader>'	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel$/;"	m	language:Vim
 <leader><space>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader><space> :noh<cr>$/;"	m	language:Vim
+<leader>a	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>a :AirlineRefresh<cr>$/;"	m	language:Vim
 <leader>b	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader>b :TagbarToggle<CR>$/;"	m	language:Vim
 <leader>bd	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>bd :Bclose<cr>:tabclose<cr>gT$/;"	m	language:Vim
 <leader>cd	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>cd :lcd %:p:h<cr>:pwd<cr>$/;"	m	language:Vim
@@ -25,7 +26,6 @@
 <Leader>j	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^map <Leader>j <Plug>(easymotion-j)$/;"	m	language:Vim
 <Leader>k	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^map <Leader>k <Plug>(easymotion-k)$/;"	m	language:Vim
 <leader>l	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>l :bnext<cr>$/;"	m	language:Vim
-<leader>q	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>q :wq!<cr>$/;"	m	language:Vim
 <leader>s?	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>s? z=$/;"	m	language:Vim
 <leader>sa	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>sa zg$/;"	m	language:Vim
 <leader>sn	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>sn ]s$/;"	m	language:Vim

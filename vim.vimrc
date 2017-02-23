@@ -36,7 +36,7 @@ nnoremap <space> viw
 
 " Fast saving
 nnoremap <leader>w :w!<cr>
-nnoremap <leader>q :wq!<cr>
+"nnoremap <leader>q :wq!<cr>
 
 set mouse=a
 set so=7                            "Set 7 lines to the cursor - when moving vertically using j/k
@@ -89,7 +89,7 @@ set pastetoggle=<leader>z
 " 主题设置
 set background=dark
 colorscheme solarized
-" colorscheme molokai
+"colorscheme molokai
 
 " italic comment
 " highlight Comment cterm=italic
@@ -261,6 +261,7 @@ map ,c<space> <plug>NERDCommenterComment
 " Airline Setting -------------------- {{{
 set laststatus=2
 " let g:airline_theme='molokai'
+nnoremap <leader>a :AirlineRefresh<cr>
 let g:airline_theme='distinguished'
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'

@@ -100,7 +100,8 @@ alias python='python3'
 alias -s html=mvim   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
 alias -s rb=mvim     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开
 # alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+#alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias vim=nvim
 #alias -s gz='tar -xzvf'
 #alias -s tgz='tar -xzvf'
 #alias -s zip='unzip'
@@ -121,6 +122,7 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export VIMRC=~/Documents/dotfile/vim.vimrc
 export ZSHRC=~/Documents/dotfile/zsh.zshrc
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+export XDG_CONFIG_HOME=~/.config
 function lazygit(){
     git add .
     git commit -am "$1"
