@@ -95,7 +95,7 @@ KEYTIMEOUT=1
 alias ll='ls -l'
 alias la='ls -a'
 alias c='clear'
-alias python='python3'
+#alias python='python3'
 #alias javac="javac -J-Dfile.encoding=utf8"
 alias -s html=mvim   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
 alias -s rb=mvim     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开

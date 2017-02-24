@@ -7,14 +7,17 @@
 /	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^omap \/ <Plug>(easymotion-tn)$/;"	m	language:Vim
 <c-d>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^inoremap <c-d> <esc>ddO$/;"	m	language:Vim
 <C-e>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^inoremap <C-e> <C-o>a$/;"	m	language:Vim
+<C-e>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-e> 3<C-e>$/;"	m	language:Vim
 <C-f>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-f> :JavaCorrect<CR>$/;"	m	language:Vim
 <C-H>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-H> <C-W><C-H>$/;"	m	language:Vim
 <C-J>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-J> <C-W><C-J>$/;"	m	language:Vim
 <C-K>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-K> <C-W><C-K>$/;"	m	language:Vim
 <c-l>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^inoremap <c-l> <esc>viwUea$/;"	m	language:Vim
 <C-L>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-L> <C-W><C-L>$/;"	m	language:Vim
+<C-y>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-y> 3<C-y>$/;"	m	language:Vim
 <leader>"	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel$/;"	m	language:Vim
 <leader>'	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel$/;"	m	language:Vim
+<leader>,	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>, :w!<cr>$/;"	m	language:Vim
 <leader><space>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader><space> :noh<cr>$/;"	m	language:Vim
 <leader>a	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>a :AirlineRefresh<cr>$/;"	m	language:Vim
 <leader>b	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader>b :TagbarToggle<CR>$/;"	m	language:Vim
@@ -33,7 +36,6 @@
 <leader>ss	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>ss :setlocal spell!<cr>$/;"	m	language:Vim
 <leader>sv	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>sv :source $MYVIMRC<cr>$/;"	m	language:Vim
 <leader>t	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader>t :NERDTreeTabsToggle<CR>$/;"	m	language:Vim
-<leader>w	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>w :w!<cr>$/;"	m	language:Vim
 <space>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <space> viw$/;"	m	language:Vim
 <space>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^vnoremap <space> <esc>a"<esc>`<i"<esc>`>$/;"	m	language:Vim
 Bclose	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^command! Bclose call <SID>BufcloseCloseIt()$/;"	c	language:Vim
@@ -59,9 +61,11 @@ g:easytags_events	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:easyta
 g:easytags_resolve_links	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:easytags_resolve_links = 1$/;"	v	language:Vim
 g:easytags_suppress_ctags_warning	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:easytags_suppress_ctags_warning = 1$/;"	v	language:Vim
 g:EclimCompletionMethod	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:EclimCompletionMethod = 'omnifunc'$/;"	v	language:Vim
-g:mapleader	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:mapleader=','$/;"	v	language:Vim
 g:nerdtree_tabs_open_on_console_startup	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:nerdtree_tabs_open_on_console_startup = 0$/;"	v	language:Vim
 g:Powerline_symbols	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:Powerline_symbols = 'fancy'$/;"	v	language:Vim
+g:python3_host_prog	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:python3_host_prog = '\/usr\/local\/bin\/python3'$/;"	v	language:Vim
+g:python_host_prog	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:python_host_prog = '\/usr\/local\/bin\/python2'$/;"	v	language:Vim
+g:solarized_italic	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:solarized_italic=1$/;"	v	language:Vim
 g:syntastic_always_populate_loc_list	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_always_populate_loc_list = 1$/;"	v	language:Vim
 g:syntastic_auto_loc_list	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_auto_loc_list = 1$/;"	v	language:Vim
 g:syntastic_check_on_open	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_check_on_open = 1$/;"	v	language:Vim
@@ -82,7 +86,9 @@ g:ycm_global_ycm_extra_conf	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^le
 g:ycm_python_binary_path	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_python_binary_path = '\/usr\/local\/bin\/python3'$/;"	v	language:Vim
 g:ycm_seed_identifiers_with_syntax	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_seed_identifiers_with_syntax = 1 $/;"	v	language:Vim
 g:ycm_show_diagnostics_ui	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:ycm_show_diagnostics_ui = 0$/;"	v	language:Vim
+ga	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nmap ga <Plug>(EasyAlign)$/;"	m	language:Vim
 H	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap H ^$/;"	m	language:Vim
+jk	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^inoremap jk <esc>$/;"	m	language:Vim
 L	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap L \$$/;"	m	language:Vim
 LocationNext	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^function! <SID>LocationNext()                           $/;"	f	language:Vim
 mapleader	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let mapleader=','           "Map leader from '\\' to ','$/;"	v	language:Vim

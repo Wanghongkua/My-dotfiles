@@ -1,24 +1,123 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Testing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basic Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Section General {{{
 
-"cd ~/Documents   "Change the working dir to 'Documents'
+set nocompatible        " not nocompatible with vi
+set autoread            " Detect when a file is changed
+
+set history=1000  " change history to 1000
+set textwidth=120 " set bound to width
+
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python2'
+
+" }}}
+
+" Section User Interface {{{
+
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
+if &term =~ '256color'
+    " disable background color erase
+    set t_ut=
+endif
+
+let g:solarized_italic=1
 
 syntax enable
 syntax on
 
-" set autoread   "Detect when a file is changed
-set autoread
-au CursorHold * checktime
+" colorscheme
+set background=dark
+colorscheme solarized
+"colorscheme molokai
+
+" make the highlighting of tabs and other non-text less annoying
+highlight SpecialKey ctermbg=none ctermfg=8
+highlight NonText ctermbg=none ctermfg=8
+
+" make comments and HTML attributes italic
+highlight Comment cterm=italic
+highlight htmlArg cterm=italic
+
+set number                          " Show line number
+set relativenumber                  " Show relative line number
+set wrap                            " turn on line wrapping
+set wrapmargin=8                    " wrap lines when coming within n characters from side
+set linebreak
+set showbreak=…
+
+set autoindent                      " automatically set indent of new line
+set smartindent
+
+" toggle invisible characters
+set list
+set listchars=tab:→\ ,trail:⋅,extends:❯,precedes:❮
+set showbreak=↪
+
+" highlight conflicts
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+set backspace=indent,eol,start   " make backspace behave in a sane manner
+
+" Tab control
+set tabstop=4 shiftwidth=4 expandtab smarttab   "Turn 'tab' into space
+
+" Code folding settings
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+set clipboard=unnamed
+
+set ttyfast
+set so=7                            " Set 7 lines to the cursor - when moving vertically using j/k
+set wildmenu                        " Turn on the WiLd menu
+set wildmode=list:longest           " complete files like a shell
+set showcmd                         " Show incomplete commands
+set scrolloff=3                     " lines of text around cursor
+set title
+set magic                           " Set magic on, for regex
+set showmatch                       " Show match braces
+
+set mouse=a
+set cmdheight=1                     "Height of the command bar 
+set lazyredraw
+set cursorline                      "Highlight current line
+set ruler                           "Show cursor position
+set hlsearch                        "Highlight search results
+set incsearch                       "Search act like search in modern browser
+
+set encoding=utf-8
+set timeoutlen=1000 ttimeoutlen=0   " Delete ESC Delays
+
+" No annoying sound on errors
+set noerrorbells
+set visualbell
+set t_vb=
+set tm=500
+
+"au CursorHold * checktime
+
+" }}}
+
+" Section Mappings {{{
 
 let mapleader=','           "Map leader from '\' to ','
-let g:mapleader=','
+"let g:mapleader=','
 
 " Change to upper case
 inoremap <c-l> <esc>viwUea
+
+" remap ESC
+inoremap jk <esc>
 
 " Create surrounding based on visual selection
 vnoremap <space> <esc>a"<esc>`<i"<esc>`>
@@ -35,45 +134,33 @@ nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 nnoremap <space> viw
 
 " Fast saving
-nnoremap <leader>w :w!<cr>
-"nnoremap <leader>q :wq!<cr>
+nnoremap <leader>, :w!<cr>
 
-set mouse=a
-set so=7                            "Set 7 lines to the cursor - when moving vertically using j/k
-set cmdheight=1                     "Height of the command bar 
-set lazyredraw
-set ttyfast
-set cursorline                      "Highlight current line
-set number                          "Show line number
-set relativenumber                  "Show relative line number
-set ruler                           "Show cursor position
-set showcmd
-set hlsearch                        "Highlight search results
-set incsearch                       "Search act like search in modern browser
+" set paste toggle
+set pastetoggle=<leader>v
 
-set backspace=indent,eol,start   " make backspace behave in a sane manner
-set encoding=utf-8
-" 消除ESC delays
-set timeoutlen=1000 ttimeoutlen=0
 " Auto source ~/.vimrc after saving it
+
 "<leader>cd =  改变当前目录到文件所在目录
 nnoremap <leader>cd :lcd %:p:h<cr>:pwd<cr>
-"set textwidth=80 "set bound to width
-set colorcolumn=+1  "Heilight 81st column
-set tabstop=4 shiftwidth=4 expandtab smarttab   "Turn 'tab' into space
-set history=1000 "change history to 1000
-set clipboard=unnamed
-" Ignore case when searching but only search for upper cases when typing upper
-" cases
-set ignorecase
-set smartcase
+
 " Split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-" map <space> /
+
+" scroll the viewport faster
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+set colorcolumn=+1  "Heilight 81st column
+
+" Ignore case when searching but only search for upper cases when typing upper
+" cases
+set ignorecase
+set smartcase
+
 nnoremap <silent> <leader><space> :noh<cr>
 " delete current line in insert mode
 inoremap <c-d> <esc>ddO
@@ -86,25 +173,6 @@ nnoremap H ^
 nnoremap L $
 set pastetoggle=<leader>z
 
-" 主题设置
-set background=dark
-colorscheme solarized
-"colorscheme molokai
-
-" italic comment
-" highlight Comment cterm=italic
-
-" let g:solarized_termcolors=256
-" 代码折叠
-" 基于缩进或语法进行代码折叠
-" "set foldmethod=indent
-" set foldmethod=syntax
-" " 启动 vim 时关闭折叠代码
-" set nofoldenable
-
-" Turn on the WiLd menu
-set wildmenu
-
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
 if has("win16") || has("win32")
@@ -112,17 +180,6 @@ if has("win16") || has("win32")
 else
     set wildignore+=.git\*,.hg\*,.svn\*
 endif
-
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-set nobackup
-set nowb
-set noswapfile
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
@@ -134,6 +191,7 @@ noremap <leader>bd :Bclose<cr>:tabclose<cr>gT
 
 noremap <leader>l :bnext<cr>
 noremap <leader>h :bprevious<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Spell checking from comments
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -145,6 +203,9 @@ noremap <leader>sn ]s
 noremap <leader>sp [s
 noremap <leader>sa zg
 noremap <leader>s? z=
+" }}}
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文件设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -155,10 +216,6 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " }}}
 
 " Vimscript file settings ---------------------- {{{
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup END
 " }}}
 
 " Html setting ---------------------- {{{
@@ -239,6 +296,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
+Plugin 'junegunn/vim-easy-align'
 
 " Plugin 'JavaRun'
 " Enable this when coding Python
@@ -366,6 +424,15 @@ augroup mydelimitMate
 augroup END
 " }}}
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" EasyAlign Setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Easy Motion Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""

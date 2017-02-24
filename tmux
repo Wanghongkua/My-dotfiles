@@ -7,11 +7,13 @@ bind C-a send-prefix
 # for nested tmux sessions
 bind-key a send-prefix
 
-set -g default-terminal "screen-256color"
+#set -g default-terminal "screen-256color"
+set -g default-terminal "tmux-256color"
+set -as terminal-overrides ',xterm*:sitm=\E[3m'
 ##############################
 # set -g default-command "login-shell"
 # tmux display things in 256 colors
-# set -g default-terminal "tmux-256color-italic"
+#set -g default-terminal "tmux-256color-italic"
 
 set -g history-limit 20000
 
