@@ -123,6 +123,7 @@ export VIMRC=~/Documents/dotfile/vim.vimrc
 export ZSHRC=~/Documents/dotfile/zsh.zshrc
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 export XDG_CONFIG_HOME=~/.config
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 function lazygit(){
     git add .
     git commit -am "$1"

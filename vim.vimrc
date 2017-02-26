@@ -1,3 +1,4 @@
+source ~/Documents/dotfile/plugin.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Testing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -80,7 +81,8 @@ set clipboard=unnamed
 set ttyfast
 set so=7                            " Set 7 lines to the cursor - when moving vertically using j/k
 set wildmenu                        " Turn on the WiLd menu
-set wildmode=list:longest           " complete files like a shell
+"set wildmode=list:longest           " complete files like a shell
+set wildmode=full                   " complete by tabing through
 set showcmd                         " Show incomplete commands
 set scrolloff=3                     " lines of text around cursor
 set title
@@ -167,7 +169,12 @@ inoremap <c-d> <esc>ddO
 " edit .vimrc the fast way
 nnoremap <leader>ev :vsplit $VIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <C-f> :JavaCorrect<CR>
+
+augroup JavaCorrect
+    autocmd!
+    autocmd FileType java nnoremap <C-f> :JavaCorrect<CR>
+augroup END
+
 inoremap <C-e> <C-o>a
 nnoremap H ^
 nnoremap L $
@@ -264,46 +271,46 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle 设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/Vundle.vim
-" set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"" set rtp+=~/.vim/bundle/vundle/
+"call vundle#begin()
 
-" let vundle manage vundle
-Plugin 'VundleVim/Vundle.vim'
-" Plugin 'gmarik/vundle'
+"" let vundle manage vundle
+"Plugin 'VundleVim/Vundle.vim'
+"" Plugin 'gmarik/vundle'
 
-" All the Plugins -------------------- {{{
-Plugin 'kien/ctrlp.vim' " fuzzy find files
-Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'benmills/vimux'
-Plugin 'tpope/vim-fugitive' " the ultimate git helper
-Plugin 'surround.vim'
-" Plugin 'tpope/vim-commentary' " comment/uncomment with gcc or gc in visual mode
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/syntastic'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
-Plugin 'majutsushi/tagbar'
-Plugin 'Raimondi/delimitMate'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Yggdroot/indentLine'
-Plugin 'christoomey/vim-tmux-navigator'
-" Track the engine.
-Plugin 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-Plugin 'junegunn/vim-easy-align'
+"" All the Plugins -------------------- {{{
+"Plugin 'kien/ctrlp.vim' " fuzzy find files
+"Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
+"Plugin 'jistr/vim-nerdtree-tabs'
+"Plugin 'benmills/vimux'
+"Plugin 'tpope/vim-fugitive' " the ultimate git helper
+"Plugin 'surround.vim'
+"" Plugin 'tpope/vim-commentary' " comment/uncomment with gcc or gc in visual mode
+"Plugin 'scrooloose/nerdcommenter'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-easytags'
+"Plugin 'majutsushi/tagbar'
+"Plugin 'Raimondi/delimitMate'
+"Plugin 'easymotion/vim-easymotion'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Yggdroot/indentLine'
+"Plugin 'christoomey/vim-tmux-navigator'
+"" Track the engine.
+"Plugin 'SirVer/ultisnips'
+"" Snippets are separated from the engine. Add this if you want them:
+"Plugin 'honza/vim-snippets'
+"Plugin 'junegunn/vim-easy-align'
 
 " Plugin 'JavaRun'
 " Enable this when coding Python
 " Plugin 'Python-mode-klen'
 " }}}
-call vundle#end()
-filetype plugin indent on
+"call vundle#end()
+"filetype plugin indent on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -447,7 +454,7 @@ nmap <leader>f <Plug>(easymotion-lineforward)
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
-nmap s <Plug>(easymotion-overwin-f2)
+nmap <space> <Plug>(easymotion-overwin-f2)
 " nmap t <Plug>(easymotion-t2)
 
 " Turn on case insensitive feature
@@ -483,7 +490,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "let g:ycm_python_binary_path = '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3'
 let g:ycm_python_binary_path = '/usr/local/bin/python3'
 " let g:UltiSnipsListSnippets="<c-h>"
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_complete_in_comments = 1 
 let g:ycm_seed_identifiers_with_syntax = 1 
@@ -551,6 +558,17 @@ augroup END
 " Turn Off Preview window of YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
 "}}}
+"Tmux Cursor Shap 
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+"if exists('$ITERM_PROFILE')
+    "if exists('$TMUX')
+        "let &t_SI = "\<Esc>[3 q"
+        "let &t_EI = "\<Esc>[0 q"
+    "else
+        "let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+        "let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+    "endif
+"end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
@@ -598,15 +616,15 @@ endfunction
 " Looping arround error locations.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! <SID>LocationNext()                           
-  try                                                   
-    lnext                                               
-  catch /^Vim\%((\a\+)\)\=:E553/                        
-    lfirst                                              
-  catch /^Vim\%((\a\+)\)\=:E42/                        
-    echom "No Error."
-  catch /^Vim\%((\a\+)\)\=:E776/                        
-    echom "No Error."
-  endtry                                                
+    try                                                   
+        lnext                                               
+    catch /^Vim\%((\a\+)\)\=:E553/                        
+        lfirst                                              
+    catch /^Vim\%((\a\+)\)\=:E42/                        
+        echom "No Error."
+    catch /^Vim\%((\a\+)\)\=:E776/                        
+        echom "No Error."
+    endtry                                                
 endfunction                                             
 nmap <silent> [e :<C-u>call <SID>LocationNext()<CR>
 "}}}

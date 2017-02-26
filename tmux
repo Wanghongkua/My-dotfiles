@@ -7,6 +7,9 @@ bind C-a send-prefix
 # for nested tmux sessions
 bind-key a send-prefix
 
+# change cursor shape in tmux
+set -g -a terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
+
 #set -g default-terminal "screen-256color"
 set -g default-terminal "tmux-256color"
 set -as terminal-overrides ',xterm*:sitm=\E[3m'
