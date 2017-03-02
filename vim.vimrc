@@ -76,7 +76,7 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
-set clipboard=unnamed
+set clipboard+=unnamedplus
 
 set ttyfast
 set so=7                            " Set 7 lines to the cursor - when moving vertically using j/k

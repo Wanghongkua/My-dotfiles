@@ -55,6 +55,9 @@ set-option -g set-titles-string "#T - #W"
 ######################
 #### Key Bindings ####
 ######################
+# copy paste in tmux
+bind C-p run-shell "tmux set-buffer \"$(xclip -o)\"; tmux paste-buffer"
+bind C-y run-shell "tmux show-buffer | xclip -sel clip -i"
 
 # reload config file
 bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
@@ -95,7 +98,7 @@ bind -r K resize-pane -U 10
 bind -r L resize-pane -R 10
 
 # enable mouse support for switching panes/windows
-setw -g mouse on
+set -g mouse on
 # setw -g mode-mouse on
 # set-option -g -q mouse on
 # set -g mouse-mode on
@@ -124,7 +127,8 @@ unbind p
 bind p paste-buffer
 bind -t vi-copy 'v' begin-selection
 #bind -t vi-copy 'y' copy-selection
-bind -t vi-copy 'y' copy-pipe "reattach-to-user-namespace pbcopy"
+#bind -t vi-copy 'y' copy-pipe "reattach-to-user-namespace pbcopy"
+bind -t vi-copy 'y' copy-pipe "xclip -sel clip -i"
 
 # Buffers to/from Mac clipboard, yay tmux book from pragprog
 bind ] run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
