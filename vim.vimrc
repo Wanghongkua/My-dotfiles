@@ -1,4 +1,4 @@
-source ~/Documents/dotfile/plugin.vim
+source ~/Documents/My-dotfiles/plugin.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Testing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -12,8 +12,8 @@ set autoread            " Detect when a file is changed
 set history=1000  " change history to 1000
 set textwidth=120 " set bound to width
 
-let g:python3_host_prog = '/usr/local/bin/python3'
-let g:python_host_prog = '/usr/local/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
 
 " }}}
 
@@ -488,9 +488,9 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "let g:ycm_python_binary_path = '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3'
-let g:ycm_python_binary_path = '/usr/local/bin/python3'
+let g:ycm_python_binary_path = '/usr/bin/python3'
 " let g:UltiSnipsListSnippets="<c-h>"
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.config/nvim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_complete_in_comments = 1 
 let g:ycm_seed_identifiers_with_syntax = 1 

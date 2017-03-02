@@ -15,7 +15,7 @@ Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
 Plug 'Raimondi/delimitMate'
 Plug 'easymotion/vim-easymotion'
-Plug 'Valloric/YouCompleteMe', {'do':'./install.py --clang-completer'}
+Plug 'Valloric/YouCompleteMe', {'do':'YCM_CORES=1 ./install.py --clang-completer'}
 Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-tmux-navigator'
 " Track the engine.

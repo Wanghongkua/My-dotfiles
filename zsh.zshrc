@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/wanghongkuan/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 # bindkey "^[[A" history-beginning-search-backward
 # bindkey "^[[B" history-beginning-search-forward
 # bindkey '^[[A' history-substring-search-up
@@ -61,7 +61,10 @@ plugins=(git autojump history-substring-search vi-mode python brew)
 
 # To use the autojump
 
-export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Users/wanghongkuan/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+force_colored_prompt=yes
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+#export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Users/wanghongkuan/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -97,8 +100,6 @@ alias la='ls -a'
 alias c='clear'
 #alias python='python3'
 #alias javac="javac -J-Dfile.encoding=utf8"
-alias -s html=mvim   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
-alias -s rb=mvim     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开
 # alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
 #alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias vim=nvim
@@ -114,14 +115,14 @@ alias o="open"
 alias unsw="ssh z5095588@login.cse.unsw.edu.au"
 #alias ssh="TERM=xterm-256color ssh"
 #alias unsw="TERM=xterm-256color ssh z5095588@login.cse.unsw.edu.au"
-alias dock="docker run -i -p 2041:80 -v /Users/wanghongkuan/Documents/COMP9041/ass2:/var/www comp2041/cgi"
+alias dock="docker run -i -p 2041:80 -v ~/Documents/COMP9041/ass2:/var/www comp2041/cgi"
 alias mux="tmuxinator"
 # Must be in the end
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #export TERM=xterm-256color-italic
 export VIMRC=~/Documents/dotfile/vim.vimrc
 export ZSHRC=~/Documents/dotfile/zsh.zshrc
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+export EDITOR=/usr/bin/nvim
 export XDG_CONFIG_HOME=~/.config
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 function lazygit(){
