@@ -128,7 +128,7 @@ export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 function lazygit(){
     git add .
     git commit -am "$1"
-    git push
+    git push origin ubuntu
 }
 function ks(){
     names=`tmux list-sessions`|| return 1
