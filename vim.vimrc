@@ -1,3 +1,8 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" testing aera
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source ~/Documents/dotfile/plugin.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Testing
@@ -48,7 +53,7 @@ highlight Comment cterm=italic
 highlight htmlArg cterm=italic
 
 set number                          " Show line number
-set relativenumber                  " Show relative line number
+"set relativenumber                  " Show relative line number
 set wrap                            " turn on line wrapping
 set wrapmargin=8                    " wrap lines when coming within n characters from side
 set linebreak
@@ -237,14 +242,13 @@ augroup END
 " Run file inside vim ---------------------- {{{
 augroup run_file
     autocmd!
-    "autocmd FileType python nnoremap <silent> <F5> :!clear;python3 %<CR>
-    autocmd FileType python nnoremap <silent> <F5> :exec '!python' shellescape(@%, 1)<cr>    
+    autocmd FileType python nnoremap <silent> <F5> :!python3 %<CR>
+    "autocmd FileType python nnoremap <F4> :call ExecuteFile()<CR>
     autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java %<CR>
     autocmd FileType c nnoremap <silent> <F5> :w<CR>:!clear<CR>:!gcc % -o %< && ./%< <CR>
-    "autocmd FileType txt setlocal noeol binary fileformat=dos
 augroup END
 " }}}
-if exists('+fixeol')
+if exists('+fixeol')    
     set nofixeol
 endif
 
@@ -413,7 +417,7 @@ let g:easytags_suppress_ctags_warning = 1
 
 " ----- majutsushi/tagbar settings -----
 " Open/close tagbar with \b
-nnoremap <silent> <leader>b :TagbarToggle<CR>
+nnoremap <silent> <leader>c :TagbarToggle<CR>
 
 " Uncomment to open tagbar automatically whenever possible
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
@@ -535,6 +539,14 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Python-mode
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:pymode_python = 'python3'
+" Override run current python file key shortcut to Ctrl-Shift-e
+"let g:pymode_run_bind = "<F5>"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux Vim navigator
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:tmux_navigator_no_mappings = 1
@@ -547,6 +559,8 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Eclim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 
 " Cooperate with YouCompleteMe -------------------- {{{
 let g:ycm_always_populate_location_list = 1
@@ -615,6 +629,53 @@ function! <SID>BufcloseCloseIt()
         execute("bdelete! ".l:currentBufNum)
     endif
 endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""" RUN CURRENT FILE """""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Execute current file
+"nnoremap <F5> :call ExecuteFile()<CR>
+
+" Will attempt to execute the current file based on the `&filetype`
+" You need to manually map the filetypes you use most commonly to the
+" correct shell command.
+"function! ExecuteFile()
+  "let filetype_to_command = {
+  "\   'javascript': 'node',
+  "\   'coffee': 'coffee',
+  "\   'python': 'python',
+  "\   'html': 'open',
+  "\   'sh': 'sh'
+  "\ }
+  "let cmd = get(filetype_to_command, &filetype, &filetype)
+  "call RunShellCommand(cmd." %s")
+"endfunction
+
+"" Enter any shell command and have the output appear in a new buffer
+"" For example, to word count the current file:
+""
+""   :Shell wc %s
+""
+"" Thanks to: http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
+"command! -complete=shellcmd -nargs=+ Shell call RunShellCommand(<q-args>)
+"function! RunShellCommand(cmdline)
+  "echo a:cmdline
+  "let expanded_cmdline = a:cmdline
+  "for part in split(a:cmdline, ' ')
+     "if part[0] =~ '\v[%#<]'
+        "let expanded_part = fnameescape(expand(part))
+        "let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+     "endif
+  "endfor
+  "botright new
+  "setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+  "call setline(1, 'You entered:    ' . a:cmdline)
+  "call setline(2, 'Expanded Form:  ' .expanded_cmdline)
+  "call setline(3,substitute(getline(2),'.','=','g'))
+  "execute '$read !'. expanded_cmdline
+  "setlocal nomodifiable
+  "1
+"endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Looping arround error locations.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
