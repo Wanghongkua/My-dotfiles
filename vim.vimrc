@@ -237,7 +237,8 @@ augroup END
 " Run file inside vim ---------------------- {{{
 augroup run_file
     autocmd!
-    autocmd FileType python nnoremap <silent> <F5> :!clear;python3 %<CR>
+    "autocmd FileType python nnoremap <silent> <F5> :!clear;python3 %<CR>
+    autocmd FileType python nnoremap <silent> <F5> :exec '!python' shellescape(@%, 1)<cr>    
     autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java %<CR>
     autocmd FileType c nnoremap <silent> <F5> :w<CR>:!clear<CR>:!gcc % -o %< && ./%< <CR>
     "autocmd FileType txt setlocal noeol binary fileformat=dos
@@ -375,6 +376,8 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 
 " Syntastic Setting -------------------- {{{
 " 让Syntastic 纠错Python3.
+let g:syntastic_quiet_messages = { "type": "style" }
+let g:syntastic_python_checkers = ['python']
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 
 set statusline+=%#warningmsg#

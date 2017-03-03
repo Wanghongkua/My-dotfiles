@@ -72,7 +72,9 @@ g:syntastic_auto_loc_list	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let 
 g:syntastic_check_on_open	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_check_on_open = 1$/;"	v	language:Vim
 g:syntastic_check_on_wq	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_check_on_wq = 0$/;"	v	language:Vim
 g:syntastic_error_symbol	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_error_symbol = '✘'$/;"	v	language:Vim
+g:syntastic_python_checkers	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_python_checkers = ['python']$/;"	v	language:Vim
 g:syntastic_python_python_exec	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_python_python_exec = '\/usr\/local\/bin\/python3'$/;"	v	language:Vim
+g:syntastic_quiet_messages	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_quiet_messages = { "type": "style" }$/;"	v	language:Vim
 g:syntastic_warning_symbol	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_warning_symbol = "▲"$/;"	v	language:Vim
 g:UltiSnipsExpandTrigger	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsExpandTrigger="<c-j>"$/;"	v	language:Vim
 g:UltiSnipsJumpBackwardTrigger	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsJumpBackwardTrigger="<c-k>"$/;"	v	language:Vim
