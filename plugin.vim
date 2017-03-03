@@ -26,6 +26,6 @@ Plug 'junegunn/vim-easy-align'
 
 " Plug 'JavaRun'
 " Enable this when coding Python
-" Plug 'Python-mode-klen'
+Plug 'Python-mode-klen', {'for':'python'}
 
 call plug#end()

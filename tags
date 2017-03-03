@@ -20,8 +20,8 @@ $NVIM_TUI_ENABLE_CURSOR_SHAPE	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^
 <leader>,	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>, :w!<cr>$/;"	m	language:Vim
 <leader><space>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader><space> :noh<cr>$/;"	m	language:Vim
 <leader>a	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>a :AirlineRefresh<cr>$/;"	m	language:Vim
-<leader>b	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader>b :TagbarToggle<CR>$/;"	m	language:Vim
 <leader>bd	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>bd :Bclose<cr>:tabclose<cr>gT$/;"	m	language:Vim
+<leader>c	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader>c :TagbarToggle<CR>$/;"	m	language:Vim
 <leader>cd	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>cd :lcd %:p:h<cr>:pwd<cr>$/;"	m	language:Vim
 <leader>ev	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>ev :vsplit $VIMRC<cr>$/;"	m	language:Vim
 <leader>f	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nmap <leader>f <Plug>(easymotion-lineforward)$/;"	m	language:Vim
@@ -64,6 +64,7 @@ g:easytags_suppress_ctags_warning	/Users/wanghongkuan/Documents/dotfile/vim.vimr
 g:EclimCompletionMethod	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:EclimCompletionMethod = 'omnifunc'$/;"	v	language:Vim
 g:nerdtree_tabs_open_on_console_startup	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:nerdtree_tabs_open_on_console_startup = 0$/;"	v	language:Vim
 g:Powerline_symbols	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:Powerline_symbols = 'fancy'$/;"	v	language:Vim
+g:pymode_python	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:pymode_python = 'python3'$/;"	v	language:Vim
 g:python3_host_prog	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:python3_host_prog = '\/usr\/local\/bin\/python3'$/;"	v	language:Vim
 g:python_host_prog	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:python_host_prog = '\/usr\/local\/bin\/python2'$/;"	v	language:Vim
 g:solarized_italic	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:solarized_italic=1$/;"	v	language:Vim
