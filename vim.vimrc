@@ -41,8 +41,8 @@ syntax on
 
 " colorscheme
 set background=dark
-colorscheme solarized
-"colorscheme molokai
+"colorscheme solarized
+colorscheme molokai
 
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermbg=none ctermfg=8
@@ -170,7 +170,7 @@ set smartcase
 
 nnoremap <silent> <leader><space> :noh<cr>
 " delete current line in insert mode
-inoremap <c-d> <esc>ddO
+"inoremap <c-d> <esc>ddO
 " edit .vimrc the fast way
 nnoremap <leader>ev :vsplit $VIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -243,14 +243,14 @@ augroup END
 augroup run_file
     autocmd!
     autocmd FileType python nnoremap <silent> <F5> :!python3 %<CR>
-    "autocmd FileType python nnoremap <F4> :call ExecuteFile()<CR>
+    autocmd FileType python nnoremap <F4> :call ExecuteFile()<CR>
     autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java %<CR>
-    autocmd FileType c nnoremap <silent> <F5> :w<CR>:!clear<CR>:!gcc % -o %< && ./%< <CR>
+    autocmd FileType c nnoremap <silent> <F5> :w<CR>:!clear<cr>:!gcc % -o %< && ./%< <CR>
 augroup END
 " }}}
-if exists('+fixeol')    
-    set nofixeol
-endif
+"if exists('+fixeol')    
+    "set nofixeol
+"endif
 
 " Set filetype based on suffixes ---------------------- {{{
 augroup filetype_setting
@@ -365,6 +365,11 @@ let g:airline_detect_modified=1
 " let g:airline_symbols.linenr = ''
 " }}}
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" C-Support
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"let g:C_UseTool_cmake = 'yes'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree 设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -487,6 +492,7 @@ let g:EasyMotion_use_smartsign_jp = 1 " JP layout
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe and Ultisnip cooperate.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:UltiSnipsUsePythonVersion = 3
 
 " Solution 1. -------------------- {{{
 let g:UltiSnipsSnippetsDir        = $HOME.'/.vim/UltiSnips/'

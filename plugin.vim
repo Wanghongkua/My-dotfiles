@@ -18,11 +18,13 @@ Plug 'easymotion/vim-easymotion'
 Plug 'Valloric/YouCompleteMe', {'do':'./install.py --clang-completer'}
 Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'python-mode/python-mode'
 " Track the engine.
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
-Plug 'junegunn/vim-easy-align'
+"Plug 'junegunn/vim-easy-align'
+"Plug 'WolfgangMehner/c-support', {'for':'c'}
 
 " Plug 'JavaRun'
 " Enable this when coding Python

@@ -6,7 +6,6 @@ $NVIM_TUI_ENABLE_CURSOR_SHAPE	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^
 ,cc	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^map ,cc <plug>NERDCommenterToggle$/;"	m	language:Vim
 /	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^map  \/ <Plug>(easymotion-sn)$/;"	m	language:Vim
 /	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^omap \/ <Plug>(easymotion-tn)$/;"	m	language:Vim
-<c-d>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^inoremap <c-d> <esc>ddO$/;"	m	language:Vim
 <C-e>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^inoremap <C-e> <C-o>a$/;"	m	language:Vim
 <C-e>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-e> 3<C-e>$/;"	m	language:Vim
 <C-H>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-H> <C-W><C-H>$/;"	m	language:Vim

@@ -61,7 +61,7 @@ plugins=(git autojump history-substring-search vi-mode python brew)
 
 # To use the autojump
 
-export PATH="/Users/wanghongkuan/anaconda/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Users/wanghongkuan/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/wanghongkuan/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -100,8 +100,8 @@ alias c='clear'
 alias -s html=mvim   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
 alias -s rb=mvim     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开
 # alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
-#alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-alias vim=nvim
+alias vim='/usr/local/Cellar/macvim/8.0-127/MacVim.app/Contents/MacOS/Vim'
+#alias vim=nvim
 #alias -s gz='tar -xzvf'
 #alias -s tgz='tar -xzvf'
 #alias -s zip='unzip'
