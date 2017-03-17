@@ -388,6 +388,10 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 let g:syntastic_quiet_messages = { "type": "style" }
 let g:syntastic_python_checkers = ['python']
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+let g:syntastic_c_checkers=['make','splint', 'gcc']
+let g:syntastic_c_include_dirs = [ '../include', 'include' ]
+let s:default_includes = [ '.', '..', 'include', 'includes',
+             \ '../include', '../includes' ]
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -500,8 +504,9 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-"let g:ycm_python_binary_path = '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3'
+"let g:ycm_python_binary_path = '/usr/local/bin/python3.6'
 let g:ycm_python_binary_path = '/usr/local/bin/python3'
+
 " let g:UltiSnipsListSnippets="<c-h>"
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 0

@@ -71,6 +71,8 @@ g:syntastic_always_populate_loc_list	/Users/wanghongkuan/Documents/dotfile/vim.v
 g:syntastic_auto_loc_list	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_auto_loc_list = 1$/;"	v	language:Vim
 g:syntastic_check_on_open	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_check_on_open = 1$/;"	v	language:Vim
 g:syntastic_check_on_wq	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_check_on_wq = 0$/;"	v	language:Vim
+g:syntastic_c_checkers	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_c_checkers=['make','splint', 'gcc']$/;"	v	language:Vim
+g:syntastic_c_include_dirs	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_c_include_dirs = [ '..\/include', 'include' ]$/;"	v	language:Vim
 g:syntastic_error_symbol	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_error_symbol = '✘'$/;"	v	language:Vim
 g:syntastic_python_checkers	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_python_checkers = ['python']$/;"	v	language:Vim
 g:syntastic_python_python_exec	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:syntastic_python_python_exec = '\/usr\/local\/bin\/python3'$/;"	v	language:Vim
@@ -101,5 +103,6 @@ mySyntastic	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup mySyntasti
 plugurl	/Users/wanghongkuan/Documents/dotfile/plugin.vim	/^        let plugurl = 'https:\/\/raw.githubusercontent.com\/junegunn\/vim-plug\/master\/plug.vim'$/;"	v	language:Vim
 refresh_airline	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup refresh_airline$/;"	a	language:Vim
 run_file	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^augroup run_file$/;"	a	language:Vim
+s:default_includes	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let s:default_includes = [ '.', '..', 'include', 'includes',$/;"	v	language:Vim
 VisualSelection	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^function! VisualSelection(direction, extra_filter) range$/;"	f	language:Vim
 [e	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nmap <silent> [e :<C-u>call <SID>LocationNext()<CR>$/;"	m	language:Vim
