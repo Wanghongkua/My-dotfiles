@@ -61,6 +61,7 @@ plugins=(git autojump history-substring-search vi-mode python brew)
 
 # To use the autojump
 
+
 export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/wanghongkuan/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -92,6 +93,8 @@ KEYTIMEOUT=1
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 alias ll='ls -l'
 alias la='ls -a'
 alias c='clear'
@@ -121,7 +124,7 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #export TERM=xterm-256color-italic
 export VIMRC=~/Documents/dotfile/vim.vimrc
 export ZSHRC=~/Documents/dotfile/zsh.zshrc
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+export EDITOR=/usr/local/Cellar/macvim/8.0-127/MacVim.app/Contents/MacOS/Vim
 export XDG_CONFIG_HOME=~/.config
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 function lazygit(){

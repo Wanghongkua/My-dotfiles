@@ -385,13 +385,15 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 
 " Syntastic Setting -------------------- {{{
 " 让Syntastic 纠错Python3.
+
+let g:syntastic_c_checkers=['make','splint', 'gcc']
+let g:syntastic_c_remove_include_errors = 1
+let g:syntastic_c_include_dirs = [ '../include', 'include', '../compile/ASST1']
+"let s:default_includes = [ '.', '..', 'include', 'includes',
+             "\ '../include', '../includes' ]
 let g:syntastic_quiet_messages = { "type": "style" }
 let g:syntastic_python_checkers = ['python']
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-let g:syntastic_c_checkers=['make','splint', 'gcc']
-let g:syntastic_c_include_dirs = [ '../include', 'include' ]
-let s:default_includes = [ '.', '..', 'include', 'includes',
-             \ '../include', '../includes' ]
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
