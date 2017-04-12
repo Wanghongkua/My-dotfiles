@@ -1,6 +1,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " testing aera
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("nvim")
+    tnoremap <Esc> <C-\><C-n>
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source ~/Documents/dotfile/plugin.vim
@@ -181,6 +184,8 @@ augroup JavaCorrect
 augroup END
 
 inoremap <C-e> <C-o>a
+inoremap <C-b> <ESC>i
+
 nnoremap H ^
 nnoremap L $
 set pastetoggle=<leader>z
@@ -242,10 +247,15 @@ augroup END
 " Run file inside vim ---------------------- {{{
 augroup run_file
     autocmd!
-    autocmd FileType python nnoremap <silent> <F5> :!python3 %<CR>
-    autocmd FileType python nnoremap <F4> :call ExecuteFile()<CR>
-    autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java %<CR>
-    autocmd FileType c nnoremap <silent> <F5> :w<CR>:!clear<cr>:!gcc % -o %< && ./%< <CR>
+    if has("nvim")
+        autocmd FileType python nnoremap <silent> <F5> :te python3 %<cr>
+        autocmd FileType java nnoremap <silent> <F5> :w<CR>:Java %<CR>
+        autocmd FileType c nnoremap <silent> <F5> :w<CR>:te gcc % -o %< && ./%< <CR>
+    else
+        autocmd FileType python nnoremap <silent> <F5> :!clear<CR>:! python3 %<cr>
+        autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java %<CR>
+        autocmd FileType c nnoremap <silent> <F5> :w<CR>:!clear<cr>:!gcc % -o %< && ./%< <CR>
+    endif
 augroup END
 " }}}
 "if exists('+fixeol')    
@@ -319,6 +329,15 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Cursor Shap
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Cursor Shap -------------------- {{{
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+" }}}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nerdcommenter 设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map ,cc <plug>NERDCommenterToggle
@@ -389,6 +408,7 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 let g:syntastic_c_checkers=['make','splint', 'gcc']
 let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_c_include_dirs = [ '../include', 'include', '../compile/ASST1']
+
 "let s:default_includes = [ '.', '..', 'include', 'includes',
              "\ '../include', '../includes' ]
 let g:syntastic_quiet_messages = { "type": "style" }
@@ -555,10 +575,15 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " Python-mode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pymode_python = 'python3'
+nnoremap <leader>p :PymodeLintAuto<CR>
 " Override run current python file key shortcut to Ctrl-Shift-e
 "let g:pymode_run_bind = "<F5>"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Jedi-Vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:jedi#completions_command = "<C-b>"
+let g:jedi#completions_enabled = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux Vim navigator
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -583,6 +608,7 @@ augroup Eclim_Syntastic
     autocmd!
     autocmd FileType python let g:EclimFileTypeValidate = 0
     autocmd FileType c let g:EclimFileTypeValidate = 0
+    autocmd FileType cpp let g:EclimFileTypeValidate = 0
 augroup END
 " autocmd FileType python let g:EclimFileTypeValidate = 0
 " Turn Off Preview window of YouCompleteMe

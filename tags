@@ -6,6 +6,7 @@ $NVIM_TUI_ENABLE_CURSOR_SHAPE	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^
 ,cc	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^map ,cc <plug>NERDCommenterToggle$/;"	m	language:Vim
 /	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^map  \/ <Plug>(easymotion-sn)$/;"	m	language:Vim
 /	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^omap \/ <Plug>(easymotion-tn)$/;"	m	language:Vim
+<C-b>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^inoremap <C-b> <ESC>i$/;"	m	language:Vim
 <C-e>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^inoremap <C-e> <C-o>a$/;"	m	language:Vim
 <C-e>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-e> 3<C-e>$/;"	m	language:Vim
 <C-H>	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <C-H> <C-W><C-H>$/;"	m	language:Vim
@@ -28,6 +29,7 @@ $NVIM_TUI_ENABLE_CURSOR_SHAPE	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^
 <Leader>j	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^map <Leader>j <Plug>(easymotion-j)$/;"	m	language:Vim
 <Leader>k	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^map <Leader>k <Plug>(easymotion-k)$/;"	m	language:Vim
 <leader>l	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>l :bnext<cr>$/;"	m	language:Vim
+<leader>p	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^nnoremap <leader>p :PymodeLintAuto<CR>$/;"	m	language:Vim
 <leader>s?	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>s? z=$/;"	m	language:Vim
 <leader>sa	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>sa zg$/;"	m	language:Vim
 <leader>sn	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^noremap <leader>sn ]s$/;"	m	language:Vim
@@ -61,6 +63,8 @@ g:easytags_events	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:easyta
 g:easytags_resolve_links	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:easytags_resolve_links = 1$/;"	v	language:Vim
 g:easytags_suppress_ctags_warning	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:easytags_suppress_ctags_warning = 1$/;"	v	language:Vim
 g:EclimCompletionMethod	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:EclimCompletionMethod = 'omnifunc'$/;"	v	language:Vim
+g:jedi#completions_command	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:jedi#completions_command = "<C-b>"$/;"	v	language:Vim
+g:jedi#completions_enabled	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:jedi#completions_enabled = 0$/;"	v	language:Vim
 g:nerdtree_tabs_open_on_console_startup	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:nerdtree_tabs_open_on_console_startup = 0$/;"	v	language:Vim
 g:Powerline_symbols	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:Powerline_symbols = 'fancy'$/;"	v	language:Vim
 g:pymode_python	/Users/wanghongkuan/Documents/dotfile/vim.vimrc	/^let g:pymode_python = 'python3'$/;"	v	language:Vim

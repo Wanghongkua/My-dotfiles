@@ -24,8 +24,9 @@ Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
-"Plug 'WolfgangMehner/c-support', {'for':'c'}
-"Plug 'neomake/neomake'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-scripts/LargeFile'
+"Plug 'davidhalter/jedi-vim', {'for':'python'}
 
 " Plug 'JavaRun'
 " Enable this when coding Python
