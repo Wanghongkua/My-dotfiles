@@ -238,8 +238,10 @@ augroup END
 augroup run_file
     autocmd!
     autocmd FileType python nnoremap <silent> <F5> :!clear;python3 %<CR>
-    autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java %<CR>
-    autocmd FileType c nnoremap <silent> <F5> :w<CR>:!clear<CR>:!gcc % -o %< && ./%< <CR>
+    autocmd FileType java nnoremap <silent> <F5> :w<cr>:!clear<CR>:Java %<CR>
+    "autocmd FileType c nnoremap <silent> <F5> :w<cr>:!clear<CR>:!gcc % -o %< && ./%< <CR>
+    autocmd FileType c nnoremap <silent> <F5> :w<cr>:!gcc % -o %< && ./%< <CR>
+    "autocmd FileType c nnoremap <silent> <F8> :!g++ % && ./a.out <CR>
     "autocmd FileType txt setlocal noeol binary fileformat=dos
 augroup END
 " }}}
@@ -368,7 +370,10 @@ let g:airline_detect_modified=1
 nnoremap <silent> <leader>t :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup = 0
 " }}}
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NeoMake 设置
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"autocmd! BufWritePost * Neomake
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic 设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -376,6 +381,8 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 " Syntastic Setting -------------------- {{{
 " 让Syntastic 纠错Python3.
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+let g:syntastic_c_include_dirs = [ '../include', 'include', '../compile/ASST1']
+let g:syntastic_c_remove_include_errors = 1
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
