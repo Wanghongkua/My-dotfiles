@@ -180,10 +180,10 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 augroup JavaCorrect
     autocmd!
-    autocmd FileType java nnoremap <C-f> :JavaCorrect<CR>
+    autocmd FileType java nnoremap <C-e> :JavaCorrect<CR>
 augroup END
 
-inoremap <C-e> <C-o>a
+inoremap <C-f> <C-o>a
 inoremap <C-b> <ESC>i
 
 nnoremap H ^
@@ -408,6 +408,8 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 let g:syntastic_c_checkers=['make','splint', 'gcc']
 let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_c_include_dirs = [ '../include', 'include', '../compile/ASST1']
+"let g:syntastic_c_check_header = 1
+let g:syntastic_c_no_include_search = 1
 
 "let s:default_includes = [ '.', '..', 'include', 'includes',
              "\ '../include', '../includes' ]
