@@ -52,7 +52,7 @@ highlight SpecialKey ctermbg=none ctermfg=8
 highlight NonText ctermbg=none ctermfg=8
 
 " make comments and HTML attributes italic
-highlight Comment cterm=italic
+"highlight Comment cterm=italic
 highlight htmlArg cterm=italic
 
 set number                          " Show line number
@@ -82,6 +82,8 @@ set tabstop=4 shiftwidth=4 expandtab smarttab   "Turn 'tab' into space
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType c setlocal foldmethod=syntax
+    autocmd FileType c,cpp,vim,xml,html,xhtml,perl,python normal zR
 augroup END
 
 set clipboard=unnamed
@@ -120,7 +122,8 @@ set tm=500
 
 " Section Mappings {{{
 
-let mapleader=','           "Map leader from '\' to ','
+"Map leader from '\' to ','
+let mapleader = ','
 "let g:mapleader=','
 
 " Change to upper case
@@ -184,7 +187,9 @@ augroup JavaCorrect
 augroup END
 
 inoremap <C-f> <C-o>a
-inoremap <C-b> <ESC>i
+inoremap <C-e> <C-o>A
+inoremap <C-b> <C-o>h
+inoremap <C-a> <ESC>I
 
 nnoremap H ^
 nnoremap L $
@@ -248,7 +253,7 @@ augroup END
 augroup run_file
     autocmd!
     if has("nvim")
-        autocmd FileType python nnoremap <silent> <F5> :te python3 %<cr>
+        autocmd FileType python nnoremap <silent> <F5> :split<cr><c-w><c-j>:te python3 %<cr>
         autocmd FileType java nnoremap <silent> <F5> :w<CR>:Java %<CR>
         autocmd FileType c nnoremap <silent> <F5> :w<CR>:te gcc % -o %< && ./%< <CR>
     else
@@ -532,11 +537,14 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:ycm_python_binary_path = '/usr/local/bin/python3'
 
 " let g:UltiSnipsListSnippets="<c-h>"
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.config/nvim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_complete_in_comments = 1 
 let g:ycm_seed_identifiers_with_syntax = 1 
 let g:ycm_collect_identifiers_from_comments_and_strings = 1 
+" Turn Off Preview window of YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion = 1
 "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -599,33 +607,30 @@ let g:jedi#completions_enabled = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Eclim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-
 " Cooperate with YouCompleteMe -------------------- {{{
-let g:ycm_always_populate_location_list = 1
-let g:EclimCompletionMethod = 'omnifunc'
-" Cooperate with Syntastic
-augroup Eclim_Syntastic
-    autocmd!
-    autocmd FileType python let g:EclimFileTypeValidate = 0
-    autocmd FileType c let g:EclimFileTypeValidate = 0
-    autocmd FileType cpp let g:EclimFileTypeValidate = 0
-augroup END
-" autocmd FileType python let g:EclimFileTypeValidate = 0
-" Turn Off Preview window of YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion = 1
+if (&ft == 'java')
+    let g:ycm_always_populate_location_list = 1
+    let g:EclimCompletionMethod = 'omnifunc'
+    " Cooperate with Syntastic
+    augroup Eclim_Syntastic
+        autocmd!
+        autocmd FileType python let g:EclimFileTypeValidate = 0
+        autocmd FileType c let g:EclimFileTypeValidate = 0
+        autocmd FileType cpp let g:EclimFileTypeValidate = 0
+    augroup END
+    " autocmd FileType python let g:EclimFileTypeValidate = 0
+endif
 "}}}
 "Tmux Cursor Shap 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 "if exists('$ITERM_PROFILE')
-    "if exists('$TMUX')
-        "let &t_SI = "\<Esc>[3 q"
-        "let &t_EI = "\<Esc>[0 q"
-    "else
-        "let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-        "let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-    "endif
+"if exists('$TMUX')
+"let &t_SI = "\<Esc>[3 q"
+"let &t_EI = "\<Esc>[0 q"
+"else
+"let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"endif
 "end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""

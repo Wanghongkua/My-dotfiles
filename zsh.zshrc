@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/wanghongkuan/.oh-my-zsh
+export ZSH=/Users/HankWang/.oh-my-zsh
 # bindkey "^[[A" history-beginning-search-backward
 # bindkey "^[[B" history-beginning-search-forward
 # bindkey '^[[A' history-substring-search-up
@@ -63,7 +63,7 @@ plugins=(git autojump history-substring-search vi-mode python brew)
 
 
 
-export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/wanghongkuan/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+export PATH="/Users/HankWang/anaconda/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/HankWang/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -104,8 +104,8 @@ alias c='clear'
 alias -s html=mvim   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
 alias -s rb=mvim     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开
 # alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
-#alias vim='/usr/local/Cellar/macvim/8.0-127/MacVim.app/Contents/MacOS/Vim'
-alias vim=nvim
+alias vim='/usr/local/Cellar/macvim/8.0-133/MacVim.app/Contents/MacOS/Vim'
+#alias vim=nvim
 alias ruby=/usr/local/bin/ruby
 alias gem=/usr/local/bin/gem
 #alias -s gz='tar -xzvf'
@@ -115,12 +115,14 @@ alias gem=/usr/local/bin/gem
 export ECLIPSE_HOME=~/Applications/Eclipse.app/Contents/Eclipse
 alias eclim='$ECLIPSE_HOME/eclimd'
 alias tmux="TERM=screen-256color-bce tmux"
+alias py35="source activate py35"
+alias dpy35="source deactivate py35"
 alias swipl='/Applications/SWI-Prolog.app/Contents/MacOS/swipl'
 alias o="open"
 alias unsw="ssh z5095588@login.cse.unsw.edu.au"
 #alias ssh="TERM=xterm-256color ssh"
 #alias unsw="TERM=xterm-256color ssh z5095588@login.cse.unsw.edu.au"
-alias dock="docker run -i -p 2041:80 -v /Users/wanghongkuan/Documents/COMP9041/ass2:/var/www comp2041/cgi"
+alias dock="docker run -i -p 2041:80 -v /Users/HankWang/Documents/COMP9041/ass2:/var/www comp2041/cgi"
 alias mux="tmuxinator"
 # Must be in the end
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
