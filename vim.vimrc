@@ -123,8 +123,8 @@ set tm=500
 " Section Mappings {{{
 
 "Map leader from '\' to ','
-let mapleader = ','
-"let g:mapleader=','
+"let mapleader = ','
+let g:mapleader=','
 
 " Change to upper case
 inoremap <c-l> <esc>viwUea
@@ -585,6 +585,8 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " Python-mode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pymode_python = 'python3'
+let g:pymode_rope_lookup_project = 0
+let g:pymode_rope = 0
 nnoremap <leader>p :PymodeLintAuto<CR>
 " Override run current python file key shortcut to Ctrl-Shift-e
 "let g:pymode_run_bind = "<F5>"

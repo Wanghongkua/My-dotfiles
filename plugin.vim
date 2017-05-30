@@ -20,7 +20,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'python-mode/python-mode'
 " Track the engine.
-Plug 'SirVer/ultisnips', {'for':[ 'python', 'c', 'cpp', 'java', 'perl', 'bash']}
+Plug 'SirVer/ultisnips', {'for':[ 'python', 'c', 'cpp', 'java', 'perl', 'bash', 'sql']}
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
