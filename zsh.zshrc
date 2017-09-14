@@ -108,7 +108,7 @@ alias c='clear'
 alias -s html=mvim   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
 alias -s rb=mvim     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开
 # alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
-#alias vim='/usr/local/Cellar/macvim/8.0-133/MacVim.app/Contents/MacOS/Vim'
+# alias vim='/usr/local/Cellar/macvim/8.0-136_1/MacVim.app/Contents/MacOS/Vim'
 alias vim=nvim
 alias ruby=/usr/local/bin/ruby
 alias gem=/usr/local/bin/gem
@@ -136,7 +136,7 @@ export ZSHRC=~/Documents/dotfile/zsh.zshrc
 export EDITOR=/usr/local/Cellar/macvim/8.0-127/MacVim.app/Contents/MacOS/Vim
 #export EDITOR=nvim
 export XDG_CONFIG_HOME=~/.config
-export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+# export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 function lazygit(){
     git add .
     git commit -am "$1"

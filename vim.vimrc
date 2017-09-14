@@ -186,6 +186,8 @@ augroup JavaCorrect
     autocmd FileType java nnoremap <C-e> :JavaCorrect<CR>
 augroup END
 
+inoremap <C-o> <ESC>o
+
 inoremap <C-f> <C-o>a
 inoremap <C-e> <C-o>A
 inoremap <C-b> <C-o>h
@@ -260,6 +262,7 @@ augroup run_file
         autocmd FileType python nnoremap <silent> <F5> :!clear<CR>:! python3 %<cr>
         autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java %<CR>
         autocmd FileType c nnoremap <silent> <F5> :w<CR>:!clear<cr>:!gcc % -o %< && ./%< <CR>
+        autocmd filetype cpp nnoremap <F5> :!clear<cr>:w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
     endif
 augroup END
 " }}}
@@ -347,7 +350,9 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map ,cc <plug>NERDCommenterToggle
 map ,c<space> <plug>NERDCommenterComment
-
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDTrimTrailingWhitespace = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline 设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -585,11 +590,17 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " Python-mode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pymode_python = 'python3'
-let g:pymode_rope_lookup_project = 0
+" let g:pymode_rope_lookup_project = 0
+let g:pymode_rope_goto_definition_cmd = 'e'
+let g:pymode_rope_goto_def_newwin = "new"
 let g:pymode_rope = 0
 nnoremap <leader>p :PymodeLintAuto<CR>
+
+" Override go-to.definition key shortcut to Ctrl-]
+let g:pymode_rope_goto_definition_bind = "<C-]>"
+
 " Override run current python file key shortcut to Ctrl-Shift-e
-"let g:pymode_run_bind = "<F5>"
+let g:pymode_run_bind = "<C-S-d>"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Jedi-Vim

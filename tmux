@@ -3,6 +3,7 @@ set -g default-terminal "screen-256color"
 
 ######################
 ######################
+set -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
 ######################
 set -g history-limit 20000
 

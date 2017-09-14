@@ -16,6 +16,7 @@ $NVIM_TUI_ENABLE_CURSOR_SHAPE	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let 
 <C-K>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <C-K> <C-W><C-K>$/;"	m	language:Vim
 <c-l>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^inoremap <c-l> <esc>viwUea$/;"	m	language:Vim
 <C-L>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <C-L> <C-W><C-L>$/;"	m	language:Vim
+<C-o>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^inoremap <C-o> <ESC>o$/;"	m	language:Vim
 <C-y>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <C-y> 3<C-y>$/;"	m	language:Vim
 <leader>"	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel$/;"	m	language:Vim
 <leader>'	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel$/;"	m	language:Vim
@@ -67,9 +68,18 @@ g:easytags_suppress_ctags_warning	/Users/HankWang/Documents/dotfile/vim.vimrc	/^
 g:EclimCompletionMethod	/Users/HankWang/Documents/dotfile/vim.vimrc	/^    let g:EclimCompletionMethod = 'omnifunc'$/;"	v	language:Vim
 g:jedi#completions_command	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:jedi#completions_command = "<C-b>"$/;"	v	language:Vim
 g:jedi#completions_enabled	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:jedi#completions_enabled = 0$/;"	v	language:Vim
+g:mapleader	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:mapleader=','$/;"	v	language:Vim
+g:NERDCompactSexyComs	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:NERDCompactSexyComs = 1$/;"	v	language:Vim
+g:NERDSpaceDelims	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:NERDSpaceDelims = 1$/;"	v	language:Vim
 g:nerdtree_tabs_open_on_console_startup	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:nerdtree_tabs_open_on_console_startup = 0$/;"	v	language:Vim
+g:NERDTrimTrailingWhitespace	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:NERDTrimTrailingWhitespace = 1$/;"	v	language:Vim
 g:Powerline_symbols	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:Powerline_symbols = 'fancy'$/;"	v	language:Vim
 g:pymode_python	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:pymode_python = 'python3'$/;"	v	language:Vim
+g:pymode_rope	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:pymode_rope = 0$/;"	v	language:Vim
+g:pymode_rope_goto_definition_bind	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:pymode_rope_goto_definition_bind = "<C-]>"$/;"	v	language:Vim
+g:pymode_rope_goto_definition_cmd	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:pymode_rope_goto_definition_cmd = 'e'$/;"	v	language:Vim
+g:pymode_rope_goto_def_newwin	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:pymode_rope_goto_def_newwin = "new"$/;"	v	language:Vim
+g:pymode_run_bind	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:pymode_run_bind = "<C-S-d>"$/;"	v	language:Vim
 g:python3_host_prog	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:python3_host_prog = '\/usr\/local\/bin\/python3'$/;"	v	language:Vim
 g:python_host_prog	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:python_host_prog = '\/usr\/local\/bin\/python2'$/;"	v	language:Vim
 g:solarized_italic	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:solarized_italic=1$/;"	v	language:Vim
@@ -105,7 +115,6 @@ JavaCorrect	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup JavaCorrect$/;
 jk	/Users/HankWang/Documents/dotfile/vim.vimrc	/^inoremap jk <esc>$/;"	m	language:Vim
 L	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap L \$$/;"	m	language:Vim
 LocationNext	/Users/HankWang/Documents/dotfile/vim.vimrc	/^function! <SID>LocationNext()                           $/;"	f	language:Vim
-mapleader	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let mapleader = ','$/;"	v	language:Vim
 mydelimitMate	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup mydelimitMate$/;"	a	language:Vim
 mySyntastic	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup mySyntastic$/;"	a	language:Vim
 refresh_airline	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup refresh_airline$/;"	a	language:Vim

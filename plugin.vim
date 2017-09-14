@@ -18,7 +18,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'Valloric/YouCompleteMe', {'do':'./install.py --clang-completer'}
 Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'python-mode/python-mode'
+Plug 'python-mode/python-mode', {'branch': 'develop', 'for': 'python'}
+Plug 'tweekmonster/impsort.vim', {'for': 'python'}
 " Track the engine.
 Plug 'SirVer/ultisnips', {'for':[ 'python', 'c', 'cpp', 'java', 'perl', 'bash', 'sql']}
 " Snippets are separated from the engine. Add this if you want them:
@@ -27,8 +28,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-scripts/LargeFile'
 "Plug 'davidhalter/jedi-vim', {'for':'python'}
-"Plug 'Konfekt/FastFold'
-"Plug 'tmhedberg/SimpylFold'
 
 " Plug 'JavaRun'
 " Enable this when coding Python
