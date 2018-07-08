@@ -20,7 +20,7 @@ set autoread            " Detect when a file is changed
 set history=1000  " change history to 1000
 set textwidth=120 " set bound to width
 
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '/Users/HankWang/anaconda/bin/python3'
 let g:python_host_prog = '/usr/local/bin/python2'
 
 " }}}
@@ -258,6 +258,7 @@ augroup run_file
         autocmd FileType python nnoremap <silent> <F5> :split<cr><c-w><c-j>:te python3 %<cr>
         autocmd FileType java nnoremap <silent> <F5> :w<CR>:Java %<CR>
         autocmd FileType c nnoremap <silent> <F5> :w<CR>:te gcc % -o %< && ./%< <CR>
+        autocmd filetype cpp nnoremap <F5> :!clear<cr>:w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
     else
         autocmd FileType python nnoremap <silent> <F5> :!clear<CR>:! python3 %<cr>
         autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java %<CR>
@@ -425,7 +426,7 @@ let g:syntastic_c_no_include_search = 1
              "\ '../include', '../includes' ]
 let g:syntastic_quiet_messages = { "type": "style" }
 let g:syntastic_python_checkers = ['python']
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+let g:syntastic_python_python_exec = '/usr/local/bin/python3.7'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -540,6 +541,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "let g:ycm_python_binary_path = '/usr/local/bin/python3.6'
 let g:ycm_python_binary_path = '/usr/local/bin/python3'
+let g:ycm_path_to_python_interpreter = '/Users/HankWang/anaconda/bin/python3'
 
 " let g:UltiSnipsListSnippets="<c-h>"
 "let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'

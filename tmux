@@ -84,8 +84,8 @@ bind-key -T copy-mode-vi C-\ select-pane -l
 bind -r C-h select-window -t :-
 bind -r C-l select-window -t :+
 
-bind -r C-h select-window -t :-
-bind -r C-l select-window -t :+
+# bind -r C-h select-window -t :-
+# bind -r C-l select-window -t :+
 
 # Resize pane shortcuts
 bind -r H resize-pane -L 10

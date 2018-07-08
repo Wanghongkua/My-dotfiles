@@ -73,7 +73,8 @@ export PATH="/Users/HankWang/anaconda3/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_AU.UTF-8
+export LC_ALL=en_AU.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -133,8 +134,8 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #export TERM=xterm-256color-italic
 export VIMRC=~/Documents/dotfile/vim.vimrc
 export ZSHRC=~/Documents/dotfile/zsh.zshrc
-export EDITOR=/usr/local/Cellar/macvim/8.0-127/MacVim.app/Contents/MacOS/Vim
-#export EDITOR=nvim
+# export EDITOR=/usr/local/Cellar/macvim/8.0-127/MacVim.app/Contents/MacOS/Vim
+export EDITOR=nvim
 export XDG_CONFIG_HOME=~/.config
 # export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 function lazygit(){

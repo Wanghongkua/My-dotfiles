@@ -60,3 +60,4 @@ tm_session_name="#[fg=$tm_color_feature,bold]$tm_icon #S"
 
 set -g status-left $tm_session_name' '
 set -g status-right $tm_tunes' '$tm_date' '$tm_host
+

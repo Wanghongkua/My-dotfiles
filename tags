@@ -80,7 +80,7 @@ g:pymode_rope_goto_definition_bind	/Users/HankWang/Documents/dotfile/vim.vimrc	/
 g:pymode_rope_goto_definition_cmd	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:pymode_rope_goto_definition_cmd = 'e'$/;"	v	language:Vim
 g:pymode_rope_goto_def_newwin	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:pymode_rope_goto_def_newwin = "new"$/;"	v	language:Vim
 g:pymode_run_bind	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:pymode_run_bind = "<C-S-d>"$/;"	v	language:Vim
-g:python3_host_prog	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:python3_host_prog = '\/usr\/local\/bin\/python3'$/;"	v	language:Vim
+g:python3_host_prog	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:python3_host_prog = '\/Users\/HankWang\/anaconda\/bin\/python3'$/;"	v	language:Vim
 g:python_host_prog	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:python_host_prog = '\/usr\/local\/bin\/python2'$/;"	v	language:Vim
 g:solarized_italic	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:solarized_italic=1$/;"	v	language:Vim
 g:syntastic_always_populate_loc_list	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_always_populate_loc_list = 1$/;"	v	language:Vim
@@ -93,7 +93,7 @@ g:syntastic_c_no_include_search	/Users/HankWang/Documents/dotfile/vim.vimrc	/^le
 g:syntastic_c_remove_include_errors	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_c_remove_include_errors = 1$/;"	v	language:Vim
 g:syntastic_error_symbol	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_error_symbol = '✘'$/;"	v	language:Vim
 g:syntastic_python_checkers	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_python_checkers = ['python']$/;"	v	language:Vim
-g:syntastic_python_python_exec	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_python_python_exec = '\/usr\/local\/bin\/python3'$/;"	v	language:Vim
+g:syntastic_python_python_exec	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_python_python_exec = '\/usr\/local\/bin\/python3.7'$/;"	v	language:Vim
 g:syntastic_quiet_messages	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_quiet_messages = { "type": "style" }$/;"	v	language:Vim
 g:syntastic_warning_symbol	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_warning_symbol = "▲"$/;"	v	language:Vim
 g:UltiSnipsExpandTrigger	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsExpandTrigger="<c-j>"$/;"	v	language:Vim
@@ -106,6 +106,7 @@ g:ycm_autoclose_preview_window_after_completion	/Users/HankWang/Documents/dotfil
 g:ycm_collect_identifiers_from_comments_and_strings	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_collect_identifiers_from_comments_and_strings = 1 $/;"	v	language:Vim
 g:ycm_complete_in_comments	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_complete_in_comments = 1 $/;"	v	language:Vim
 g:ycm_global_ycm_extra_conf	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_global_ycm_extra_conf = '~\/.config\/nvim\/plugged\/YouCompleteMe\/third_party\/ycmd\/cpp\/ycm\/.ycm_extra_conf.py'$/;"	v	language:Vim
+g:ycm_path_to_python_interpreter	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_path_to_python_interpreter = '\/Users\/HankWang\/anaconda\/bin\/python3'$/;"	v	language:Vim
 g:ycm_python_binary_path	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_python_binary_path = '\/usr\/local\/bin\/python3'$/;"	v	language:Vim
 g:ycm_seed_identifiers_with_syntax	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_seed_identifiers_with_syntax = 1 $/;"	v	language:Vim
 g:ycm_show_diagnostics_ui	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_show_diagnostics_ui = 0$/;"	v	language:Vim
