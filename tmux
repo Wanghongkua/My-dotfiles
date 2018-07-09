@@ -1,6 +1,9 @@
 
 set -g default-terminal "screen-256color"
 
+# force tmux to use utf-8
+setw -gq utf8 on
+
 ######################
 ######################
 set -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
