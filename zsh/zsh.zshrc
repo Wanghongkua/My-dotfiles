@@ -10,8 +10,10 @@ KEYTIMEOUT=1
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="agnoster"
-ZSH_THEME="miloshadzic"
+# ZSH_THEME="sunrise"
+# ZSH_THEME="miloshadzic"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME=""
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -55,7 +57,7 @@ ZSH_THEME="miloshadzic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump history-substring-search vi-mode python brew)
+plugins=(git autojump history-substring-search vi-mode python brew tmux)
 
 # User configuration
 
@@ -73,8 +75,8 @@ export PATH="/Users/HankWang/anaconda3/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_AU.UTF-8
-# export LC_ALL=en_AU.UTF-8
+export LANG=en_AU.UTF-8
+export LC_ALL=en_AU.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -133,7 +135,8 @@ alias mux="tmuxinator"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #export TERM=xterm-256color-italic
 export VIMRC=~/Documents/dotfile/vim.vimrc
-export ZSHRC=~/Documents/dotfile/zsh.zshrc
+export ZSHRC=~/Documents/dotfile/zsh/zsh.zshrc
+export DOTFILE=~/Documents/dotfile
 # export EDITOR=/usr/local/Cellar/macvim/8.0-127/MacVim.app/Contents/MacOS/Vim
 export EDITOR=nvim
 export XDG_CONFIG_HOME=~/.config
@@ -170,3 +173,7 @@ function kd(){
         fi
     done <<< "$sessions"
 }
+
+# Personal zsh prompt
+# source ~/Documents/dotfile/zsh/prompt.zsh
+source $DOTFILE/zsh/prompt.zsh
