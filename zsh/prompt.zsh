@@ -9,7 +9,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 if [[ -z "$SSH_CLIENT" ]]; then
     prompt_host=""
 else
-    prompt_host="%{$reset_color%}%{$fg[yellow]%}$(hostname -s)%{$reset_color%}%{$fg[red]%}|"
+    prompt_host="%{$reset_color%}%{$fg[yellow]%}@$(hostname -s)%{$reset_color%}%{$fg[red]%}|"
 fi
 
 PROMPT='${prompt_host}%{$fg[cyan]%}%1~%{$reset_color%}%{$fg[red]%}|%{$reset_color%}$(git_prompt_info)%{$fg[cyan]%}⇒%{$reset_color%} '
