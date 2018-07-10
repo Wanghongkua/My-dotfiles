@@ -245,9 +245,9 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Html setting ---------------------- {{{
 augroup filetype_html
     autocmd!
-    autocmd BufWritePre,BufRead *.html :normal gg=G
+    " autocmd BufWritePre,BufRead *.html :normal gg=G
     autocmd BufNewFile,BufRead *.html setlocal nowrap
-    autocmd FileType html nnoremap <buffer> <leader>f Vatzf
+    " autocmd FileType html nnoremap <buffer> <leader>f Vatzf
 augroup END
 " }}}
 
@@ -410,6 +410,17 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Emmet 设置
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Emmet setting ------------------------- {{{
+let g:user_emmet_leader_key='<C-Y>'
+" autocmd FileType html,css imap <buffer> <c-k> <ESC>a<c-z>,
+autocmd FileType html,css imap <C-K> <esc>a<plug>(emmet-expand-abbr)
+autocmd FileType html,css imap <C-\> <plug>(emmet-move-next)
+
+" }}}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic 设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -427,6 +438,9 @@ let g:syntastic_c_no_include_search = 1
 let g:syntastic_quiet_messages = { "type": "style" }
 let g:syntastic_python_checkers = ['python']
 let g:syntastic_python_python_exec = '/usr/local/bin/python3.7'
+" Syntastic HTML5 Support
+let g:syntastic_html_tidy_exec = 'tidy5'
+
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -534,7 +548,9 @@ let g:EasyMotion_use_smartsign_jp = 1 " JP layout
 "let g:UltiSnipsUsePythonVersion = 3
 
 " Solution 1. -------------------- {{{
-let g:UltiSnipsSnippetsDir        = $HOME.'/.vim/UltiSnips/'
+" let g:UltiSnipsSnippetsDir        = $HOME.'/.vim/UltiSnips/'
+" let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+let g:UltiSnipsSnippetsDir        = "~/.config/nvim/plugged/ultisnips"
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -596,7 +612,7 @@ let g:pymode_python = 'python3'
 let g:pymode_rope_goto_definition_cmd = 'e'
 let g:pymode_rope_goto_def_newwin = "new"
 let g:pymode_rope = 0
-nnoremap <leader>p :PymodeLintAuto<CR>
+autocmd FileType python nnoremap <leader>p :PymodeLintAuto<CR>
 
 " Override go-to.definition key shortcut to Ctrl-]
 let g:pymode_rope_goto_definition_bind = "<C-]>"

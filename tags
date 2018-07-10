@@ -32,7 +32,6 @@ $NVIM_TUI_ENABLE_CURSOR_SHAPE	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let 
 <Leader>j	/Users/HankWang/Documents/dotfile/vim.vimrc	/^map <Leader>j <Plug>(easymotion-j)$/;"	m	language:Vim
 <Leader>k	/Users/HankWang/Documents/dotfile/vim.vimrc	/^map <Leader>k <Plug>(easymotion-k)$/;"	m	language:Vim
 <leader>l	/Users/HankWang/Documents/dotfile/vim.vimrc	/^noremap <leader>l :bnext<cr>$/;"	m	language:Vim
-<leader>p	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>p :PymodeLintAuto<CR>$/;"	m	language:Vim
 <leader>s?	/Users/HankWang/Documents/dotfile/vim.vimrc	/^noremap <leader>s? z=$/;"	m	language:Vim
 <leader>sa	/Users/HankWang/Documents/dotfile/vim.vimrc	/^noremap <leader>sa zg$/;"	m	language:Vim
 <leader>sn	/Users/HankWang/Documents/dotfile/vim.vimrc	/^noremap <leader>sn ]s$/;"	m	language:Vim
@@ -92,6 +91,7 @@ g:syntastic_c_include_dirs	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:s
 g:syntastic_c_no_include_search	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_c_no_include_search = 1$/;"	v	language:Vim
 g:syntastic_c_remove_include_errors	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_c_remove_include_errors = 1$/;"	v	language:Vim
 g:syntastic_error_symbol	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_error_symbol = '✘'$/;"	v	language:Vim
+g:syntastic_html_tidy_exec	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_html_tidy_exec = 'tidy5'$/;"	v	language:Vim
 g:syntastic_python_checkers	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_python_checkers = ['python']$/;"	v	language:Vim
 g:syntastic_python_python_exec	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_python_python_exec = '\/usr\/local\/bin\/python3.7'$/;"	v	language:Vim
 g:syntastic_quiet_messages	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_quiet_messages = { "type": "style" }$/;"	v	language:Vim
@@ -100,7 +100,8 @@ g:UltiSnipsExpandTrigger	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:Ult
 g:UltiSnipsJumpBackwardTrigger	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsJumpBackwardTrigger="<c-k>"$/;"	v	language:Vim
 g:UltiSnipsJumpForwardTrigger	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsJumpForwardTrigger="<c-j>"$/;"	v	language:Vim
 g:UltiSnipsSnippetDirectories	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsSnippetDirectories=["UltiSnips"]$/;"	v	language:Vim
-g:UltiSnipsSnippetsDir	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsSnippetsDir        = $HOME.'\/.vim\/UltiSnips\/'$/;"	v	language:Vim
+g:UltiSnipsSnippetsDir	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsSnippetsDir        = "~\/.config\/nvim\/plugged\/ultisnips"$/;"	v	language:Vim
+g:user_emmet_leader_key	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:user_emmet_leader_key='<C-Y>'$/;"	v	language:Vim
 g:ycm_always_populate_location_list	/Users/HankWang/Documents/dotfile/vim.vimrc	/^    let g:ycm_always_populate_location_list = 1$/;"	v	language:Vim
 g:ycm_autoclose_preview_window_after_completion	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_autoclose_preview_window_after_completion = 1$/;"	v	language:Vim
 g:ycm_collect_identifiers_from_comments_and_strings	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_collect_identifiers_from_comments_and_strings = 1 $/;"	v	language:Vim

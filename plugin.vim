@@ -5,6 +5,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'benmills/vimux'
 Plug 'tpope/vim-fugitive' " the ultimate git helper
 Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim', {'for': ['html', 'css']}
 " Plug 'tpope/vim-commentary' " comment/uncomment with gcc or gc in visual mode
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
@@ -21,7 +22,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'python-mode/python-mode', {'branch': 'develop', 'for': 'python'}
 Plug 'tweekmonster/impsort.vim', {'for': 'python'}
 " Track the engine.
-Plug 'SirVer/ultisnips', {'for':[ 'python', 'c', 'cpp', 'java', 'perl', 'bash', 'sql']}
+Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips', {'for':[ 'python', 'c', 'cpp', 'java', 'perl', 'bash', 'sql', 'html', 'css']}
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
