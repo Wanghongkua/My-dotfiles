@@ -30,6 +30,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-scripts/LargeFile'
 "Plug 'davidhalter/jedi-vim', {'for':'python'}
+Plug 'StanAngeloff/php.vim', {'for':'php'}
 
 " Plug 'JavaRun'
 " Enable this when coding Python

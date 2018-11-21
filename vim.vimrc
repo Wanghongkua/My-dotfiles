@@ -23,6 +23,9 @@ set textwidth=120 " set bound to width
 let g:python3_host_prog = '/Users/HankWang/anaconda/bin/python3'
 let g:python_host_prog = '/usr/local/bin/python2'
 
+" Be able to open Chinese TXT file
+" set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
+
 " }}}
 
 " Section User Interface {{{
@@ -255,7 +258,8 @@ augroup END
 augroup run_file
     autocmd!
     if has("nvim")
-        autocmd FileType python nnoremap <silent> <F5> :split<cr><c-w><c-j>:te python3 %<cr>
+        " autocmd FileType python nnoremap <silent> <F5> :split<cr><c-w><c-j>:te python3 %<cr>
+        autocmd FileType python nnoremap <silent> <F5> :PymodeRun<CR>
         autocmd FileType java nnoremap <silent> <F5> :w<CR>:Java %<CR>
         autocmd FileType c nnoremap <silent> <F5> :w<CR>:te gcc % -o %< && ./%< <CR>
         autocmd filetype cpp nnoremap <F5> :!clear<cr>:w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
