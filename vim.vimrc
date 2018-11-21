@@ -20,8 +20,8 @@ set autoread            " Detect when a file is changed
 set history=1000  " change history to 1000
 set textwidth=120 " set bound to width
 
-let g:python3_host_prog = '/Users/HankWang/anaconda/bin/python3'
-let g:python_host_prog = '/usr/local/bin/python2'
+let g:python3_host_prog = '/Users/HankWang/anaconda/envs/py36/bin/python3.6'
+let g:python_host_prog = '/Users/HankWang/anaconda/envs/py27/bin/python2.7'
 
 " Be able to open Chinese TXT file
 " set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
@@ -560,8 +560,9 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "let g:ycm_python_binary_path = '/usr/local/bin/python3.6'
-let g:ycm_python_binary_path = '/usr/local/bin/python3'
-let g:ycm_path_to_python_interpreter = '/Users/HankWang/anaconda/bin/python3'
+" Has to be python2
+let g:ycm_python_binary_path = '/Users/HankWang/anaconda/bin/python2'
+let g:ycm_path_to_python_interpreter = '/Users/HankWang/anaconda/envs/py27/bin/python2.7'
 
 " let g:UltiSnipsListSnippets="<c-h>"
 "let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
