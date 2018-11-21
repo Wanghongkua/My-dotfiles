@@ -100,7 +100,7 @@ g:UltiSnipsExpandTrigger	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:Ult
 g:UltiSnipsJumpBackwardTrigger	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsJumpBackwardTrigger="<c-k>"$/;"	v	language:Vim
 g:UltiSnipsJumpForwardTrigger	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsJumpForwardTrigger="<c-j>"$/;"	v	language:Vim
 g:UltiSnipsSnippetDirectories	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsSnippetDirectories=["UltiSnips"]$/;"	v	language:Vim
-g:UltiSnipsSnippetsDir	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsSnippetsDir        = "~\/.config\/nvim\/plugged\/ultisnips"$/;"	v	language:Vim
+g:UltiSnipsSnippetsDir	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsSnippetsDir        = $HOME.'\/.vim\/UltiSnips\/'$/;"	v	language:Vim
 g:user_emmet_leader_key	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:user_emmet_leader_key='<C-Y>'$/;"	v	language:Vim
 g:ycm_always_populate_location_list	/Users/HankWang/Documents/dotfile/vim.vimrc	/^    let g:ycm_always_populate_location_list = 1$/;"	v	language:Vim
 g:ycm_autoclose_preview_window_after_completion	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_autoclose_preview_window_after_completion = 1$/;"	v	language:Vim

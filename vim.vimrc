@@ -552,9 +552,9 @@ let g:EasyMotion_use_smartsign_jp = 1 " JP layout
 "let g:UltiSnipsUsePythonVersion = 3
 
 " Solution 1. -------------------- {{{
-" let g:UltiSnipsSnippetsDir        = $HOME.'/.vim/UltiSnips/'
+let g:UltiSnipsSnippetsDir        = $HOME.'/.vim/UltiSnips/'
 " let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
-let g:UltiSnipsSnippetsDir        = "~/.config/nvim/plugged/ultisnips"
+" let g:UltiSnipsSnippetsDir        = "~/.config/nvim/plugged/ultisnips"
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
