@@ -99,24 +99,23 @@ g:syntastic_warning_symbol	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:s
 g:UltiSnipsExpandTrigger	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsExpandTrigger="<c-j>"$/;"	v	language:Vim
 g:UltiSnipsJumpBackwardTrigger	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsJumpBackwardTrigger="<c-k>"$/;"	v	language:Vim
 g:UltiSnipsJumpForwardTrigger	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsJumpForwardTrigger="<c-j>"$/;"	v	language:Vim
-g:UltiSnipsSnippetDirectories	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsSnippetDirectories=["UltiSnips"]$/;"	v	language:Vim
-g:UltiSnipsSnippetsDir	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsSnippetsDir        = $HOME.'\/.vim\/UltiSnips\/'$/;"	v	language:Vim
-g:user_emmet_leader_key	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:user_emmet_leader_key='<C-Y>'$/;"	v	language:Vim
+g:UltiSnipsSnippetDirectories	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsSnippetDirectories=['~\/.config\/nvim\/UltiSnips', "UltiSnips"]$/;"	v	language:Vim
+g:user_emmet_mode	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:user_emmet_mode='a'$/;"	v	language:Vim
 g:ycm_always_populate_location_list	/Users/HankWang/Documents/dotfile/vim.vimrc	/^    let g:ycm_always_populate_location_list = 1$/;"	v	language:Vim
 g:ycm_autoclose_preview_window_after_completion	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_autoclose_preview_window_after_completion = 1$/;"	v	language:Vim
-g:ycm_collect_identifiers_from_comments_and_strings	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_collect_identifiers_from_comments_and_strings = 1 $/;"	v	language:Vim
-g:ycm_complete_in_comments	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_complete_in_comments = 1 $/;"	v	language:Vim
+g:ycm_collect_identifiers_from_comments_and_strings	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_collect_identifiers_from_comments_and_strings = 1$/;"	v	language:Vim
+g:ycm_complete_in_comments	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_complete_in_comments = 1$/;"	v	language:Vim
 g:ycm_global_ycm_extra_conf	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_global_ycm_extra_conf = '~\/.config\/nvim\/plugged\/YouCompleteMe\/third_party\/ycmd\/cpp\/ycm\/.ycm_extra_conf.py'$/;"	v	language:Vim
 g:ycm_path_to_python_interpreter	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_path_to_python_interpreter = '\/Users\/HankWang\/anaconda\/envs\/py27\/bin\/python2.7'$/;"	v	language:Vim
 g:ycm_python_binary_path	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_python_binary_path = '\/Users\/HankWang\/anaconda\/bin\/python2'$/;"	v	language:Vim
-g:ycm_seed_identifiers_with_syntax	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_seed_identifiers_with_syntax = 1 $/;"	v	language:Vim
+g:ycm_seed_identifiers_with_syntax	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_seed_identifiers_with_syntax = 1$/;"	v	language:Vim
 g:ycm_show_diagnostics_ui	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_show_diagnostics_ui = 0$/;"	v	language:Vim
 ga	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nmap ga <Plug>(EasyAlign)$/;"	m	language:Vim
 H	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap H ^$/;"	m	language:Vim
 JavaCorrect	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup JavaCorrect$/;"	a	language:Vim
 jk	/Users/HankWang/Documents/dotfile/vim.vimrc	/^inoremap jk <esc>$/;"	m	language:Vim
 L	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap L \$$/;"	m	language:Vim
-LocationNext	/Users/HankWang/Documents/dotfile/vim.vimrc	/^function! <SID>LocationNext()                           $/;"	f	language:Vim
+LocationNext	/Users/HankWang/Documents/dotfile/vim.vimrc	/^function! <SID>LocationNext()$/;"	f	language:Vim
 mydelimitMate	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup mydelimitMate$/;"	a	language:Vim
 mySyntastic	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup mySyntastic$/;"	a	language:Vim
 refresh_airline	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup refresh_airline$/;"	a	language:Vim

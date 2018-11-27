@@ -46,8 +46,8 @@ syntax enable
 syntax on
 
 " colorscheme
-set background=dark
-"colorscheme solarized
+set background=light
+" colorscheme solarized
 colorscheme molokai
 
 " make the highlighting of tabs and other non-text less annoying
@@ -103,7 +103,7 @@ set magic                           " Set magic on, for regex
 set showmatch                       " Show match braces
 
 set mouse=a
-set cmdheight=1                     "Height of the command bar 
+set cmdheight=1                     "Height of the command bar
 set lazyredraw
 set cursorline                      "Highlight current line
 set ruler                           "Show cursor position
@@ -189,12 +189,12 @@ augroup JavaCorrect
     autocmd FileType java nnoremap <C-e> :JavaCorrect<CR>
 augroup END
 
-inoremap <C-o> <ESC>o
 
 inoremap <C-f> <C-o>a
 inoremap <C-e> <C-o>A
 inoremap <C-b> <C-o>h
 inoremap <C-a> <ESC>I
+inoremap <C-o> <ESC>o
 
 nnoremap H ^
 nnoremap L $
@@ -271,8 +271,8 @@ augroup run_file
     endif
 augroup END
 " }}}
-"if exists('+fixeol')    
-    "set nofixeol
+"if exists('+fixeol')
+"set nofixeol
 "endif
 
 " Set filetype based on suffixes ---------------------- {{{
@@ -284,9 +284,9 @@ augroup END
 
 " Delete trailing white space -------------------- {{{
 func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
 endfunc
 augroup delete_empty_space
     autocmd!
@@ -414,13 +414,23 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Autoformat 设置
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Autoformat setting ------------------------- {{{
+
+autocmd FileType html,php nnoremap <leader>p :Autoformat<CR>
+
+" }}}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Emmet 设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Emmet setting ------------------------- {{{
-let g:user_emmet_leader_key='<C-Y>'
+let g:user_emmet_mode='a'
+autocmd FileType html,css,php let g:user_emmet_leader_key='<C-Y>'
 " autocmd FileType html,css imap <buffer> <c-k> <ESC>a<c-z>,
-autocmd FileType html,css imap <C-K> <esc>a<plug>(emmet-expand-abbr)
-autocmd FileType html,css imap <C-\> <plug>(emmet-move-next)
+autocmd FileType html,css,php imap <C-K> <esc>a<plug>(emmet-expand-abbr)
+autocmd FileType html,css,php imap <C-\> <plug>(emmet-move-next)
 
 " }}}
 
@@ -438,7 +448,7 @@ let g:syntastic_c_include_dirs = [ '../include', 'include', '../compile/ASST1']
 let g:syntastic_c_no_include_search = 1
 
 "let s:default_includes = [ '.', '..', 'include', 'includes',
-             "\ '../include', '../includes' ]
+"\ '../include', '../includes' ]
 let g:syntastic_quiet_messages = { "type": "style" }
 let g:syntastic_python_checkers = ['python']
 let g:syntastic_python_python_exec = '/usr/local/bin/python3.7'
@@ -552,10 +562,10 @@ let g:EasyMotion_use_smartsign_jp = 1 " JP layout
 "let g:UltiSnipsUsePythonVersion = 3
 
 " Solution 1. -------------------- {{{
-let g:UltiSnipsSnippetsDir        = $HOME.'/.vim/UltiSnips/'
+" let g:UltiSnipsSnippetsDir        = $HOME.'/.vim/UltiSnips/'
 " let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 " let g:UltiSnipsSnippetsDir        = "~/.config/nvim/plugged/ultisnips"
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+let g:UltiSnipsSnippetDirectories=['~/.config/nvim/UltiSnips', "UltiSnips"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
@@ -568,9 +578,9 @@ let g:ycm_path_to_python_interpreter = '/Users/HankWang/anaconda/envs/py27/bin/p
 "let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_global_ycm_extra_conf = '~/.config/nvim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 0
-let g:ycm_complete_in_comments = 1 
-let g:ycm_seed_identifiers_with_syntax = 1 
-let g:ycm_collect_identifiers_from_comments_and_strings = 1 
+let g:ycm_complete_in_comments = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " Turn Off Preview window of YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
 "}}}
@@ -657,7 +667,7 @@ if (&ft == 'java')
     " autocmd FileType python let g:EclimFileTypeValidate = 0
 endif
 "}}}
-"Tmux Cursor Shap 
+"Tmux Cursor Shap
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 "if exists('$ITERM_PROFILE')
 "if exists('$TMUX')
@@ -722,15 +732,15 @@ endfunction
 " You need to manually map the filetypes you use most commonly to the
 " correct shell command.
 "function! ExecuteFile()
-  "let filetype_to_command = {
-  "\   'javascript': 'node',
-  "\   'coffee': 'coffee',
-  "\   'python': 'python',
-  "\   'html': 'open',
-  "\   'sh': 'sh'
-  "\ }
-  "let cmd = get(filetype_to_command, &filetype, &filetype)
-  "call RunShellCommand(cmd." %s")
+"let filetype_to_command = {
+"\   'javascript': 'node',
+"\   'coffee': 'coffee',
+"\   'python': 'python',
+"\   'html': 'open',
+"\   'sh': 'sh'
+"\ }
+"let cmd = get(filetype_to_command, &filetype, &filetype)
+"call RunShellCommand(cmd." %s")
 "endfunction
 
 "" Enter any shell command and have the output appear in a new buffer
@@ -741,41 +751,43 @@ endfunction
 "" Thanks to: http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
 "command! -complete=shellcmd -nargs=+ Shell call RunShellCommand(<q-args>)
 "function! RunShellCommand(cmdline)
-  "echo a:cmdline
-  "let expanded_cmdline = a:cmdline
-  "for part in split(a:cmdline, ' ')
-     "if part[0] =~ '\v[%#<]'
-        "let expanded_part = fnameescape(expand(part))
-        "let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
-     "endif
-  "endfor
-  "botright new
-  "setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
-  "call setline(1, 'You entered:    ' . a:cmdline)
-  "call setline(2, 'Expanded Form:  ' .expanded_cmdline)
-  "call setline(3,substitute(getline(2),'.','=','g'))
-  "execute '$read !'. expanded_cmdline
-  "setlocal nomodifiable
-  "1
+"echo a:cmdline
+"let expanded_cmdline = a:cmdline
+"for part in split(a:cmdline, ' ')
+"if part[0] =~ '\v[%#<]'
+"let expanded_part = fnameescape(expand(part))
+"let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+"endif
+"endfor
+"botright new
+"setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+"call setline(1, 'You entered:    ' . a:cmdline)
+"call setline(2, 'Expanded Form:  ' .expanded_cmdline)
+"call setline(3,substitute(getline(2),'.','=','g'))
+"execute '$read !'. expanded_cmdline
+"setlocal nomodifiable
+"1
 "endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Looping arround error locations.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! <SID>LocationNext()                           
-    try                                                   
-        lnext                                               
-    catch /^Vim\%((\a\+)\)\=:E553/                        
-        lfirst                                              
-    catch /^Vim\%((\a\+)\)\=:E42/                        
+function! <SID>LocationNext()
+    try
+        lnext
+    catch /^Vim\%((\a\+)\)\=:E553/
+        lfirst
+    catch /^Vim\%((\a\+)\)\=:E42/
         echom "No Error."
-    catch /^Vim\%((\a\+)\)\=:E776/                        
+    catch /^Vim\%((\a\+)\)\=:E776/
         echom "No Error."
-    endtry                                                
-endfunction                                             
+    endtry
+endfunction
 nmap <silent> [e :<C-u>call <SID>LocationNext()<CR>
 "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup refresh_airline
     autocmd! bufwritepost .vimrc source $VIMRC | AirlineRefresh
 augroup END
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" au BufWrite * :Autoformat
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
