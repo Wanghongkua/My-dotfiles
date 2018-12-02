@@ -70,6 +70,10 @@ export PATH="/Users/HankWang/anaconda/bin:/Library/Frameworks/Python.framework/V
 # added by Anaconda3 4.3.1 installer
 export PATH="/Users/HankWang/anaconda3/bin:$PATH"
 
+# added mysql to path
+export PATH="/usr/local/mysql/bin:$PATH"
+
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

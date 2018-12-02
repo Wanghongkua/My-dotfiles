@@ -297,51 +297,6 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle 设置
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set rtp+=~/.vim/bundle/Vundle.vim
-"" set rtp+=~/.vim/bundle/vundle/
-"call vundle#begin()
-
-"" let vundle manage vundle
-"Plugin 'VundleVim/Vundle.vim'
-"" Plugin 'gmarik/vundle'
-
-"" All the Plugins -------------------- {{{
-"Plugin 'kien/ctrlp.vim' " fuzzy find files
-"Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
-"Plugin 'jistr/vim-nerdtree-tabs'
-"Plugin 'benmills/vimux'
-"Plugin 'tpope/vim-fugitive' " the ultimate git helper
-"Plugin 'surround.vim'
-"" Plugin 'tpope/vim-commentary' " comment/uncomment with gcc or gc in visual mode
-"Plugin 'scrooloose/nerdcommenter'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'scrooloose/syntastic'
-"Plugin 'xolox/vim-misc'
-"Plugin 'xolox/vim-easytags'
-"Plugin 'majutsushi/tagbar'
-"Plugin 'Raimondi/delimitMate'
-"Plugin 'easymotion/vim-easymotion'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'Yggdroot/indentLine'
-"Plugin 'christoomey/vim-tmux-navigator'
-"" Track the engine.
-"Plugin 'SirVer/ultisnips'
-"" Snippets are separated from the engine. Add this if you want them:
-"Plugin 'honza/vim-snippets'
-"Plugin 'junegunn/vim-easy-align'
-
-" Plugin 'JavaRun'
-" Enable this when coding Python
-" Plugin 'Python-mode-klen'
-" }}}
-"call vundle#end()
-"filetype plugin indent on
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Cursor Shap
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Cursor Shap -------------------- {{{
@@ -570,6 +525,7 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "let g:ycm_python_binary_path = '/usr/local/bin/python3.6'
+
 " Has to be python2
 let g:ycm_python_binary_path = '/Users/HankWang/anaconda/bin/python2'
 let g:ycm_path_to_python_interpreter = '/Users/HankWang/anaconda/envs/py27/bin/python2.7'

@@ -30,7 +30,6 @@ Plug 'python-mode/python-mode', {'branch': 'develop', 'for': 'python'}
 Plug 'tweekmonster/impsort.vim', {'for': 'python'}
 " Track the engine.
 Plug 'SirVer/ultisnips'
-" Plug 'SirVer/ultisnips', {'for':[ 'python', 'c', 'cpp', 'java', 'perl', 'bash', 'sql', 'html', 'css']}
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
