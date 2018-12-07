@@ -42,6 +42,9 @@ Plug 'Chiel92/vim-autoformat'
 " It is for javascript
 " Plug 'beautify-web/js-beautify', {'for':['php', 'html', 'css', 'js']}
 
+" Markdown Plugin
+Plug 'plasticboy/vim-markdown'
+
 " Plug 'JavaRun'
 " Enable this when coding Python
 "Plug 'Python-mode-klen', {'for':'python'}
