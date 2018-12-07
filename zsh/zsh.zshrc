@@ -65,10 +65,10 @@ plugins=(git autojump history-substring-search vi-mode python brew tmux)
 
 
 
-export PATH="/Users/HankWang/anaconda/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/HankWang/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+export PATH="/Users/HankWang/anaconda/bin:/Users/HankWang/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
 # added by Anaconda3 4.3.1 installer
-export PATH="/Users/HankWang/anaconda3/bin:$PATH"
+export PATH="/Users/HankWang/anaconda/bin:$PATH"
 
 # added mysql to path
 export PATH="/usr/local/mysql/bin:$PATH"
@@ -131,6 +131,8 @@ alias dpy35="source deactivate py35"
 alias swipl='/Applications/SWI-Prolog.app/Contents/MacOS/swipl'
 alias o="open"
 alias unsw="ssh z5095588@login.cse.unsw.edu.au"
+alias python="/Users/HankWang/anaconda/envs/py36/bin/python3.6"
+alias pip="/Users/HankWang/anaconda/envs/py36/bin/pip"
 #alias ssh="TERM=xterm-256color ssh"
 #alias unsw="TERM=xterm-256color ssh z5095588@login.cse.unsw.edu.au"
 alias dock="docker run -i -p 2041:80 -v /Users/HankWang/Documents/COMP9041/ass2:/var/www comp2041/cgi"
