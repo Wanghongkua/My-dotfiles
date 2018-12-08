@@ -539,6 +539,10 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " Turn Off Preview window of YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
+" Let YouCompleteMe run at markdown file
+let g:ycm_filetype_blacklist = {}
+let g:ycm_filetype_whitelist = {'pandoc': 1, 'markdown': 1, 'text': 1, 'md': 1}
+" let g:ycm_filetypes_to_completely_ignore = 1
 "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
