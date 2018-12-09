@@ -157,7 +157,7 @@ set pastetoggle=<leader>v
 
 " Auto source ~/.vimrc after saving it
 
-"<leader>cd =  改变当前目录到文件所在目录
+"<leader>cd = change to current working directory
 nnoremap <leader>cd :lcd %:p:h<cr>:pwd<cr>
 
 " Split navigation
@@ -234,7 +234,7 @@ noremap <leader>s? z=
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 文件设置
+" File Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Cursor Position Setting -------------------- {{{
@@ -271,9 +271,6 @@ augroup run_file
     endif
 augroup END
 " }}}
-"if exists('+fixeol')
-"set nofixeol
-"endif
 
 " Set filetype based on suffixes ---------------------- {{{
 augroup filetype_setting
@@ -293,28 +290,32 @@ augroup delete_empty_space
     autocmd BufWrite *.py :call DeleteTrailingWS()
 augroup END
 " }}}
-"autocmd BufWrite *.coffee :call DeleteTrailingWS()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Cursor Shap
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Cursor Shap -------------------- {{{
+"Tmux Cursor Shap
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nerdcommenter 设置
+" Nerd Commerter Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Nerd Commerter Setting -------------------- {{{
 map ,cc <plug>NERDCommenterToggle
 map ,c<space> <plug>NERDCommenterComment
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDTrimTrailingWhitespace = 1
+" }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" airline 设置
+" Airline Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Airline Setting -------------------- {{{
@@ -357,10 +358,10 @@ let g:airline_detect_modified=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " C-Support
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 "let g:C_UseTool_cmake = 'yes'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDTree 设置
+" NERDTree Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " NERDTree Setting -------------------- {{{
@@ -369,7 +370,7 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Autoformat 设置
+" Autoformat Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autoformat setting ------------------------- {{{
 
@@ -378,7 +379,7 @@ autocmd FileType html,php nnoremap <leader>p :Autoformat<CR>
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Emmet 设置
+" Emmet Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Emmet setting ------------------------- {{{
 let g:user_emmet_mode='a'
@@ -390,7 +391,7 @@ autocmd FileType html,css,php imap <C-\> <plug>(emmet-move-next)
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Syntastic 设置
+" Syntastic Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Syntastic Setting -------------------- {{{
@@ -428,7 +429,7 @@ augroup END
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tags 设置
+" Tags Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Tags Setting -------------------- {{{
@@ -468,11 +469,13 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " EasyAlign Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" EasyAlign Setting -------------------- {{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+" }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Easy Motion Setting
@@ -509,6 +512,15 @@ omap / <Plug>(easymotion-tn)
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1 " US layout
 let g:EasyMotion_use_smartsign_jp = 1 " JP layout
+" }}}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim-Markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim-Markdown Setting -------------------- {{{
+
+let g:vim_markdown_conceal = 0
+
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -582,6 +594,8 @@ let g:ycm_filetype_whitelist = {'pandoc': 1, 'markdown': 1, 'text': 1, 'md': 1}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python-mode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Python-mode -------------------- {{{
+
 let g:pymode_python = 'python3'
 " let g:pymode_rope_lookup_project = 0
 let g:pymode_rope_goto_definition_cmd = 'e'
@@ -594,12 +608,16 @@ let g:pymode_rope_goto_definition_bind = "<C-]>"
 
 " Override run current python file key shortcut to Ctrl-Shift-e
 let g:pymode_run_bind = "<C-S-d>"
+" }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Jedi-Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Jedi-Vim -------------------- {{{
+
 let g:jedi#completions_command = "<C-b>"
 let g:jedi#completions_enabled = 0
+" }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux Vim navigator
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -627,17 +645,6 @@ if (&ft == 'java')
     " autocmd FileType python let g:EclimFileTypeValidate = 0
 endif
 "}}}
-"Tmux Cursor Shap
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-"if exists('$ITERM_PROFILE')
-"if exists('$TMUX')
-"let &t_SI = "\<Esc>[3 q"
-"let &t_EI = "\<Esc>[0 q"
-"else
-"let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-"let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-"endif
-"end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
