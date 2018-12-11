@@ -1,5 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" testing aera
+" Testing Aera
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("nvim")
     tnoremap <Esc> <C-\><C-n>
@@ -17,9 +17,12 @@ source ~/Documents/dotfile/plugin.vim
 set nocompatible        " not nocompatible with vi
 set autoread            " Detect when a file is changed
 
-set history=1000  " change history to 1000
-set textwidth=120 " set bound to width
+set history=1000        " change history to 1000
 
+syntax enable
+syntax on
+
+" Neovim Support
 let g:python3_host_prog = '/Users/HankWang/anaconda/envs/py36/bin/python3.6'
 let g:python_host_prog = '/Users/HankWang/anaconda/envs/py27/bin/python2.7'
 
@@ -29,21 +32,6 @@ let g:python_host_prog = '/Users/HankWang/anaconda/envs/py27/bin/python2.7'
 " }}}
 
 " Section User Interface {{{
-
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-set nobackup
-set nowb
-set noswapfile
-
-if &term =~ '256color'
-    " disable background color erase
-    set t_ut=
-endif
-
-let g:solarized_italic=1
-
-syntax enable
-syntax on
 
 " colorscheme
 set background=light
@@ -55,31 +43,13 @@ highlight SpecialKey ctermbg=none ctermfg=8
 highlight NonText ctermbg=none ctermfg=8
 
 " make comments and HTML attributes italic
-"highlight Comment cterm=italic
+highlight Comment cterm=italic
 highlight htmlArg cterm=italic
 
-set number                          " Show line number
-"set relativenumber                  " Show relative line number
-set wrap                            " turn on line wrapping
-set wrapmargin=8                    " wrap lines when coming within n characters from side
-set linebreak
-set showbreak=…
-
-set autoindent                      " automatically set indent of new line
-set smartindent
-
-" toggle invisible characters
-set list
-set listchars=tab:→\ ,trail:⋅,extends:❯,precedes:❮
-set showbreak=↪
-
-" highlight conflicts
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-set backspace=indent,eol,start   " make backspace behave in a sane manner
-
-" Tab control
-set tabstop=4 shiftwidth=4 expandtab smarttab   "Turn 'tab' into space
+if &term =~ '256color'
+    " disable background color erase
+    set t_ut=
+endif
 
 " Code folding settings
 augroup filetype_vim
@@ -89,44 +59,82 @@ augroup filetype_vim
     autocmd FileType c,cpp,vim,xml,html,xhtml,perl,python normal zR
 augroup END
 
+set nobackup                                     " Turn backup off, since
+set nowb                                         " most stuff is in SVN,
+set noswapfile                                   " git et.c anyway...
+
+set textwidth=120                                " set bound to width
+
+
+let g:solarized_italic=1
+
+
+set number                                       " Show line number
+" set relativenumber                               " Show relative line number
+set wrap                                         " turn on line wrapping
+set wrapmargin=8                                 " wrap lines when coming within n characters from side
+set linebreak
+set showbreak=↪
+
+set autoindent                                   " automatically set indent of new line
+set smartindent
+
+set list                                         " toggle invisible characters
+set listchars=tab:→\ ,trail:⋅,extends:❯,precedes:❮
+
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " highlight conflicts
+
+set backspace=indent,eol,start                   " make backspace behave in a sane manner
+
+set tabstop=4 shiftwidth=4 expandtab smarttab    " Tab control & Turn 'tab' into space
+
+
 set clipboard=unnamed
 
 set ttyfast
-set so=7                            " Set 7 lines to the cursor - when moving vertically using j/k
-set wildmenu                        " Turn on the WiLd menu
-"set wildmode=list:longest           " complete files like a shell
-set wildmode=full                   " complete by tabing through
-set showcmd                         " Show incomplete commands
-set scrolloff=3                     " lines of text around cursor
+set so=7                                         " Set 7 lines to the cursor - when moving vertically using j/k
+set wildmenu                                     " Turn on the WiLd menu
+set wildmode=list:longest                        " complete files like a shell
+set wildmode=full                                " complete by tabing through
+set showcmd                                      " Show incomplete commands
+set scrolloff=3                                  " lines of text around cursor
 set title
-set magic                           " Set magic on, for regex
-set showmatch                       " Show match braces
+set magic                                        " Set magic on, for regex
+set showmatch                                    " Show match braces
 
 set mouse=a
-set cmdheight=1                     "Height of the command bar
+set cmdheight=1                                  " Height of the command bar
 set lazyredraw
-set cursorline                      "Highlight current line
-set ruler                           "Show cursor position
-set hlsearch                        "Highlight search results
-set incsearch                       "Search act like search in modern browser
+set cursorline                                   " Highlight current line
+set ruler                                        " Show cursor position
+set hlsearch                                     " Highlight search results
+set incsearch                                    " Search act like search in modern browser
 
 set encoding=utf-8
-set timeoutlen=1000 ttimeoutlen=0   " Delete ESC Delays
+set timeoutlen=1000 ttimeoutlen=0                " Delete ESC Delays
 
-" No annoying sound on errors
-set noerrorbells
+set noerrorbells                                 " No annoying sound on errors
 set visualbell
 set t_vb=
 set tm=500
 
-"au CursorHold * checktime
+set colorcolumn=+1                               "Heilight 81st column
+
+set ignorecase                                   " Ignore case when searching but only search for upper cases 
+set smartcase                                    " when typing upper cases
+
+set wildignore=*.o,*~,*.pyc                      " Ignore compiled files
+if has("win16") || has("win32")
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+else
+    set wildignore+=.git\*,.hg\*,.svn\*
+endif
 
 " }}}
 
 " Section Mappings {{{
 
 "Map leader from '\' to ','
-"let mapleader = ','
 let g:mapleader=','
 
 " Change to upper case
@@ -135,27 +143,22 @@ inoremap <c-l> <esc>viwUea
 " remap ESC
 inoremap jk <esc>
 
-" Create surrounding based on visual selection
-vnoremap <space> <esc>a"<esc>`<i"<esc>`>
-
 " Create surrounding
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 
 " Move line upword or downword
-"nnoremap - ddkP
-"nnoremap _ ddp
+nnoremap - ddkP
+nnoremap _ ddp
 
-" Select Word
-nnoremap <space> viw
+" Add one line before the text
+nnoremap + O<esc>k
 
 " Fast saving
 nnoremap <leader>, :w!<cr>
 
 " set paste toggle
-set pastetoggle=<leader>v
-
-" Auto source ~/.vimrc after saving it
+nnoremap <leader>v :set paste!<cr>
 
 "<leader>cd = change to current working directory
 nnoremap <leader>cd :lcd %:p:h<cr>:pwd<cr>
@@ -170,12 +173,6 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-set colorcolumn=+1  "Heilight 81st column
-
-" Ignore case when searching but only search for upper cases when typing upper
-" cases
-set ignorecase
-set smartcase
 
 nnoremap <silent> <leader><space> :noh<cr>
 " delete current line in insert mode
@@ -183,6 +180,7 @@ nnoremap <silent> <leader><space> :noh<cr>
 " edit .vimrc the fast way
 nnoremap <leader>ev :vsplit $VIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>a :AirlineRefresh<cr>
 
 augroup JavaCorrect
     autocmd!
@@ -198,15 +196,6 @@ inoremap <C-o> <ESC>o
 
 nnoremap H ^
 nnoremap L $
-set pastetoggle=<leader>z
-
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-if has("win16") || has("win32")
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
-else
-    set wildignore+=.git\*,.hg\*,.svn\*
-endif
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
@@ -214,7 +203,7 @@ vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 " Close the current buffer
-noremap <leader>bd :Bclose<cr>:tabclose<cr>gT
+" noremap <leader>bd :Bclose<cr>:tabclose<cr>gT
 
 noremap <leader>l :bnext<cr>
 noremap <leader>h :bprevious<cr>
@@ -321,7 +310,6 @@ let g:NERDTrimTrailingWhitespace = 1
 " Airline Setting -------------------- {{{
 set laststatus=2
 " let g:airline_theme='molokai'
-nnoremap <leader>a :AirlineRefresh<cr>
 let g:airline_theme='distinguished'
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
@@ -346,13 +334,10 @@ let g:airline_detect_modified=1
 " let g:airline_symbols.whitespace = 'Ξ'
 
 " " airline symbols
-" let g:airline_left_sep = ''
-" let g:airline_left_alt_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_right_alt_sep = ''
-" let g:airline_symbols.branch = ''
-" let g:airline_symbols.readonly = ''
-" let g:airline_symbols.linenr = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -488,6 +473,7 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " `s{char}{label}`
 " nmap f <Plug>(easymotion-overwin-f)
 nmap <leader>f <Plug>(easymotion-lineforward)
+nmap <leader>F <Plug>(easymotion-linebackward)
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
@@ -500,8 +486,6 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-" nmap <Leader>l <Plug>(easymotion-lineforward)
-" nmap <Leader>h <Plug>(easymotion-linebackward)
 " Find multiple charactors
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -553,7 +537,8 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 " Let YouCompleteMe run at markdown file
 let g:ycm_filetype_blacklist = {}
-let g:ycm_filetype_whitelist = {'pandoc': 1, 'markdown': 1, 'text': 1, 'md': 1}
+" let g:ycm_filetype_whitelist = {'pandoc': 1, 'markdown': 1, 'text': 1, 'md': 1, 'vimrc': 1}
+let g:ycm_filetype_whitelist = {'*': 1}
 " let g:ycm_filetypes_to_completely_ignore = 1
 "}}}
 
@@ -618,16 +603,6 @@ let g:pymode_run_bind = "<C-S-d>"
 let g:jedi#completions_command = "<C-b>"
 let g:jedi#completions_enabled = 0
 " }}}
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tmux Vim navigator
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:tmux_navigator_no_mappings = 1
-
-" nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
-" nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
-" nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
-" nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
-" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Eclim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -751,10 +726,4 @@ function! <SID>LocationNext()
 endfunction
 nmap <silent> [e :<C-u>call <SID>LocationNext()<CR>
 "}}}
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-augroup refresh_airline
-    autocmd! bufwritepost .vimrc source $VIMRC | AirlineRefresh
-augroup END
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" au BufWrite * :Autoformat
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
