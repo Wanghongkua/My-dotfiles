@@ -1,5 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'altercation/vim-colors-solarized' "vim solarized color scheme
+Plug 'joshdick/onedark.vim' "vim one dark color scheme
+" Plug 'flazz/vim-colorschemes' "vim's all color scheme
 Plug 'sheerun/vim-polyglot' "Syntax and indentation language package
 Plug 'airblade/vim-gitgutter' "git integration
 Plug 'kien/ctrlp.vim' " fuzzy find files
@@ -13,17 +15,21 @@ Plug 'mattn/emmet-vim', {'for': ['html', 'css', 'php']}
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
+
+" Change to relative number in normal mode and abselute number in insert
+" mode
+Plug 'myusuf3/numbers.vim'
 
 " Auto complete for brackets and quotes
 " Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'easymotion/vim-easymotion'
-Plug 'Valloric/YouCompleteMe', {'do':'./install.py --clang-completer'}
+Plug 'Valloric/YouCompleteMe', {'do':'./install.py --clang-completer --cs-completer'}
 Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'python-mode/python-mode', {'branch': 'develop', 'for': 'python'}
@@ -38,12 +44,28 @@ Plug 'vim-scripts/LargeFile'
 "Plug 'davidhalter/jedi-vim', {'for':'python'}
 Plug 'StanAngeloff/php.vim', {'for':'php'}
 Plug 'tmhedberg/matchit', {'for':['php', 'html', 'css']}
+" Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
+" Plug 'dsawardekar/wordpress.vim', {'for': 'php'}
+Plug 'sudar/vim-wordpress-snippets', {'for':'php'}
+
+" autoformat code
 Plug 'Chiel92/vim-autoformat'
 " It is for javascript
 " Plug 'beautify-web/js-beautify', {'for':['php', 'html', 'css', 'js']}
 
 " Markdown Plugin
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', {'for':'markdown'}
+Plug 'godlygeek/tabular', {'for':'markdown'}
+
+" C++ Syntax Highlight
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+" C++ Auto Format
+Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp'] }
+" for c#
+" Plug 'OmniSharp/omnisharp-vim', {'for':'cs'}
+" Plug 'tpope/vim-dispatch', {'for':'cs'}
+" Plug 'w0rp/ale', {'for':'cs'}
+" Plug 'Shougo/vimproc.vim', {'for':'cs'}
 
 " Plug 'JavaRun'
 " Enable this when coding Python

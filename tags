@@ -2,15 +2,18 @@
 #	/Users/HankWang/Documents/dotfile/vim.vimrc	/^vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@\/<CR><CR>$/;"	m	language:Vim
 $NVIM_TUI_ENABLE_CURSOR_SHAPE	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1$/;"	v	language:Vim
 *	/Users/HankWang/Documents/dotfile/vim.vimrc	/^vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>\/<C-R>=@\/<CR><CR>$/;"	m	language:Vim
++	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap + o<esc>cc<esc>$/;"	m	language:Vim
 ,c<space>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^map ,c<space> <plug>NERDCommenterComment$/;"	m	language:Vim
 ,cc	/Users/HankWang/Documents/dotfile/vim.vimrc	/^map ,cc <plug>NERDCommenterToggle$/;"	m	language:Vim
+-	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap - ddkP$/;"	m	language:Vim
 /	/Users/HankWang/Documents/dotfile/vim.vimrc	/^map  \/ <Plug>(easymotion-sn)$/;"	m	language:Vim
 /	/Users/HankWang/Documents/dotfile/vim.vimrc	/^omap \/ <Plug>(easymotion-tn)$/;"	m	language:Vim
 <C-a>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^inoremap <C-a> <ESC>I$/;"	m	language:Vim
-<C-b>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^inoremap <C-b> <C-o>h$/;"	m	language:Vim
+<C-b>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^inoremap <C-b> <esc>i$/;"	m	language:Vim
 <C-e>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^inoremap <C-e> <C-o>A$/;"	m	language:Vim
 <C-e>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <C-e> 3<C-e>$/;"	m	language:Vim
 <C-f>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^inoremap <C-f> <C-o>a$/;"	m	language:Vim
+<c-h>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^inoremap <c-h> <esc>viwuea$/;"	m	language:Vim
 <C-H>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <C-H> <C-W><C-H>$/;"	m	language:Vim
 <C-J>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <C-J> <C-W><C-J>$/;"	m	language:Vim
 <C-K>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <C-K> <C-W><C-K>$/;"	m	language:Vim
@@ -18,20 +21,18 @@ $NVIM_TUI_ENABLE_CURSOR_SHAPE	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let 
 <C-L>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <C-L> <C-W><C-L>$/;"	m	language:Vim
 <C-o>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^inoremap <C-o> <ESC>o$/;"	m	language:Vim
 <C-y>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <C-y> 3<C-y>$/;"	m	language:Vim
-<leader>"	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel$/;"	m	language:Vim
-<leader>'	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel$/;"	m	language:Vim
 <leader>,	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>, :w!<cr>$/;"	m	language:Vim
 <leader><space>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader><space> :noh<cr>$/;"	m	language:Vim
 <leader>a	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>a :AirlineRefresh<cr>$/;"	m	language:Vim
-<leader>bd	/Users/HankWang/Documents/dotfile/vim.vimrc	/^noremap <leader>bd :Bclose<cr>:tabclose<cr>gT$/;"	m	language:Vim
-<leader>c	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader>c :TagbarToggle<CR>$/;"	m	language:Vim
+<leader>C	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader>C :TagbarToggle<CR>$/;"	m	language:Vim
 <leader>cd	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>cd :lcd %:p:h<cr>:pwd<cr>$/;"	m	language:Vim
 <leader>ev	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>ev :vsplit $VIMRC<cr>$/;"	m	language:Vim
+<leader>F	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nmap <leader>F <Plug>(easymotion-linebackward)$/;"	m	language:Vim
 <leader>f	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nmap <leader>f <Plug>(easymotion-lineforward)$/;"	m	language:Vim
 <leader>h	/Users/HankWang/Documents/dotfile/vim.vimrc	/^noremap <leader>h :bprevious<cr>$/;"	m	language:Vim
-<Leader>j	/Users/HankWang/Documents/dotfile/vim.vimrc	/^map <Leader>j <Plug>(easymotion-j)$/;"	m	language:Vim
-<Leader>k	/Users/HankWang/Documents/dotfile/vim.vimrc	/^map <Leader>k <Plug>(easymotion-k)$/;"	m	language:Vim
+<leader>jd	/Users/HankWang/Documents/dotfile/vim.vimrc	/^noremap <leader>jd :YcmCompleter GoTo<CR>$/;"	m	language:Vim
 <leader>l	/Users/HankWang/Documents/dotfile/vim.vimrc	/^noremap <leader>l :bnext<cr>$/;"	m	language:Vim
+<leader>s	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>s `<v`>$/;"	m	language:Vim
 <leader>s?	/Users/HankWang/Documents/dotfile/vim.vimrc	/^noremap <leader>s? z=$/;"	m	language:Vim
 <leader>sa	/Users/HankWang/Documents/dotfile/vim.vimrc	/^noremap <leader>sa zg$/;"	m	language:Vim
 <leader>sn	/Users/HankWang/Documents/dotfile/vim.vimrc	/^noremap <leader>sn ]s$/;"	m	language:Vim
@@ -39,9 +40,8 @@ $NVIM_TUI_ENABLE_CURSOR_SHAPE	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let 
 <leader>ss	/Users/HankWang/Documents/dotfile/vim.vimrc	/^noremap <leader>ss :setlocal spell!<cr>$/;"	m	language:Vim
 <leader>sv	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>sv :source $MYVIMRC<cr>$/;"	m	language:Vim
 <leader>t	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader>t :NERDTreeTabsToggle<CR>$/;"	m	language:Vim
+<leader>v	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>v :set paste!<cr>$/;"	m	language:Vim
 <space>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nmap <space> <Plug>(easymotion-overwin-f2)$/;"	m	language:Vim
-<space>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <space> viw$/;"	m	language:Vim
-<space>	/Users/HankWang/Documents/dotfile/vim.vimrc	/^vnoremap <space> <esc>a"<esc>`<i"<esc>`>$/;"	m	language:Vim
 Bclose	/Users/HankWang/Documents/dotfile/vim.vimrc	/^command! Bclose call <SID>BufcloseCloseIt()$/;"	c	language:Vim
 BufcloseCloseIt	/Users/HankWang/Documents/dotfile/vim.vimrc	/^function! <SID>BufcloseCloseIt()$/;"	f	language:Vim
 DeleteTrailingWS	/Users/HankWang/Documents/dotfile/vim.vimrc	/^func! DeleteTrailingWS()$/;"	f	language:Vim
@@ -52,23 +52,30 @@ filetype_html	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup filetype_htm
 filetype_setting	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup filetype_setting$/;"	a	language:Vim
 filetype_vim	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup filetype_vim$/;"	a	language:Vim
 g:airline_detect_modified	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:airline_detect_modified=1$/;"	v	language:Vim
+g:airline_left_alt_sep	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:airline_left_alt_sep = ''$/;"	v	language:Vim
+g:airline_left_sep	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:airline_left_sep = ''$/;"	v	language:Vim
 g:airline_powerline_fonts	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:airline_powerline_fonts = 1$/;"	v	language:Vim
+g:airline_right_alt_sep	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:airline_right_alt_sep = ''$/;"	v	language:Vim
+g:airline_right_sep	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:airline_right_sep = ''$/;"	v	language:Vim
 g:airline_theme	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:airline_theme='distinguished'$/;"	v	language:Vim
+g:clang_format#style_options	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:clang_format#style_options = {$/;"	v	language:Vim
 g:EasyMotion_do_mapping	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:EasyMotion_do_mapping = 0 " Disable default mappings$/;"	v	language:Vim
 g:EasyMotion_smartcase	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:EasyMotion_smartcase = 1$/;"	v	language:Vim
 g:EasyMotion_smartcase	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:EasyMotion_smartcase = 1$/;"	v	language:Vim
 g:EasyMotion_use_smartsign_jp	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:EasyMotion_use_smartsign_jp = 1 " JP layout$/;"	v	language:Vim
 g:EasyMotion_use_smartsign_us	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:EasyMotion_use_smartsign_us = 1 " US layout$/;"	v	language:Vim
 g:easytags_async	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_async = 1$/;"	v	language:Vim
+g:easytags_auto_highlight	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_auto_highlight=0$/;"	v	language:Vim
+g:easytags_auto_update	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_auto_update = 1$/;"	v	language:Vim
 g:easytags_dynamic_files	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_dynamic_files = 2$/;"	v	language:Vim
-g:easytags_events	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_events = ['BufReadPost', 'BufWritePost']$/;"	v	language:Vim
+g:easytags_opt	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_opt = ['--fields=+l']$/;"	v	language:Vim
 g:easytags_resolve_links	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_resolve_links = 1$/;"	v	language:Vim
 g:easytags_suppress_ctags_warning	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_suppress_ctags_warning = 1$/;"	v	language:Vim
 g:EclimCompletionMethod	/Users/HankWang/Documents/dotfile/vim.vimrc	/^    let g:EclimCompletionMethod = 'omnifunc'$/;"	v	language:Vim
 g:jedi#completions_command	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:jedi#completions_command = "<C-b>"$/;"	v	language:Vim
 g:jedi#completions_enabled	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:jedi#completions_enabled = 0$/;"	v	language:Vim
 g:mapleader	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:mapleader=','$/;"	v	language:Vim
-g:NERDCompactSexyComs	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:NERDCompactSexyComs = 1$/;"	v	language:Vim
+g:NERDCompactSexyComs	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:NERDCompactSexyComs = 0$/;"	v	language:Vim
 g:NERDSpaceDelims	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:NERDSpaceDelims = 1$/;"	v	language:Vim
 g:nerdtree_tabs_open_on_console_startup	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:nerdtree_tabs_open_on_console_startup = 0$/;"	v	language:Vim
 g:NERDTrimTrailingWhitespace	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:NERDTrimTrailingWhitespace = 1$/;"	v	language:Vim
@@ -101,11 +108,16 @@ g:UltiSnipsJumpBackwardTrigger	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let
 g:UltiSnipsJumpForwardTrigger	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsJumpForwardTrigger="<c-j>"$/;"	v	language:Vim
 g:UltiSnipsSnippetDirectories	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsSnippetDirectories=['~\/.config\/nvim\/UltiSnips', "UltiSnips"]$/;"	v	language:Vim
 g:user_emmet_mode	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:user_emmet_mode='a'$/;"	v	language:Vim
+g:vim_markdown_conceal	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:vim_markdown_conceal = 0$/;"	v	language:Vim
+g:vim_markdown_folding_disabled	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:vim_markdown_folding_disabled = 1$/;"	v	language:Vim
 g:ycm_always_populate_location_list	/Users/HankWang/Documents/dotfile/vim.vimrc	/^    let g:ycm_always_populate_location_list = 1$/;"	v	language:Vim
 g:ycm_autoclose_preview_window_after_completion	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_autoclose_preview_window_after_completion = 1$/;"	v	language:Vim
 g:ycm_collect_identifiers_from_comments_and_strings	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_collect_identifiers_from_comments_and_strings = 1$/;"	v	language:Vim
+g:ycm_collect_identifiers_from_tags_files	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_collect_identifiers_from_tags_files = 1$/;"	v	language:Vim
 g:ycm_complete_in_comments	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_complete_in_comments = 1$/;"	v	language:Vim
-g:ycm_global_ycm_extra_conf	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_global_ycm_extra_conf = '~\/.config\/nvim\/plugged\/YouCompleteMe\/third_party\/ycmd\/cpp\/ycm\/.ycm_extra_conf.py'$/;"	v	language:Vim
+g:ycm_filetype_blacklist	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_filetype_blacklist = {}$/;"	v	language:Vim
+g:ycm_filetype_whitelist	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_filetype_whitelist = {'*': 1}$/;"	v	language:Vim
+g:ycm_global_ycm_extra_conf	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_global_ycm_extra_conf = '~\/.config\/nvim\/plugged\/YouCompleteMe\/third_party\/ycmd\/.ycm_extra_conf.py'$/;"	v	language:Vim
 g:ycm_path_to_python_interpreter	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_path_to_python_interpreter = '\/Users\/HankWang\/anaconda\/envs\/py27\/bin\/python2.7'$/;"	v	language:Vim
 g:ycm_python_binary_path	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_python_binary_path = '\/Users\/HankWang\/anaconda\/bin\/python2'$/;"	v	language:Vim
 g:ycm_seed_identifiers_with_syntax	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_seed_identifiers_with_syntax = 1$/;"	v	language:Vim
@@ -118,7 +130,7 @@ L	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap L \$$/;"	m	language:Vim
 LocationNext	/Users/HankWang/Documents/dotfile/vim.vimrc	/^function! <SID>LocationNext()$/;"	f	language:Vim
 mydelimitMate	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup mydelimitMate$/;"	a	language:Vim
 mySyntastic	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup mySyntastic$/;"	a	language:Vim
-refresh_airline	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup refresh_airline$/;"	a	language:Vim
 run_file	/Users/HankWang/Documents/dotfile/vim.vimrc	/^augroup run_file$/;"	a	language:Vim
 VisualSelection	/Users/HankWang/Documents/dotfile/vim.vimrc	/^function! VisualSelection(direction, extra_filter) range$/;"	f	language:Vim
 [e	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nmap <silent> [e :<C-u>call <SID>LocationNext()<CR>$/;"	m	language:Vim
+_	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap _ ddp$/;"	m	language:Vim

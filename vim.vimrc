@@ -6,7 +6,7 @@ if has("nvim")
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-source ~/Documents/dotfile/plugin.vim
+source /Users/HankWang/Documents/dotfile/plugin.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Testing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -34,9 +34,13 @@ let g:python_host_prog = '/Users/HankWang/anaconda/envs/py27/bin/python2.7'
 " Section User Interface {{{
 
 " colorscheme
-set background=light
+set background=dark
 " colorscheme solarized
 colorscheme molokai
+" colorscheme onedark
+
+" Set font for MacVim
+set guifont=MesloLGLDZForPowerline-Regular:h12
 
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermbg=none ctermfg=8
@@ -137,25 +141,25 @@ endif
 "Map leader from '\' to ','
 let g:mapleader=','
 
-" Change to upper case
+" Change to upper or lower case
 inoremap <c-l> <esc>viwUea
+inoremap <c-h> <esc>viwuea
 
 " remap ESC
 inoremap jk <esc>
-
-" Create surrounding
-nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
-nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 
 " Move line upword or downword
 nnoremap - ddkP
 nnoremap _ ddp
 
 " Add one line before the text
-nnoremap + O<esc>k
+nnoremap + o<esc>cc<esc>
 
 " Fast saving
 nnoremap <leader>, :w!<cr>
+
+" Select last selected text in visual mode
+nnoremap <leader>s `<v`>
 
 " set paste toggle
 nnoremap <leader>v :set paste!<cr>
@@ -187,10 +191,10 @@ augroup JavaCorrect
     autocmd FileType java nnoremap <C-e> :JavaCorrect<CR>
 augroup END
 
-
 inoremap <C-f> <C-o>a
 inoremap <C-e> <C-o>A
-inoremap <C-b> <C-o>h
+inoremap <C-b> <esc>i
+" inoremap <C-b> <C-o>h
 inoremap <C-a> <ESC>I
 inoremap <C-o> <ESC>o
 
@@ -207,6 +211,9 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 noremap <leader>l :bnext<cr>
 noremap <leader>h :bprevious<cr>
+
+" YouCompleteMe GoToDefinition
+noremap <leader>jd :YcmCompleter GoTo<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Spell checking from comments
@@ -280,7 +287,23 @@ augroup delete_empty_space
 augroup END
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim-Clang-Format
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim-Clang-Format -------------------- {{{
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11"}
 
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" Toggle auto formatting:
+" nmap <Leader>C :ClangFormatAutoToggle<CR>
+" }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Cursor Shap
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -300,7 +323,7 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 map ,cc <plug>NERDCommenterToggle
 map ,c<space> <plug>NERDCommenterComment
 let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
+let g:NERDCompactSexyComs = 0
 let g:NERDTrimTrailingWhitespace = 1
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -359,7 +382,7 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autoformat setting ------------------------- {{{
 
-autocmd FileType html,php nnoremap <leader>p :Autoformat<CR>
+autocmd FileType cpp,html,php nnoremap <leader>p :Autoformat<CR>
 
 " }}}
 
@@ -414,7 +437,14 @@ augroup END
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tags Setting
+" WordPress Setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" WordPress Setting 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" WordPress Setting ---------------------{{{
+
+
+" }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Tags Setting -------------------- {{{
@@ -422,15 +452,18 @@ augroup END
 " Where to look for tags files
 set tags=./tags;,~/.vimtags
 " Sensible defaults
-let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_opt = ['--fields=+l']
+" let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_auto_highlight=0
 let g:easytags_async = 1
 let g:easytags_dynamic_files = 2
 let g:easytags_resolve_links = 1
 let g:easytags_suppress_ctags_warning = 1
+let g:easytags_auto_update = 1
 
 " ----- majutsushi/tagbar settings -----
 " Open/close tagbar with \b
-nnoremap <silent> <leader>c :TagbarToggle<CR>
+nnoremap <silent> <leader>C :TagbarToggle<CR>
 
 " Uncomment to open tagbar automatically whenever possible
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
@@ -484,8 +517,9 @@ nmap <space> <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
 
 " JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+" map <Leader>j <Plug>(easymotion-j)
+" map <Leader>k <Plug>(easymotion-k)
+
 " Find multiple charactors
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -504,7 +538,11 @@ let g:EasyMotion_use_smartsign_jp = 1 " JP layout
 " Vim-Markdown Setting -------------------- {{{
 
 let g:vim_markdown_conceal = 0
+" set conceallevel=2
+let g:vim_markdown_folding_disabled = 1
 
+" let g:instant_markdown_slow = 1
+" let g:instant_markdown_autostart = 0
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -527,8 +565,7 @@ let g:ycm_python_binary_path = '/Users/HankWang/anaconda/bin/python2'
 let g:ycm_path_to_python_interpreter = '/Users/HankWang/anaconda/envs/py27/bin/python2.7'
 
 " let g:UltiSnipsListSnippets="<c-h>"
-"let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_global_ycm_extra_conf = '~/.config/nvim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.config/nvim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_complete_in_comments = 1
 let g:ycm_seed_identifiers_with_syntax = 1
@@ -537,44 +574,12 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 " Let YouCompleteMe run at markdown file
 let g:ycm_filetype_blacklist = {}
+let g:ycm_collect_identifiers_from_tags_files = 1
 " let g:ycm_filetype_whitelist = {'pandoc': 1, 'markdown': 1, 'text': 1, 'md': 1, 'vimrc': 1}
 let g:ycm_filetype_whitelist = {'*': 1}
 " let g:ycm_filetypes_to_completely_ignore = 1
 "}}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Solution 2. -------------------- {{{
-" function! g:UltiSnips_Complete()
-"     call UltiSnips#ExpandSnippet()
-"     if g:ulti_expand_res == 0
-"         if pumvisible()
-"             return "\<C-n>"
-"         else
-"             call UltiSnips#JumpForwards()
-"             if g:ulti_jump_forwards_res == 0
-"                 return "\<TAB>"
-"             endif
-"         endif
-"     endif
-"     return ""
-" endfunction
-" function! g:UltiSnips_Reverse()
-"     call UltiSnips#JumpBackwards()
-"     if g:ulti_jump_backwards_res == 0
-"         return "\<C-P>"
-"     endif
-"     return ""
-" endfunction
-" if !exists("g:UltiSnipsJumpForwardTrigger")
-"     let g:UltiSnipsJumpForwardTrigger = "<tab>"
-" endif
-" if !exists("g:UltiSnipsJumpBackwardTrigger")
-"     let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-" endif
-" au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
-" au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
-" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-"}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python-mode
