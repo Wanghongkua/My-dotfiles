@@ -63,9 +63,19 @@ augroup filetype_vim
     autocmd FileType c,cpp,vim,xml,html,xhtml,perl,python normal zR
 augroup END
 
+set hidden
+
+set nowritebackup
 set nobackup                                     " Turn backup off, since
 set nowb                                         " most stuff is in SVN,
 set noswapfile                                   " git et.c anyway...
+
+set updatetime=300                               " You will have bad experience for diagnostic
+                                                 " messages when it's default 4000.
+
+set shortmess+=c                                 " don't give |ins-completion-menu| messages.
+
+set signcolumn=yes                               " always show signcolumns
 
 set textwidth=120                                " set bound to width
 
@@ -107,7 +117,7 @@ set magic                                        " Set magic on, for regex
 set showmatch                                    " Show match braces
 
 set mouse=a
-set cmdheight=1                                  " Height of the command bar
+set cmdheight=2                                  " Height of the command bar
 set lazyredraw
 set cursorline                                   " Highlight current line
 set ruler                                        " Show cursor position
@@ -184,7 +194,7 @@ nnoremap <silent> <leader><space> :noh<cr>
 " edit .vimrc the fast way
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>a :AirlineRefresh<cr>
+nnoremap <leader>ra :AirlineRefresh<cr>
 
 augroup JavaCorrect
     autocmd!
@@ -203,8 +213,8 @@ nnoremap L $
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+" vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+" vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 " Close the current buffer
 " noremap <leader>bd :Bclose<cr>:tabclose<cr>gT
@@ -215,7 +225,7 @@ autocmd filetype markdown nnoremap <BS> :bprevious<cr>
 autocmd filetype markdown nnoremap <leader>ww :e ~/Dropbox/Note/VimNotes/index.md<CR>
 
 " YouCompleteMe GoToDefinition
-noremap <leader>jd :YcmCompleter GoTo<CR>
+" noremap <leader>jd :YcmCompleter GoTo<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Spell checking from comments
@@ -318,12 +328,20 @@ let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " }}}
 
+" Vim-Tmux-Navigator
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Nerd Commerter Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Nerd Commerter Setting -------------------- {{{
-map ,cc <plug>NERDCommenterToggle
-map ,c<space> <plug>NERDCommenterComment
+map <leader>cc <plug>NERDCommenterToggle
+" map <leader>c<space> <plug>NERDCommenterComment
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 0
 let g:NERDTrimTrailingWhitespace = 1
@@ -512,8 +530,8 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
 " nmap f <Plug>(easymotion-overwin-f)
-nmap <leader>f <Plug>(easymotion-lineforward)
-nmap <leader>F <Plug>(easymotion-linebackward)
+" nmap <leader>f <Plug>(easymotion-lineforward)
+" nmap <leader>F <Plug>(easymotion-linebackward)
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
@@ -533,8 +551,6 @@ omap / <Plug>(easymotion-tn)
 " Differient highlight.
 " map  n <Plug>(easymotion-next)
 " map  N <Plug>(easymotion-prev)
-" Ignore cases
-let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1 " US layout
 let g:EasyMotion_use_smartsign_jp = 1 " JP layout
 " }}}
@@ -554,38 +570,142 @@ let g:vim_markdown_folding_disabled = 1
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COC.nvim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <C-d> <Plug>(coc-range-select)
+xmap <silent> <C-d> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <leader>wa  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <leader>we  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <leader>wc  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <leader>wo  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <leader>ws  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <leader>wj  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <leader>wk  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <leader>wp  :<C-u>CocListResume<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe and Ultisnip cooperate.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:UltiSnipsUsePythonVersion = 3
 
 " Solution 1. -------------------- {{{
-" let g:UltiSnipsSnippetsDir        = $HOME.'/.vim/UltiSnips/'
-" let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
-" let g:UltiSnipsSnippetsDir        = "~/.config/nvim/plugged/ultisnips"
-let g:UltiSnipsSnippetDirectories=['~/.config/nvim/UltiSnips', "UltiSnips"]
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsSnippetDirectories=['~/.config/nvim/UltiSnips', "UltiSnips"]
+" let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "let g:ycm_python_binary_path = '/usr/local/bin/python3.6'
 
 " Has to be python2
-let g:ycm_python_binary_path = '/Users/HankWang/anaconda/bin/python2'
-let g:ycm_path_to_python_interpreter = '/Users/HankWang/anaconda/envs/py27/bin/python2.7'
+" let g:ycm_python_binary_path = '/Users/HankWang/anaconda/bin/python2'
+" let g:ycm_path_to_python_interpreter = '/Users/HankWang/anaconda/envs/py27/bin/python2.7'
 
 " let g:UltiSnipsListSnippets="<c-h>"
-let g:ycm_global_ycm_extra_conf = '~/.config/nvim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_complete_in_comments = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" let g:ycm_global_ycm_extra_conf = '~/.config/nvim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+" let g:ycm_show_diagnostics_ui = 0
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_seed_identifiers_with_syntax = 1
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " Turn Off Preview window of YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_autoclose_preview_window_after_completion = 1
 " Let YouCompleteMe run at markdown file
-let g:ycm_filetype_blacklist = {}
-let g:ycm_collect_identifiers_from_tags_files = 1
-" let g:ycm_filetype_whitelist = {'pandoc': 1, 'markdown': 1, 'text': 1, 'md': 1, 'vimrc': 1}
-let g:ycm_filetype_whitelist = {'*': 1}
-" let g:ycm_filetypes_to_completely_ignore = 1
+" let g:ycm_filetype_blacklist = {}
+" let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:ycm_filetype_whitelist = {'*': 1}
 "}}}
 
 

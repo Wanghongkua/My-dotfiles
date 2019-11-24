@@ -12,6 +12,7 @@ Plug 'tpope/vim-fugitive' " the ultimate git helper
 Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim', {'for': ['html', 'css', 'php']}
 " Plug 'tpope/vim-commentary' " comment/uncomment with gcc or gc in visual mode
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -29,15 +30,15 @@ Plug 'myusuf3/numbers.vim'
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'easymotion/vim-easymotion'
-Plug 'Valloric/YouCompleteMe', {'do':'./install.py --clang-completer --cs-completer'}
+" Plug 'Valloric/YouCompleteMe', {'do':'./install.py --clang-completer --cs-completer'}
 Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'python-mode/python-mode', {'branch': 'develop', 'for': 'python'}
 Plug 'tweekmonster/impsort.vim', {'for': 'python'}
 " Track the engine.
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-scripts/LargeFile'
