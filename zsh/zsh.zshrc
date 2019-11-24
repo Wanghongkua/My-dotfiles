@@ -144,6 +144,7 @@ alias dpy35="source deactivate py35"
 alias swipl='/Applications/SWI-Prolog.app/Contents/MacOS/swipl'
 alias o="open"
 alias unsw="ssh z5095588@login.cse.unsw.edu.au"
+alias g++='g++ -std=c++11'
 # alias python="/Users/HankWang/anaconda/envs/py36/bin/python3.6"
 # alias pip="/Users/HankWang/anaconda/envs/py36/bin/pip"
 #alias ssh="TERM=xterm-256color ssh"
@@ -154,6 +155,7 @@ alias mux="tmuxinator"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #export TERM=xterm-256color-italic
 export VIMRC=~/Documents/dotfile/vim.vimrc
+export MYVIMRC=~/Documents/dotfile/vim.vimrc
 export ZSHRC=~/Documents/dotfile/zsh/zsh.zshrc
 export DOTFILE=~/Documents/dotfile
 # export EDITOR=/usr/local/Cellar/macvim/8.0-127/MacVim.app/Contents/MacOS/Vim

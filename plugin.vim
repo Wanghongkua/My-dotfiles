@@ -57,6 +57,10 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'plasticboy/vim-markdown', {'for':'markdown'}
 Plug 'godlygeek/tabular', {'for':'markdown'}
 
+" Note Taking
+" Plug 'vimwiki/vimwiki', { 'for': 'markdown' }
+" Plug 'xolox/vim-notes', { 'for': 'markdown' }
+
 " C++ Syntax Highlight
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 " C++ Auto Format

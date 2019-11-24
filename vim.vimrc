@@ -3,6 +3,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("nvim")
     tnoremap <Esc> <C-\><C-n>
+else
+    " Set font for MacVim
+    set guifont=MesloLGLDZForPowerline-Regular:h12
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -38,9 +41,6 @@ set background=dark
 " colorscheme solarized
 colorscheme molokai
 " colorscheme onedark
-
-" Set font for MacVim
-set guifont=MesloLGLDZForPowerline-Regular:h12
 
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermbg=none ctermfg=8
@@ -182,7 +182,7 @@ nnoremap <silent> <leader><space> :noh<cr>
 " delete current line in insert mode
 "inoremap <c-d> <esc>ddO
 " edit .vimrc the fast way
-nnoremap <leader>ev :vsplit $VIMRC<cr>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>a :AirlineRefresh<cr>
 
@@ -211,6 +211,8 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 noremap <leader>l :bnext<cr>
 noremap <leader>h :bprevious<cr>
+autocmd filetype markdown nnoremap <BS> :bprevious<cr>
+autocmd filetype markdown nnoremap <leader>ww :e ~/Dropbox/Note/VimNotes/index.md<CR>
 
 " YouCompleteMe GoToDefinition
 noremap <leader>jd :YcmCompleter GoTo<CR>
@@ -434,6 +436,9 @@ augroup mySyntastic
     au!
     au FileType tex let b:syntastic_mode = "passive"
 augroup END
+
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -451,12 +456,14 @@ augroup END
 " ----- xolox/vim-easytags settings -----
 " Where to look for tags files
 set tags=./tags;,~/.vimtags
+let g:easytags_cmd = '/usr/local/bin/ctags'
 " Sensible defaults
-let g:easytags_opt = ['--fields=+l']
-" let g:easytags_events = ['BufReadPost', 'BufWritePost']
-let g:easytags_auto_highlight=0
+" let g:easytags_opt = ['--fields=+l']
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_auto_highlight=1
 let g:easytags_async = 1
 let g:easytags_dynamic_files = 2
+let g:easytags_python_enabled = 1
 let g:easytags_resolve_links = 1
 let g:easytags_suppress_ctags_warning = 1
 let g:easytags_auto_update = 1
@@ -537,8 +544,9 @@ let g:EasyMotion_use_smartsign_jp = 1 " JP layout
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-Markdown Setting -------------------- {{{
 
-let g:vim_markdown_conceal = 0
-" set conceallevel=2
+" let g:vim_markdown_conceal = 0
+let g:indentLine_conceallevel = 0
+set conceallevel=0
 let g:vim_markdown_folding_disabled = 1
 
 " let g:instant_markdown_slow = 1

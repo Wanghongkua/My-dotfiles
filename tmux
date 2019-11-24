@@ -1,5 +1,6 @@
 
-set -g default-terminal "screen-256color"
+# set -g default-terminal "screen-256color"
+set -g default-terminal "xterm-256color"
 
 # force tmux to use utf-8
 setw -gq utf8 on

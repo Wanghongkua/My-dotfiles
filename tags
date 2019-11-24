@@ -26,7 +26,7 @@ $NVIM_TUI_ENABLE_CURSOR_SHAPE	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let 
 <leader>a	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>a :AirlineRefresh<cr>$/;"	m	language:Vim
 <leader>C	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <silent> <leader>C :TagbarToggle<CR>$/;"	m	language:Vim
 <leader>cd	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>cd :lcd %:p:h<cr>:pwd<cr>$/;"	m	language:Vim
-<leader>ev	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>ev :vsplit $VIMRC<cr>$/;"	m	language:Vim
+<leader>ev	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nnoremap <leader>ev :vsplit $MYVIMRC<cr>$/;"	m	language:Vim
 <leader>F	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nmap <leader>F <Plug>(easymotion-linebackward)$/;"	m	language:Vim
 <leader>f	/Users/HankWang/Documents/dotfile/vim.vimrc	/^nmap <leader>f <Plug>(easymotion-lineforward)$/;"	m	language:Vim
 <leader>h	/Users/HankWang/Documents/dotfile/vim.vimrc	/^noremap <leader>h :bprevious<cr>$/;"	m	language:Vim
@@ -65,13 +65,16 @@ g:EasyMotion_smartcase	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:EasyM
 g:EasyMotion_use_smartsign_jp	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:EasyMotion_use_smartsign_jp = 1 " JP layout$/;"	v	language:Vim
 g:EasyMotion_use_smartsign_us	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:EasyMotion_use_smartsign_us = 1 " US layout$/;"	v	language:Vim
 g:easytags_async	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_async = 1$/;"	v	language:Vim
-g:easytags_auto_highlight	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_auto_highlight=0$/;"	v	language:Vim
+g:easytags_auto_highlight	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_auto_highlight=1$/;"	v	language:Vim
 g:easytags_auto_update	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_auto_update = 1$/;"	v	language:Vim
+g:easytags_cmd	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_cmd = '\/usr\/local\/bin\/ctags'$/;"	v	language:Vim
 g:easytags_dynamic_files	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_dynamic_files = 2$/;"	v	language:Vim
-g:easytags_opt	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_opt = ['--fields=+l']$/;"	v	language:Vim
+g:easytags_events	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_events = ['BufReadPost', 'BufWritePost']$/;"	v	language:Vim
+g:easytags_python_enabled	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_python_enabled = 1$/;"	v	language:Vim
 g:easytags_resolve_links	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_resolve_links = 1$/;"	v	language:Vim
 g:easytags_suppress_ctags_warning	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:easytags_suppress_ctags_warning = 1$/;"	v	language:Vim
 g:EclimCompletionMethod	/Users/HankWang/Documents/dotfile/vim.vimrc	/^    let g:EclimCompletionMethod = 'omnifunc'$/;"	v	language:Vim
+g:indentLine_conceallevel	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:indentLine_conceallevel = 0$/;"	v	language:Vim
 g:jedi#completions_command	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:jedi#completions_command = "<C-b>"$/;"	v	language:Vim
 g:jedi#completions_enabled	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:jedi#completions_enabled = 0$/;"	v	language:Vim
 g:mapleader	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:mapleader=','$/;"	v	language:Vim
@@ -93,6 +96,8 @@ g:syntastic_always_populate_loc_list	/Users/HankWang/Documents/dotfile/vim.vimrc
 g:syntastic_auto_loc_list	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_auto_loc_list = 1$/;"	v	language:Vim
 g:syntastic_check_on_open	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_check_on_open = 1$/;"	v	language:Vim
 g:syntastic_check_on_wq	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_check_on_wq = 0$/;"	v	language:Vim
+g:syntastic_cpp_compiler	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_cpp_compiler = 'clang++'$/;"	v	language:Vim
+g:syntastic_cpp_compiler_options	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'$/;"	v	language:Vim
 g:syntastic_c_checkers	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_c_checkers=['make','splint', 'gcc']$/;"	v	language:Vim
 g:syntastic_c_include_dirs	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_c_include_dirs = [ '..\/include', 'include', '..\/compile\/ASST1']$/;"	v	language:Vim
 g:syntastic_c_no_include_search	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:syntastic_c_no_include_search = 1$/;"	v	language:Vim
@@ -108,7 +113,6 @@ g:UltiSnipsJumpBackwardTrigger	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let
 g:UltiSnipsJumpForwardTrigger	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsJumpForwardTrigger="<c-j>"$/;"	v	language:Vim
 g:UltiSnipsSnippetDirectories	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:UltiSnipsSnippetDirectories=['~\/.config\/nvim\/UltiSnips', "UltiSnips"]$/;"	v	language:Vim
 g:user_emmet_mode	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:user_emmet_mode='a'$/;"	v	language:Vim
-g:vim_markdown_conceal	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:vim_markdown_conceal = 0$/;"	v	language:Vim
 g:vim_markdown_folding_disabled	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:vim_markdown_folding_disabled = 1$/;"	v	language:Vim
 g:ycm_always_populate_location_list	/Users/HankWang/Documents/dotfile/vim.vimrc	/^    let g:ycm_always_populate_location_list = 1$/;"	v	language:Vim
 g:ycm_autoclose_preview_window_after_completion	/Users/HankWang/Documents/dotfile/vim.vimrc	/^let g:ycm_autoclose_preview_window_after_completion = 1$/;"	v	language:Vim
