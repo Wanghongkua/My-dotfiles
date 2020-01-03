@@ -88,6 +88,7 @@ export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 # For gem
 export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -130,8 +131,9 @@ alias -s rb=mvim     # 在命令行直接输入 ruby 文件，会在 TextMate �
 # alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
 # alias vim='/usr/local/Cellar/macvim/8.0-136_1/MacVim.app/Contents/MacOS/Vim'
 alias vim=nvim
-alias ruby=/usr/local/bin/ruby
-alias gem=/usr/local/bin/gem
+# alias vim=~/Downloads/nvim-osx64/bin/nvim
+# alias ruby=/usr/local/bin/ruby
+# alias gem=/usr/local/bin/gem
 #alias -s gz='tar -xzvf'
 #alias -s tgz='tar -xzvf'
 #alias -s zip='unzip'
@@ -139,12 +141,12 @@ alias gem=/usr/local/bin/gem
 export ECLIPSE_HOME=~/Applications/Eclipse.app/Contents/Eclipse
 alias eclim='$ECLIPSE_HOME/eclimd'
 alias tmux="TERM=screen-256color-bce tmux"
-alias py35="source activate py35"
-alias dpy35="source deactivate py35"
+alias py36="source activate py36"
+alias dpy36="source deactivate py36"
 alias swipl='/Applications/SWI-Prolog.app/Contents/MacOS/swipl'
 alias o="open"
 alias unsw="ssh z5095588@login.cse.unsw.edu.au"
-alias g++='g++ -std=c++11'
+alias g++='llvm-g++ -std=c++11'
 # alias python="/Users/HankWang/anaconda/envs/py36/bin/python3.6"
 # alias pip="/Users/HankWang/anaconda/envs/py36/bin/pip"
 #alias ssh="TERM=xterm-256color ssh"
@@ -161,6 +163,7 @@ export DOTFILE=~/Documents/dotfile
 # export EDITOR=/usr/local/Cellar/macvim/8.0-127/MacVim.app/Contents/MacOS/Vim
 export EDITOR=nvim
 export XDG_CONFIG_HOME=~/.config
+export NOTE=~/Dropbox/Note/VimNotes/index.md
 # export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 function lazygit(){
     git add .

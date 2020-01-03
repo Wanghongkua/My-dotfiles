@@ -26,7 +26,7 @@ syntax enable
 syntax on
 
 " Neovim Support
-let g:python3_host_prog = '/Users/HankWang/anaconda/envs/py36/bin/python3.6'
+let g:python3_host_prog = '/Users/HankWang/anaconda/envs/py37/bin/python3.7'
 let g:python_host_prog = '/Users/HankWang/anaconda/envs/py27/bin/python2.7'
 
 " Be able to open Chinese TXT file
@@ -321,11 +321,8 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Cursor Shap -------------------- {{{
 "Tmux Cursor Shap
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " }}}
 
 " Vim-Tmux-Navigator
@@ -340,8 +337,8 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 " Nerd Commerter Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Nerd Commerter Setting -------------------- {{{
-map <leader>cc <plug>NERDCommenterToggle
-" map <leader>c<space> <plug>NERDCommenterComment
+map ,cc <plug>NERDCommenterToggle
+map ,c<space> <plug>NERDCommenterComment
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 0
 let g:NERDTrimTrailingWhitespace = 1
@@ -358,25 +355,7 @@ let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
 let g:airline_detect_modified=1
 
-" if !exists('g:airline_symbols')
-"     let g:airline_symbols = {}
-" endif
-
-" " unicode symbols
-" let g:airline_left_sep = '»'
-" let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '«'
-" let g:airline_right_sep = '◀'
-" let g:airline_symbols.linenr = '␊'
-" let g:airline_symbols.linenr = '␤'
-" let g:airline_symbols.linenr = '¶'
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_symbols.paste = 'Þ'
-" let g:airline_symbols.paste = '∥'
-" let g:airline_symbols.whitespace = 'Ξ'
-
-" " airline symbols
+" airline symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -590,7 +569,12 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" To get correct comment highlighting
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -650,6 +634,7 @@ nmap <silent> <C-d> <Plug>(coc-range-select)
 xmap <silent> <C-d> <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
+autocmd FileType python nnoremap <leader>p :Format<CR>
 command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` to fold current buffer
@@ -678,54 +663,50 @@ nnoremap <silent> <leader>wj  :<C-u>CocNext<CR>
 nnoremap <silent> <leader>wk  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <leader>wp  :<C-u>CocListResume<CR>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" YouCompleteMe and Ultisnip cooperate.
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:UltiSnipsUsePythonVersion = 3
 
-" Solution 1. -------------------- {{{
-" let g:UltiSnipsSnippetDirectories=['~/.config/nvim/UltiSnips', "UltiSnips"]
+" Use <C-j> for trigger snippet expand.
+imap <C-j> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" UltiSnips
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " let g:UltiSnipsExpandTrigger="<c-j>"
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-"let g:ycm_python_binary_path = '/usr/local/bin/python3.6'
 
-" Has to be python2
-" let g:ycm_python_binary_path = '/Users/HankWang/anaconda/bin/python2'
-" let g:ycm_path_to_python_interpreter = '/Users/HankWang/anaconda/envs/py27/bin/python2.7'
-
-" let g:UltiSnipsListSnippets="<c-h>"
-" let g:ycm_global_ycm_extra_conf = '~/.config/nvim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-" let g:ycm_show_diagnostics_ui = 0
-" let g:ycm_complete_in_comments = 1
-" let g:ycm_seed_identifiers_with_syntax = 1
-" let g:ycm_collect_identifiers_from_comments_and_strings = 1
-" Turn Off Preview window of YouCompleteMe
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" Let YouCompleteMe run at markdown file
-" let g:ycm_filetype_blacklist = {}
-" let g:ycm_collect_identifiers_from_tags_files = 1
-" let g:ycm_filetype_whitelist = {'*': 1}
-"}}}
-
-
+" If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python-mode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python-mode -------------------- {{{
 
-let g:pymode_python = 'python3'
+" let g:pymode_python = 'python3'
 " let g:pymode_rope_lookup_project = 0
-let g:pymode_rope_goto_definition_cmd = 'e'
-let g:pymode_rope_goto_def_newwin = "new"
-let g:pymode_rope = 0
-autocmd FileType python nnoremap <leader>p :PymodeLintAuto<CR>
+" let g:pymode_rope_goto_definition_cmd = 'e'
+" let g:pymode_rope_goto_def_newwin = "new"
+" let g:pymode_rope = 0
+" autocmd FileType python nnoremap <leader>p :PymodeLintAuto<CR>
 
 " Override go-to.definition key shortcut to Ctrl-]
-let g:pymode_rope_goto_definition_bind = "<C-]>"
+" let g:pymode_rope_goto_definition_bind = "<C-]>"
 
 " Override run current python file key shortcut to Ctrl-Shift-e
-let g:pymode_run_bind = "<C-S-d>"
+" let g:pymode_run_bind = "<C-S-d>"
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -760,22 +741,22 @@ endif
 " Functions -------------------- {{{
 
 " Search the content select in visual mode
-function! VisualSelection(direction, extra_filter) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
+" function! VisualSelection(direction, extra_filter) range
+    " let l:saved_reg = @"
+    " execute "normal! vgvy"
 
-    let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
+    " let l:pattern = escape(@", '\\/.*$^~[]')
+    " let l:pattern = substitute(l:pattern, "\n$", "", "")
 
-    if a:direction == 'gv'
-        call CmdLine("Ag \"" . l:pattern . "\" " )
-    elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
-    endif
+    " if a:direction == 'gv'
+        " call CmdLine("Ag \"" . l:pattern . "\" " )
+    " elseif a:direction == 'replace'
+        " call CmdLine("%s" . '/'. l:pattern . '/')
+    " endif
 
-    let @/ = l:pattern
-    let @" = l:saved_reg
-endfunction
+    " let @/ = l:pattern
+    " let @" = l:saved_reg
+" endfunction
 
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
@@ -797,52 +778,6 @@ function! <SID>BufcloseCloseIt()
     endif
 endfunction
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""" RUN CURRENT FILE """""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Execute current file
-"nnoremap <F5> :call ExecuteFile()<CR>
-
-" Will attempt to execute the current file based on the `&filetype`
-" You need to manually map the filetypes you use most commonly to the
-" correct shell command.
-"function! ExecuteFile()
-"let filetype_to_command = {
-"\   'javascript': 'node',
-"\   'coffee': 'coffee',
-"\   'python': 'python',
-"\   'html': 'open',
-"\   'sh': 'sh'
-"\ }
-"let cmd = get(filetype_to_command, &filetype, &filetype)
-"call RunShellCommand(cmd." %s")
-"endfunction
-
-"" Enter any shell command and have the output appear in a new buffer
-"" For example, to word count the current file:
-""
-""   :Shell wc %s
-""
-"" Thanks to: http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
-"command! -complete=shellcmd -nargs=+ Shell call RunShellCommand(<q-args>)
-"function! RunShellCommand(cmdline)
-"echo a:cmdline
-"let expanded_cmdline = a:cmdline
-"for part in split(a:cmdline, ' ')
-"if part[0] =~ '\v[%#<]'
-"let expanded_part = fnameescape(expand(part))
-"let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
-"endif
-"endfor
-"botright new
-"setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
-"call setline(1, 'You entered:    ' . a:cmdline)
-"call setline(2, 'Expanded Form:  ' .expanded_cmdline)
-"call setline(3,substitute(getline(2),'.','=','g'))
-"execute '$read !'. expanded_cmdline
-"setlocal nomodifiable
-"1
-"endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Looping arround error locations.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
