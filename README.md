@@ -7,6 +7,10 @@ configurations easier.
 ## Pre-requirement
 By default, plugins will install their required packages automatically, but to add some additional features, you may need to install some packages by yourself.
 
+## AutoComplete
+There are two auto-complete plugin I have tried: YouCompleteMe and CoCVim. Because CoCVim support external language
+server, I choose CoCVim as my current auto-completion plugin.
+
 ### YouCompleteMe
 To enable auto-complete from tags, YouCompleteMe need the **ctags** to be **Exuberant ctags**. need to install **ctags**, but the ***HomeBrew*** version of **ctags** is not Exuberant Ctags format, which is required by *YouCompleteMe*. Use ***Macport*** to install **ctags** instead.
 ### Basic Configurations
