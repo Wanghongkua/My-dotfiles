@@ -9,7 +9,7 @@ else
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-source /Users/HankWang/Documents/dotfile/plugin.vim
+source /Users/hongkuanwang/Documents/dotfile/plugin.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Testing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -26,8 +26,8 @@ syntax enable
 syntax on
 
 " Neovim Support
-let g:python3_host_prog = '/Users/HankWang/anaconda/envs/py37/bin/python3.7'
-let g:python_host_prog = '/Users/HankWang/anaconda/envs/py27/bin/python2.7'
+let g:python3_host_prog = '/Users/hongkuanwang/opt/anaconda3/envs/py3/bin/python3.7'
+let g:python_host_prog = '/Users/hongkuanwang/opt/anaconda3/envs/py2/bin/python2.7'
 
 " Be able to open Chinese TXT file
 " set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
@@ -595,7 +595,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)

@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/HankWang/.oh-my-zsh
+export ZSH=/Users/hongkuanwang/.oh-my-zsh
 # bindkey "^[[A" history-beginning-search-backward
 # bindkey "^[[B" history-beginning-search-forward
 # bindkey '^[[A' history-substring-search-up
@@ -65,10 +65,10 @@ plugins=(git autojump history-substring-search vi-mode python brew tmux)
 
 
 
-export PATH="/Users/HankWang/anaconda/bin:/Users/HankWang/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:"
+# export PATH="/Users/HankWang/anaconda/bin:/Users/HankWang/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:"
 
 # added by Anaconda3 4.3.1 installer
-export PATH="/Users/HankWang/anaconda/bin:$PATH"
+# export PATH="/Users/HankWang/anaconda/bin:$PATH"
 
 # added mysql to path
 export PATH="/usr/local/mysql/bin:$PATH"
@@ -79,7 +79,7 @@ export PATH="/opt/local/bin:/opt/local/share/man:/opt/local/share/info:$PATH"
 export PATH="/Library/TeX/texbin:$PATH"
 
 # for myScripts
-export PATH="/Users/HankWang/Documents/dotfile/myScripts:$PATH"
+# export PATH="/Users/HankWang/Documents/dotfile/myScripts:$PATH"
 
 # for npm
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
@@ -89,6 +89,12 @@ export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 # For gem
 export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
+
+# For CCLS
+export PATH="/Users/hongkuanwang/ccls/Release:$PATH"
+
+# EFM-languageserver
+export PATH="/Users/hongkuanwang/go/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -151,7 +157,7 @@ alias g++='llvm-g++ -std=c++11'
 # alias pip="/Users/HankWang/anaconda/envs/py36/bin/pip"
 #alias ssh="TERM=xterm-256color ssh"
 #alias unsw="TERM=xterm-256color ssh z5095588@login.cse.unsw.edu.au"
-alias dock="docker run -i -p 2041:80 -v /Users/HankWang/Documents/COMP9041/ass2:/var/www comp2041/cgi"
+# alias dock="docker run -i -p 2041:80 -v /Users/HankWang/Documents/COMP9041/ass2:/var/www comp2041/cgi"
 alias mux="tmuxinator"
 # Must be in the end
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -201,3 +207,18 @@ function kd(){
 # Personal zsh prompt
 # source ~/Documents/dotfile/zsh/prompt.zsh
 source $DOTFILE/zsh/prompt.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/hongkuanwang/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/hongkuanwang/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/hongkuanwang/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/hongkuanwang/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
