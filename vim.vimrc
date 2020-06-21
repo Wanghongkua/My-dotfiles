@@ -414,7 +414,7 @@ let g:syntastic_c_no_include_search = 1
 "\ '../include', '../includes' ]
 let g:syntastic_quiet_messages = { "type": "style" }
 let g:syntastic_python_checkers = ['python']
-let g:syntastic_python_python_exec = '/usr/local/bin/python3.7'
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 " Syntastic HTML5 Support
 let g:syntastic_html_tidy_exec = 'tidy5'
 

@@ -58,6 +58,9 @@ Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 " C++ Auto Format
 Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp'] }
 
+" LaTeX
+Plug 'vim-latex/vim-latex', {'for': 'tex'}
+
 call plug#end()
 " Track the engine.
 " Snippets are separated from the engine. Add this if you want them:

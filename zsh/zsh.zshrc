@@ -221,4 +221,7 @@ else
     fi
 fi
 unset __conda_setup
+
+source ~/opt/anaconda3/etc/profile.d/conda.sh 
+[[ -z $TMUX ]] || conda deactivate; conda activate base
 # <<< conda initialize <<<
