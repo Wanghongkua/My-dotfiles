@@ -50,6 +50,8 @@ Plug 'honza/vim-snippets'
 "
 " Markdown Plugin
 Plug 'plasticboy/vim-markdown', {'for':'markdown'}
+
+" Automatic Alignment
 Plug 'godlygeek/tabular', {'for':'markdown'}
 
 

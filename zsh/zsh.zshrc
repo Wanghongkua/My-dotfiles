@@ -151,7 +151,8 @@ alias py36="source activate py36"
 alias dpy36="source deactivate py36"
 alias swipl='/Applications/SWI-Prolog.app/Contents/MacOS/swipl'
 alias o="open"
-alias unsw="ssh z5095588@login.cse.unsw.edu.au"
+# alias unsw="ssh z5095588@login.cse.unsw.edu.au"
+alias bwg="ssh -p 27521 root@68.168.137.172"
 alias g++='llvm-g++ -std=c++11'
 # alias python="/Users/HankWang/anaconda/envs/py36/bin/python3.6"
 # alias pip="/Users/HankWang/anaconda/envs/py36/bin/pip"
