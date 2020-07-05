@@ -39,7 +39,13 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-scripts/LargeFile'
 Plug 'StanAngeloff/php.vim', {'for':'php'}
 Plug 'tmhedberg/matchit', {'for':['php', 'html', 'css']}
-Plug 'sudar/vim-wordpress-snippets', {'for':'php'}
+" Plug 'sudar/vim-wordpress-snippets', {'for':'php'}
+
+" For Python GoTo
+" Plug 'davidhalter/jedi-vim', {'for': 'python'}
+
+" For Django
+Plug 'tweekmonster/django-plus.vim'
 
 " autoformat code
 Plug 'Chiel92/vim-autoformat'

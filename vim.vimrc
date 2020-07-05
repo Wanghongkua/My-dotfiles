@@ -714,8 +714,8 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Jedi-Vim -------------------- {{{
 
-let g:jedi#completions_command = "<C-b>"
-let g:jedi#completions_enabled = 0
+" let g:jedi#completions_command = "<C-b>"
+" let g:jedi#completions_enabled = 0
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Eclim
