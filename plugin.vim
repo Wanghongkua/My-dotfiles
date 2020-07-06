@@ -51,7 +51,7 @@ Plug 'tweekmonster/django-plus.vim'
 Plug 'Chiel92/vim-autoformat'
 " It is for javascript
 
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 "
 " Markdown Plugin
