@@ -69,6 +69,9 @@ Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp'] }
 " LaTeX
 Plug 'vim-latex/vim-latex', {'for': 'tex'}
 
+" Note Taking
+Plug 'vimwiki/vimwiki'
+
 call plug#end()
 " Track the engine.
 " Snippets are separated from the engine. Add this if you want them:
@@ -87,8 +90,7 @@ call plug#end()
 " Plug 'JavaRun'
 " Enable this when coding Python
 "Plug 'Python-mode-klen', {'for':'python'}
-" Note Taking
-" Plug 'vimwiki/vimwiki', { 'for': 'markdown' }
+
 " Plug 'xolox/vim-notes', { 'for': 'markdown' }
 "Plug 'davidhalter/jedi-vim', {'for':'python'}
 " Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
