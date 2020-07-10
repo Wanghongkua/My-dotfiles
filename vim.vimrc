@@ -77,6 +77,7 @@ set shortmess+=c                                 " don't give |ins-completion-me
 
 set signcolumn=yes                               " always show signcolumns
 
+autocmd filetype python set textwidth=80
 set textwidth=120                                " set bound to width
 
 
