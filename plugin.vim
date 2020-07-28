@@ -1,8 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox' "vim Color Schemes for vim and airline
-Plug 'altercation/vim-colors-solarized' "vim solarized color scheme
-Plug 'joshdick/onedark.vim' "vim one dark color scheme
-Plug 'tomasr/molokai' 
 Plug 'sheerun/vim-polyglot' "Syntax and indentation language package
 Plug 'airblade/vim-gitgutter' "git integration
 Plug 'kien/ctrlp.vim' " fuzzy find files
@@ -14,6 +11,12 @@ Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim', {'for': ['html', 'css', 'php']}
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
+" Themes
+Plug 'altercation/vim-colors-solarized' "vim solarized color scheme
+Plug 'joshdick/onedark.vim' "vim one dark color scheme
+Plug 'tomasr/molokai' 
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
@@ -56,6 +59,7 @@ Plug 'honza/vim-snippets'
 "
 " Markdown Plugin
 Plug 'plasticboy/vim-markdown', {'for':'markdown'}
+" Plug 'tpope/vim-markdown', {'for':'markdown', 'as':'tpope-markdown'}
 
 " Automatic Alignment
 Plug 'godlygeek/tabular', {'for':'markdown'}

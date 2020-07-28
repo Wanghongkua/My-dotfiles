@@ -39,12 +39,19 @@ let g:python_host_prog = '/Users/hongkuanwang/opt/anaconda3/envs/py2/bin/python2
 " colorscheme
 set background=dark
 " colorscheme solarized
-colorscheme molokai
+" colorscheme molokai
 " colorscheme onedark
+
+colorscheme dracula
+highlight Normal ctermbg=NONE guibg=NONE
+
 
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermbg=none ctermfg=8
 highlight NonText ctermbg=none ctermfg=8
+
+" add new line in comment lines with 'o' or 'O' without comments
+set formatoptions-=o
 
 " make comments and HTML attributes italic
 highlight Comment cterm=italic
@@ -170,7 +177,7 @@ nnoremap + o<esc>cc<esc>
 nnoremap <leader>, :w!<cr>
 
 " Select last selected text in visual mode
-nnoremap <leader>s `<v`>
+" nnoremap <leader>s `<v`>
 
 " set paste toggle
 nnoremap <leader>v :set paste!<cr>
@@ -222,8 +229,6 @@ nnoremap L $
 
 noremap <leader>l :bnext<cr>
 noremap <leader>h :bprevious<cr>
-autocmd filetype markdown nnoremap <BS> :bprevious<cr>
-autocmd filetype markdown nnoremap <leader>ww :e ~/Dropbox/Note/VimNotes/index.md<CR>
 
 " YouCompleteMe GoToDefinition
 " noremap <leader>jd :YcmCompleter GoTo<CR>
@@ -536,6 +541,11 @@ let g:EasyMotion_use_smartsign_jp = 1 " JP layout
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VimWiki
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vimwiki_list = [{'path': '~/Dropbox/Note/VimNotes/', 'syntax': 'markdown', 'ext': '.md'}]
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-Markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-Markdown Setting -------------------- {{{
@@ -566,16 +576,21 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Or use `complete_info` if your vim support it, like:
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" To get correct comment highlighting
-autocmd FileType json syntax match Comment +\/\/.\+$+
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -587,6 +602,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -595,8 +613,8 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight symbol under cursor on CursorHold
-" autocmd CursorHold * silent call CocActionAsync('highlight')
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -604,8 +622,6 @@ nmap <leader>rn <Plug>(coc-rename)
 " Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 augroup mygroup
   autocmd!
@@ -624,17 +640,23 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Create mappings for function text object, requires document symbols feature of languageserver.
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
 " Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
 nmap <silent> <C-d> <Plug>(coc-range-select)
 xmap <silent> <C-d> <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
+autocmd FileType python nnoremap <leader>s :!Isort %
 autocmd FileType python nnoremap <leader>p :Format<CR>
 command! -nargs=0 Format :call CocAction('format')
 
@@ -665,20 +687,22 @@ nnoremap <silent> <leader>wk  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <leader>wp  :<C-u>CocListResume<CR>
 
+" Using coc-ultisnips, so these should be commented out
 " Use <C-j> for trigger snippet expand.
-imap <C-j> <Plug>(coc-snippets-expand)
+" imap <C-j> <Plug>(coc-snippets-expand)
+
 
 " Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
+" vmap <C-j> <Plug>(coc-snippets-select)
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
+" let g:coc_snippet_next = '<c-j>'
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
+" let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
+" imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
