@@ -15,7 +15,7 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 " Themes
 Plug 'altercation/vim-colors-solarized' "vim solarized color scheme
 Plug 'joshdick/onedark.vim' "vim one dark color scheme
-Plug 'tomasr/molokai' 
+Plug 'tomasr/molokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'scrooloose/nerdcommenter'
@@ -26,8 +26,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
 
-" Change to relative number in normal mode and abselute number in insert
-" mode
+" Change to relative number in normal mode and abselute number in insert mode
 Plug 'myusuf3/numbers.vim'
 
 Plug 'jiangmiao/auto-pairs'
@@ -58,7 +57,9 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 "
 " Markdown Plugin
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'plasticboy/vim-markdown', {'for':'markdown'}
+Plug 'mzlogin/vim-markdown-toc', {'for':'markdown'}
 " Plug 'tpope/vim-markdown', {'for':'markdown', 'as':'tpope-markdown'}
 
 " Automatic Alignment
@@ -74,7 +75,8 @@ Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp'] }
 Plug 'vim-latex/vim-latex', {'for': 'tex'}
 
 " Note Taking
-Plug 'vimwiki/vimwiki'
+Plug 'fcpg/vim-waikiki'
+" Plug 'vimwiki/vimwiki'
 
 call plug#end()
 " Track the engine.

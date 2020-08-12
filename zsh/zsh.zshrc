@@ -69,6 +69,8 @@ plugins=(git autojump history-substring-search vi-mode python brew tmux)
 
 # added by Anaconda3 4.3.1 installer
 # export PATH="/Users/HankWang/anaconda/bin:$PATH"
+# Brew Path requirement
+export PATH="/usr/local/sbin:$PATH"
 
 # added mysql to path
 export PATH="/usr/local/mysql/bin:$PATH"
@@ -172,9 +174,10 @@ export EDITOR=nvim
 export XDG_CONFIG_HOME=~/.config
 export NOTE=~/Dropbox/Note/VimNotes/index.md
 # export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-function lazygit(){
-    git add .
-    git commit -am "$1"
+function notegit(){
+    git add *.md
+    git add static/*
+    git commit -m "$1"
     git push
 }
 function ks(){

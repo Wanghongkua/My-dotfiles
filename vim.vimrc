@@ -11,10 +11,12 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source /Users/hongkuanwang/Documents/dotfile/plugin.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Testing
+" Testing for AutoPairs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basic Setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Section General {{{
 
 set nocompatible        " not nocompatible with vi
@@ -92,7 +94,6 @@ let g:solarized_italic=1
 
 
 set number                                       " Show line number
-" set relativenumber                               " Show relative line number
 set wrap                                         " turn on line wrapping
 set wrapmargin=8                                 " wrap lines when coming within n characters from side
 set linebreak
@@ -158,6 +159,7 @@ endif
 
 "Map leader from '\' to ','
 let g:mapleader=','
+let maplocalleader = "\\"
 
 " Change to upper or lower case
 inoremap <c-l> <esc>viwUea
@@ -345,8 +347,9 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 " Nerd Commerter Setting -------------------- {{{
 map ,cc <plug>NERDCommenterToggle
 map ,c<space> <plug>NERDCommenterComment
+autocmd filetype python map ,cs <plug>NERDCommenterAlignLeft
 let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 0
+let g:NERDCompactSexyComs = 1
 let g:NERDTrimTrailingWhitespace = 1
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -473,25 +476,10 @@ let g:easytags_auto_update = 1
 
 " ----- majutsushi/tagbar settings -----
 " Open/close tagbar with \b
-nnoremap <silent> <leader>C :TagbarToggle<CR>
+nnoremap <silent> <leader>c :TagbarToggle<CR>
 
 " Uncomment to open tagbar automatically whenever possible
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
-" }}}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Bracket Auto Complete
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Bracket Auto Complete -------------------- {{{
-let delimitMate_expand_cr = 1
-
-augroup mydelimitMate
-    au!
-    au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
-    au FileType tex let b:delimitMate_quotes = ""
-    au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
-    au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
-augroup END
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -541,9 +529,27 @@ let g:EasyMotion_use_smartsign_jp = 1 " JP layout
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VimWiki
+" Markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimwiki_list = [{'path': '~/Dropbox/Note/VimNotes/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:waikiki_roots = ['~/Dropbox/Note/VimNotes/']
+let g:waikiki_default_maps = 1
+let g:waikiki_space_replacement = "\\ "
+nnoremap <leader>ww :e ~/Dropbox/Note/VimNotes/index.md<CR>
+
+
+augroup mdgroup
+  autocmd FileType markdown nmap <buffer> <CR> <Plug>(waikikiFollowLink)
+  autocmd FileType markdown xmap <buffer> <CR> <Plug>(waikikiFollowLink)
+  autocmd FileType markdown nmap <buffer> <backspace> <Plug>(waikikiGoUp)
+  autocmd FileType markdown nmap <buffer> <tab> <Plug>(waikikiNextLink)
+  autocmd FileType markdown nmap <buffer> <s-tab> <Plug>(waikikiPrevLink)
+  autocmd FileType markdown nmap <buffer> <leader>o <Plug>MarkdownPreviewToggle
+  " generating Table of Contents
+  autocmd FileType markdown nmap <buffer> <leader>C :GenTocGFM<cr>
+  autocmd FileType markdown nmap <buffer> <leader>p :Format<cr>
+augroup end
+
+let g:mkdp_auto_start = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-Markdown
@@ -591,6 +597,7 @@ if exists('*complete_info')
 else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -656,7 +663,7 @@ nmap <silent> <C-d> <Plug>(coc-range-select)
 xmap <silent> <C-d> <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
-autocmd FileType python nnoremap <leader>s :!Isort %
+autocmd FileType python nnoremap <leader>s :!Isort %<CR>
 autocmd FileType python nnoremap <leader>p :Format<CR>
 command! -nargs=0 Format :call CocAction('format')
 
@@ -806,17 +813,17 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Looping arround error locations.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! <SID>LocationNext()
-    try
-        lnext
-    catch /^Vim\%((\a\+)\)\=:E553/
-        lfirst
-    catch /^Vim\%((\a\+)\)\=:E42/
-        echom "No Error."
-    catch /^Vim\%((\a\+)\)\=:E776/
-        echom "No Error."
-    endtry
-endfunction
-nmap <silent> [e :<C-u>call <SID>LocationNext()<CR>
+" function! <SID>LocationNext()
+    " try
+        " lnext
+    " catch /^Vim\%((\a\+)\)\=:E553/
+        " lfirst
+    " catch /^Vim\%((\a\+)\)\=:E42/
+        " echom "No Error."
+    " catch /^Vim\%((\a\+)\)\=:E776/
+        " echom "No Error."
+    " endtry
+" endfunction
+" nmap <silent> [e :<C-u>call <SID>LocationNext()<CR>
 "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
