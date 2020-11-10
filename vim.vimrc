@@ -9,7 +9,7 @@ else
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-source /Users/hongkuanwang/Documents/dotfile/plugin.vim
+source ~/Documents/dotfile/plugin.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Testing for AutoPairs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -28,8 +28,8 @@ syntax enable
 syntax on
 
 " Neovim Support
-let g:python3_host_prog = '/Users/hongkuanwang/opt/anaconda3/envs/py3/bin/python3.7'
-let g:python_host_prog = '/Users/hongkuanwang/opt/anaconda3/envs/py2/bin/python2.7'
+let g:python3_host_prog = '~/opt/anaconda3/envs/py3/bin/python3.7'
+let g:python_host_prog = '~/opt/anaconda3/envs/py2/bin/python2.7'
 
 " Be able to open Chinese TXT file
 " set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
@@ -532,9 +532,10 @@ let g:EasyMotion_use_smartsign_jp = 1 " JP layout
 " Markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:waikiki_roots = ['~/Dropbox/Note/VimNotes/']
+let g:waikiki_index = "readme.md"
 let g:waikiki_default_maps = 1
 let g:waikiki_space_replacement = "\\ "
-nnoremap <leader>ww :e ~/Dropbox/Note/VimNotes/index.md<CR>
+nnoremap <leader>ww :e ~/Dropbox/Note/VimNotes/readme.md<CR>
 
 
 augroup mdgroup
