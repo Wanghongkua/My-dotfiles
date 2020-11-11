@@ -28,8 +28,8 @@ syntax enable
 syntax on
 
 " Neovim Support
-let g:python3_host_prog = '~/opt/anaconda3/envs/py3/bin/python3.7'
-let g:python_host_prog = '~/opt/anaconda3/envs/py2/bin/python2.7'
+let g:python3_host_prog = '~/anaconda3/envs/py38/bin/python3.8'
+let g:python_host_prog = '~/anaconda3/envs/py27/bin/python2.7'
 
 " Be able to open Chinese TXT file
 " set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
