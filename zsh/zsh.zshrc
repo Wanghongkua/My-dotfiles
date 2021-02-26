@@ -83,8 +83,13 @@ export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 # For gem
-export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
-export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
+
+# For degestif
+export PATH="/users/hongkuanwang/.luarocks/bin:$PATH"
+
+# For lua
+export PATH="/usr/local/opt/lua@5.3/bin:$PATH"
 
 # For CCLS
 export PATH="/Users/hongkuanwang/ccls/Release:$PATH"
@@ -148,6 +153,8 @@ alias dpy36="source deactivate py36"
 alias swipl='/Applications/SWI-Prolog.app/Contents/MacOS/swipl'
 alias o="open"
 alias bwg="ssh -p 27521 root@68.168.137.172"
+alias unsw="ssh hongkuan@dragon26.cse.unsw.edu.au -p 2233"
+alias jssh="ssh  -N -f -L localhost:8800:localhost:8890 hongkuan@dragon26.cse.unsw.edu.au -p 2233"
 alias g++='llvm-g++ -std=c++11'
 alias mux="tmuxinator"
 # Must be in the end
@@ -215,3 +222,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# >>> pythonpath >>>
+export PYTHONPATH="/Users/hongkuanwang/Documents/Learning/Faculty-Detection"
+# <<< pythonpath <<<

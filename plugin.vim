@@ -21,7 +21,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
@@ -34,20 +34,11 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'python-mode/python-mode', {'branch': 'develop', 'for': 'python'}
-" Plug 'tweekmonster/impsort.vim', {'for': 'python'}
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-scripts/LargeFile'
 Plug 'StanAngeloff/php.vim', {'for':'php'}
 Plug 'tmhedberg/matchit', {'for':['php', 'html', 'css']}
-" Plug 'sudar/vim-wordpress-snippets', {'for':'php'}
-
-" For Python GoTo
-" Plug 'davidhalter/jedi-vim', {'for': 'python'}
-
-" For Django
-Plug 'tweekmonster/django-plus.vim'
 
 " autoformat code
 Plug 'Chiel92/vim-autoformat'
@@ -65,6 +56,9 @@ Plug 'mzlogin/vim-markdown-toc', {'for':'markdown'}
 " Automatic Alignment
 Plug 'godlygeek/tabular', {'for':'markdown'}
 
+" Linting
+" Plug 'dense-analysis/ale'
+
 
 " C++ Syntax Highlight
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
@@ -72,11 +66,12 @@ Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp'] }
 
 " LaTeX
-Plug 'vim-latex/vim-latex', {'for': 'tex'}
+"Plug 'vim-latex/vim-latex', {'for': 'tex'}
+Plug 'lervag/vimtex', {'for': 'tex'}
+Plug 'xuhdev/vim-latex-live-preview', {'for': 'tex'}
 
 " Note Taking
 Plug 'fcpg/vim-waikiki'
-" Plug 'vimwiki/vimwiki'
 
 call plug#end()
 " Track the engine.
@@ -93,12 +88,5 @@ call plug#end()
 " Plug 'w0rp/ale', {'for':'cs'}
 " Plug 'Shougo/vimproc.vim', {'for':'cs'}
 
-" Plug 'JavaRun'
-" Enable this when coding Python
-"Plug 'Python-mode-klen', {'for':'python'}
-
-" Plug 'xolox/vim-notes', { 'for': 'markdown' }
-"Plug 'davidhalter/jedi-vim', {'for':'python'}
 " Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
-" Plug 'dsawardekar/wordpress.vim', {'for': 'php'}
 " Plug 'beautify-web/js-beautify', {'for':['php', 'html', 'css', 'js']}

@@ -229,6 +229,9 @@ nnoremap L $
 " Close the current buffer
 " noremap <leader>bd :Bclose<cr>:tabclose<cr>gT
 
+" Change working directory to current file
+autocmd BufEnter * silent! lcd %:p:h
+
 noremap <leader>l :bnext<cr>
 noremap <leader>h :bprevious<cr>
 
@@ -275,12 +278,12 @@ augroup run_file
     autocmd!
     if has("nvim")
         " autocmd FileType python nnoremap <silent> <F5> :split<cr><c-w><c-j>:te python3 %<cr>
-        autocmd FileType python nnoremap <silent> <F5> :PymodeRun<CR>
+        " autocmd FileType python nnoremap <silent> <F5> :CocCommand python.execInTerminal<CR>
         autocmd FileType java nnoremap <silent> <F5> :w<CR>:Java %<CR>
         autocmd FileType c nnoremap <silent> <F5> :w<CR>:te gcc % -o %< && ./%< <CR>
         autocmd filetype cpp nnoremap <F5> :!clear<cr>:w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
     else
-        autocmd FileType python nnoremap <silent> <F5> :!clear<CR>:! python3 %<cr>
+        " autocmd FileType python nnoremap <silent> <F5> :!clear<CR>:! python3 %<cr>
         autocmd FileType java nnoremap <silent> <F5> :w<CR>:!clear<CR>:Java %<CR>
         autocmd FileType c nnoremap <silent> <F5> :w<CR>:!clear<cr>:!gcc % -o %< && ./%< <CR>
         autocmd filetype cpp nnoremap <F5> :!clear<cr>:w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
@@ -390,7 +393,7 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autoformat setting ------------------------- {{{
 
-autocmd FileType cpp,html,php nnoremap <leader>p :Autoformat<CR>
+autocmd FileType cpp,html,php,tex nnoremap <leader>p :Autoformat<CR>
 
 " }}}
 
@@ -407,53 +410,10 @@ autocmd FileType html,css,php imap <C-\> <plug>(emmet-move-next)
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Syntastic Setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ale Setting ---------------------{{{
 
-" Syntastic Setting -------------------- {{{
-" 让Syntastic 纠错Python3.
-
-let g:syntastic_c_checkers=['make','splint', 'gcc']
-let g:syntastic_c_remove_include_errors = 1
-let g:syntastic_c_include_dirs = [ '../include', 'include', '../compile/ASST1']
-"let g:syntastic_c_check_header = 1
-let g:syntastic_c_no_include_search = 1
-
-"let s:default_includes = [ '.', '..', 'include', 'includes',
-"\ '../include', '../includes' ]
-let g:syntastic_quiet_messages = { "type": "style" }
-let g:syntastic_python_checkers = ['python']
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-" Syntastic HTML5 Support
-let g:syntastic_html_tidy_exec = 'tidy5'
-
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = '✘'
-let g:syntastic_warning_symbol = "▲"
-augroup mySyntastic
-    au!
-    au FileType tex let b:syntastic_mode = "passive"
-augroup END
-
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-" }}}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" WordPress Setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" WordPress Setting 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" WordPress Setting ---------------------{{{
-
+let g:ale_disable_lsp = 1
+let b:ale_linters = ['pylint']
 
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -547,10 +507,20 @@ augroup mdgroup
   autocmd FileType markdown nmap <buffer> <leader>o <Plug>MarkdownPreviewToggle
   " generating Table of Contents
   autocmd FileType markdown nmap <buffer> <leader>C :GenTocGFM<cr>
-  autocmd FileType markdown nmap <buffer> <leader>p :Format<cr>
+  " autocmd FileType markdown nmap <buffer> <leader>p :Format<cr>
+  autocmd FileType markdown nmap <buffer> <leader>p <Plug>(coc-codeaction)
 augroup end
 
 let g:mkdp_auto_start = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim-Latex-Live-Preview
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:livepreview_previewer = 'Preview.app'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim-Markdown-TOC
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vmt_list_indent_text = '  '
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-Markdown
@@ -561,6 +531,7 @@ let g:mkdp_auto_start = 0
 let g:indentLine_conceallevel = 0
 set conceallevel=0
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_toc_autofit = 1
 
 " let g:instant_markdown_slow = 1
 " let g:instant_markdown_autostart = 0
@@ -569,6 +540,15 @@ let g:vim_markdown_folding_disabled = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COC.nvim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -593,11 +573,13 @@ endif
 " Coc only does snippet and additional edit on confirm.
 " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Or use `complete_info` if your vim support it, like:
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+" if exists('*complete_info')
+"   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+" else
+"   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" endif
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
 " Use `[g` and `]g` to navigate diagnostics
@@ -616,8 +598,10 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
 
@@ -659,13 +643,26 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <C-d> <Plug>(coc-range-select)
-xmap <silent> <C-d> <Plug>(coc-range-select)
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
 autocmd FileType python nnoremap <leader>s :!Isort %<CR>
 autocmd FileType python nnoremap <leader>p :Format<CR>
+" autocmd FileType python nnoremap <leader>p :!autopep8 --in-place --aggressive --aggressive %<CR>
+
 command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` to fold current buffer

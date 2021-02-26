@@ -1,13 +1,18 @@
-
-# set -g default-terminal "screen-256color"
-set -g default-terminal "xterm-256color"
+set -g default-command "$SHELL"
 
 # force tmux to use utf-8
 setw -gq utf8 on
 
 ######################
 ######################
+# set -g default-terminal "screen-256color"
+# set -g default-terminal "xterm-256color"
+
 set -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
+
+set -g default-terminal "screen-256color"
+set -ga terminal-overrides ",*256col*:Tc"
+
 ######################
 set -g history-limit 20000
 
